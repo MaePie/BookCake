@@ -51,4 +51,9 @@ class AppController extends Controller
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
     }
+
+    public function beforeRender(Event $event)
+    {
+        $this->viewBuilder()->theme('Gentelella');
+    }
 }
