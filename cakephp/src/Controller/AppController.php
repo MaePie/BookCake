@@ -56,4 +56,10 @@ class AppController extends Controller
     {
         $this->viewBuilder()->theme('Gentelella');
     }
+
+    protected function setJsonResponse(){
+        $this->loadComponent('RequestHandler');
+        $this->RequestHandler->renderAs($this, 'json');
+        $this->response->type('application/json');
+    }
 }

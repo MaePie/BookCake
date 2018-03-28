@@ -28,7 +28,7 @@ myapp-nginx:
       - ../cakephp:/var/www/myapp
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
   ports:
-   - "8180:80"
+   - "80:80"
   links:
    - myapp-php-fpm
 

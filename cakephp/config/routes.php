@@ -75,6 +75,12 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->fallbacks(DashedRoute::class);
 });
 
+Router::scope('/resto', function (RouteBuilder $routes){
+    $routes->connect('/', ['controller' => 'FrontResto', 'action' => 'index']);
+
+    $routes->connect('/test', ['controller' => 'FrontResto', 'action' => 'test']);
+});
+
 /**
  * Load all plugin routes. See the Plugin documentation on
  * how to customize the loading of plugin routes.
