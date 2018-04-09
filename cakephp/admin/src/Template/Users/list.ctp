@@ -31,7 +31,7 @@ $cakeDescription = 'Hotel Users';
 <script type="text/javascript">
     $(document).ready(function() {
         $('#datatable').DataTable( {
-            "ajax": '/users/JSON'
+            "ajax": '/admin/users/JSON'
         } );
     } );
 </script>
