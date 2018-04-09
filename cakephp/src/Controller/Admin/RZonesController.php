@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 use Cake\Validation\Validator;
@@ -67,7 +67,7 @@ class RZonesController extends AppController
     {
         $zone = $this->Rzones->find()
                             ->where(['idRZone' => $id])
-                            ->first();                            
+                            ->first();
 
         $this->set('zone', $zone);
     }

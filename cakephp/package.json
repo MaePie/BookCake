@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "*",
+    "cakephp3-elixir": "*",
+    "gulp": "^4.0.0",
+    "jquery": "*",
+    "laravel-elixir-del": "*",
+    "laravel-elixir-webpack-official": "*",
+    "lodash": "*"
+  }
+}

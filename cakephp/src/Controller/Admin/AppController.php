@@ -12,10 +12,10 @@
  * @since     0.2.9
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
-namespace App\Controller;
+namespace App\Controller\Admin;
 
-use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Controller\Controller;
 
 /**
  * Application Controller
