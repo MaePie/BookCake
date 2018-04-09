@@ -19,7 +19,7 @@ Thumbs.db
 
 # Tool specific files #
 #######################
-node_modules/
+/node_modules/
 # JetBrains, aka PHPStorm, IntelliJ IDEA
 .idea/*
 # Sass preprocessor
