@@ -46,7 +46,7 @@ class UsersController extends AppController
         }
     }
 
-    public function addUser()
+    public function add()
     {
         $data = $this->request->data;
 
@@ -121,7 +121,7 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    public function usersJSON()
+    public function JSON()
     {
         $users = $this->Users->find();
 
@@ -143,7 +143,7 @@ class UsersController extends AppController
           else echo "\"NR\",";
           if(!empty($user['dateNaissUser'])) echo "\"". date('d / m / Y', strtotime($user['dateNaissUser'])) ."\",";
           else echo "\"NR\",";
-          echo "\"<a href='view/". $user['idUser'] ."'>View </a><a href='edit/". $user['idUser'] ."'>Edit </a><a href='delete/". $user['idUser'] ."'>Delete</a>\"]";
+          echo "\"<a href='view/". $user['idUser'] ."'>   <i class='fa fa-eye'></i> </a> <a href='edit/". $user['idUser'] ."'>  <i class='fa fa-edit'></i> </a> <a href='delete/". $user['idUser'] ."'>  <i class='fa fa-times'></i> </a>\"]";
           $i++;
         }
         echo "]}";
@@ -151,19 +151,11 @@ class UsersController extends AppController
         die();
     }
 
-    public function listUsers()
+    public function list()
     {
         $users = $this->Users->find();
 
         $this->set('users', $users);
-    }
-
-    public function index()
-    {
-        $users = $this->paginate($this->Users);
-
-        $this->set(compact('users'));
-        $this->set('_serialize', ['users']);
     }
 
     /**
@@ -180,27 +172,6 @@ class UsersController extends AppController
                             ->first();                            
 
         $this->set('user', $user);
-    }
-
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $user = $this->Users->newEntity();
-        if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
-        }
-        $this->set(compact('user'));
-        $this->set('_serialize', ['user']);
     }
 
     /**

@@ -26,5 +26,5 @@ $cakeDescription = 'Add User';
 <?= $this->Form->control('paysUser', ['label' => 'Pays', 'type' => 'text', 'class' => 'form-control']) ?>
 <?= $this->Form->control('dateNaissUser', ['label' => 'Date de naissance', 'type' => 'text', 'class' => 'form-control']) ?>
 <?= $this->Form->control('photoUser', ['label' => 'Photo', 'type' => 'file', 'class' => 'form-control']) ?>
-<?= $this->Form->button('Ajouter', array('class' => 'btn btn-primary btn-block btn-flat col-lg-3')) ?>
+<?= $this->Form->control('Ajouter', ['label' => false, 'type' => 'button', 'class' => 'btn btn-primary btn-block btn-flat margin-top']) ?>
 <?= $this->Form->end() ?>

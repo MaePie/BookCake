@@ -1,0 +1,31 @@
+/* GENERAL */
+
+.margin-top {
+    margin-top: 2%;
+}
+
+.margin-bottom {
+    margin-bottom: 2%;
+}
+
+
+/* FORMS */
+
+input, select {
+    border-radius: 5px;
+    margin-top: 5%;
+    border: 1px solid #ccc;
+}
+
+.form-control {
+    border-radius: 5px !important;    
+}
+
+.input {
+    margin-top: 5%;
+}
+
+.button {
+    border: none !important;
+    box-shadow: none !important;
+}
