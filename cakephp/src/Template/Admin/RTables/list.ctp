@@ -28,7 +28,7 @@ $cakeDescription = 'Hotel Tables';
 <script type="text/javascript">
     $(document).ready(function() {
         $('#datatable').DataTable( {
-            "ajax": '/rtables/JSON'
+            "ajax": '/admin/rtables/JSON'
         } );
     } );
 </script>

@@ -1,5 +1,5 @@
 <?php
-namespace App\Model\Entity;
+namespace App\Model\Entity\Admin;
 
 use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
