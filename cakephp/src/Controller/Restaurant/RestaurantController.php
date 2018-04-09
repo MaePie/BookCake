@@ -6,13 +6,16 @@
  * Time: 22:56
  */
 
-namespace App\Controller;
+namespace App\Controller\Restaurant;
+
+use App\Controller\AppController;
 
 
-class FrontRestoController extends AppController
+class RestaurantController extends AppController
 {
 
     public function index(){
+        echo 'yolo';
         return null;
         //Test Json
         /*

@@ -75,12 +75,25 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->fallbacks(DashedRoute::class);
 });
 
-Router::scope('/resto', function (RouteBuilder $routes){
-    $routes->connect('/', ['controller' => 'FrontResto', 'action' => 'index']);
-
-    $routes->connect('/test', ['controller' => 'FrontResto', 'action' => 'test']);
+Router::prefix('admin', function ($routes) {
+    // All routes here will be prefixed with `/admin`
+    // And have the prefix => admin route element added.
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
 });
 
+Router::prefix('restaurant', function ($routes) {
+    $routes->connect('/', ['controller' => 'Restaurant', 'action' => 'index']);
+    $routes->connect('/test', ['controller' => 'Restaurant', 'action' => 'test']);
+    //$routes->connect('/', ['controller' => 'Pages', 'action' => 'index']);
+});
+
+/*
+Router::scope('/resto', function (RouteBuilder $routes){
+    $routes->connect('/', ['controller' => 'Restaurant\FrontResto', 'action' => 'index']);
+    $routes->connect('/test', ['controller' => 'Restaurant\FrontResto', 'action' => 'test']);
+});
+*/
 /**
  * Load all plugin routes. See the Plugin documentation on
  * how to customize the loading of plugin routes.

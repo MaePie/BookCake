@@ -54,7 +54,7 @@ class AppController extends Controller
 
     public function beforeRender(Event $event)
     {
-        $this->viewBuilder()->theme('Gentelella');
+        //$this->viewBuilder()->theme('Gentelella');
     }
 
     protected function setJsonResponse(){
