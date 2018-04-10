@@ -89,6 +89,7 @@ function watch() {
     gulp.watch(paths.scripts.src, scripts);
     gulp.watch(paths.styles.src, styles);
 }
+*/
 
 function copyFile() {
     return gulp.src(paths.assets.src, {
@@ -96,7 +97,6 @@ function copyFile() {
         })
         .pipe(gulp.dest(paths.assets.dest));
 }
-*/
 
 /*
  * You can use CommonJS `exports` module notation to declare tasks
@@ -111,7 +111,7 @@ exports.watch = watch;
  * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
  */
 var admin = gulp.parallel(adminStyles, adminScripts)
-var build = gulp.series(clean, admin);
+var build = gulp.series(clean, admin, copyFile);
 
 /*
  * You can still use `gulp.task` to expose tasks
