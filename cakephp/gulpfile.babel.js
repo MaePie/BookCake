@@ -14,26 +14,32 @@ const paths = {
             dest: 'webroot/js/'
         },
         styles: {
-            src: 'assets/Admin/css/**.css',
-            dest: 'webroot/css/'
+            sass: {
+                src: 'assets/Admin/sass/*.sass',
+                dest: 'assets/Admin/css/'
+            },
+            css: {
+                src: 'assets/Admin/css/*.css',
+                dest: 'webroot/css/'
+            }
         }
     },
-    /*
     restaurant: {
-        sass: {
-            src: 'assets/sass/*.sass',
-            dest: 'webroot/css/'
+        scripts: {
+            src: 'assets/Restaurant/js/index.js',
+            dest: 'webroot/js/'
         },
         styles: {
-            src: ['assets/sass/*.sass', 'assets/css/cake.css'],
-            dest: 'webroot/css/'
-        },
-        scripts: {
-            src: 'assets/js/*.js',
-            dest: 'webroot/js/'
+            sass: {
+                src: 'assets/Restaurant/sass/*.sass',
+                dest: 'assets/Restaurant/css/'
+            },
+            css: {
+                src: 'assets/Restaurant/css/*.css',
+                dest: 'webroot/css/'
+            }
         }
     },
-    */
     assets: {
         src: 'assets/copy/**',
         dest: 'webroot/'
@@ -50,44 +56,74 @@ function clean() {
     return del(['webroot']);
 }
 
-/*
- * Define our tasks using plain functions
- */
- function adminStyles() {
-     return gulp.src(paths.admin.styles.src)
-         .pipe(sass().on('error', sass.logError))
-         .pipe(cleanCSS())
-         // pass in options to the stream
-         .pipe(rename({
-             basename: 'admin',
-             suffix: '.min'
-         }))
-         .pipe(gulp.dest(paths.admin.styles.dest));
- }
-
- function adminScripts() {
-     return gulp.src(paths.admin.scripts.src, {
-             sourcemaps: true
-         })
-         .pipe(babel())
-         .pipe(uglify())
-         .pipe(rename({
-             basename: 'admin',
-             suffix: '.min'
-         }))
-         .pipe(gulp.dest(paths.admin.scripts.dest));
- }
-
-/*
-function sassTask() {
-    return gulp.src(paths.sass.src)
+function adminSass() {
+    return gulp.src(paths.admin.styles.sass.src)
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(paths.sass.dest));
+        .pipe(gulp.dest(paths.admin.styles.sass.dest))
 }
 
+function adminStyles() {
+    //TODO find a way to put sass at the end
+    //[
+    //'/src/**/!(foobar)*.js', // all files that end in .js EXCEPT foobar*.js
+    //'/src/js/foobar.js',
+    //]
+    return gulp.src([paths.admin.styles.css.src])
+        .pipe(concat('admin.min.css'))
+        .pipe(cleanCSS())
+        .pipe(gulp.dest(paths.admin.styles.css.dest));
+}
+
+function adminScripts() {
+    return gulp.src(paths.admin.scripts.src, {
+            sourcemaps: true
+        })
+        .pipe(babel())
+        .pipe(uglify())
+        .pipe(rename({
+            basename: 'admin',
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest(paths.admin.scripts.dest));
+}
+
+/* Restaurant part */
+
+function restaurantSass() {
+    return gulp.src(paths.restaurant.styles.sass.src)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(paths.restaurant.styles.sass.dest))
+}
+
+function restaurantStyles() {
+    //TODO find a way to put sass at the end
+    //[
+    //'/src/**/!(foobar)*.js', // all files that end in .js EXCEPT foobar*.js
+    //'/src/js/foobar.js',
+    //]
+    return gulp.src([paths.restaurant.styles.css.src])
+        .pipe(concat('restaurant.min.css'))
+        .pipe(cleanCSS())
+        .pipe(gulp.dest(paths.restaurant.styles.css.dest));
+}
+
+function restaurantScripts() {
+    return gulp.src(paths.restaurant.scripts.src, {
+            sourcemaps: true
+        })
+        .pipe(babel())
+        .pipe(uglify())
+        .pipe(rename({
+            basename: 'restaurant',
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest(paths.restaurant.scripts.dest));
+}
+
+/*
 function watch() {
-    gulp.watch(paths.scripts.src, scripts);
-    gulp.watch(paths.styles.src, styles);
+gulp.watch(paths.scripts.src, scripts);
+gulp.watch(paths.styles.src, styles);
 }
 */
 
@@ -107,16 +143,10 @@ exports.styles = styles;
 exports.scripts = scripts;
 exports.watch = watch;
 */
-/*
- * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
- */
-var admin = gulp.parallel(adminStyles, adminScripts)
-var build = gulp.series(clean, admin, copyFile);
 
-/*
- * You can still use `gulp.task` to expose tasks
- */
-gulp.task('build', build);
+const admin = gulp.series(adminSass, gulp.parallel(adminStyles, adminScripts))
+const restaurant = gulp.series(restaurantSass, gulp.parallel(restaurantStyles, restaurantScripts))
+const build = gulp.series(clean, gulp.parallel(admin, restaurant), copyFile);
 
 /*
  * Define default task that can be called by just running `gulp` from cli
