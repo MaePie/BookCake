@@ -216,5 +216,4 @@ if (Configure::read('debug')) {
 }
 
 
-
 Plugin::load('Gentelella', ['bootstrap' => true, 'routes' => true]);
