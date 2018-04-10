@@ -15,13 +15,11 @@ class RestaurantController extends AppController
 {
 
     public function index(){
-        $this->viewBuilder()
-            ->helpers(['Flash']);
 
-        return null;
     }
 
     public function test(){
-        return null;
+        $this->set('activeMenuButton','POST');
+        $this->render('../test');
     }
 }

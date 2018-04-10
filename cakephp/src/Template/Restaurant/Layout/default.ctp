@@ -5,17 +5,14 @@
     <title><?= $this->fetch('title') ?></title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('Restaurant/restaurant.min.css') ?>
+    <?= $this->Html->css('restaurant.min.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div id="container">
-        <div id="header">
-
-        </div>
+        <?= $this->element('navbar') ?>
         <div id="content">
             <?= $this->Flash->render() ?>
 
@@ -24,6 +21,5 @@
         <div id="footer">
 
         </div>
-    </div>
 </body>
 </html>
