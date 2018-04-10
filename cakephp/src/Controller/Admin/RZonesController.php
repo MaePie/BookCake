@@ -67,7 +67,7 @@ class RZonesController extends AppController
     {
         $zone = $this->Rzones->find()
                             ->where(['idRZone' => $id])
-                            ->first();                            
+                            ->first();
 
         $this->set('zone', $zone);
     }

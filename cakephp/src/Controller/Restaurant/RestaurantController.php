@@ -15,7 +15,6 @@ class RestaurantController extends AppController
 {
 
     public function index(){
-        echo 'yolo';
         return null;
         //Test Json
         /*

@@ -14,8 +14,8 @@
  */
 namespace App\Controller\Admin;
 
-use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Controller\Controller;
 
 /**
  * Application Controller

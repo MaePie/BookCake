@@ -89,7 +89,7 @@ class UsersController extends AppController
                         }
                     }
                     else { $this->Flash->error(__('Selectionner une photo.')); }
-                }               
+                }
 
                 return $this->redirect(['action' => 'view/'.$user->idUser]);
             }
@@ -169,7 +169,7 @@ class UsersController extends AppController
     {
         $user = $this->Users->find()
                             ->where(['idUser' => $id])
-                            ->first();                            
+                            ->first();
 
         $this->set('user', $user);
     }
@@ -257,7 +257,7 @@ class UsersController extends AppController
                     }
                 }
                 else { $this->Flash->error(__('Selectionner une photo.')); }
-            }                
+            }
         }
     }
 }
