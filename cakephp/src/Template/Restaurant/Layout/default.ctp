@@ -12,6 +12,10 @@
     <?= $this->fetch('script') ?>
 </head>
 <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFN3WRJ"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <?= $this->element('navbar') ?>
         <div id="content">
             <?= $this->Flash->render() ?>
