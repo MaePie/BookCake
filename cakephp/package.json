@@ -11,6 +11,7 @@
     "babel-register": "^6.26.0",
     "bootstrap": "^4.1.0",
     "del": "^3.0.0",
+    "eyeglass": "^1.5.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-clean-css": "^3.9.3",
@@ -18,6 +19,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.0",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
   }
 }
