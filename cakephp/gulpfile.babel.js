@@ -6,23 +6,6 @@ import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
 import cleanCSS from 'gulp-clean-css';
 import del from 'del';
-/*
-var Eyeglass = require("eyeglass").Eyeglass;
-
-var eyeglass = new Eyeglass(
-  // ... node-sass options
-
-    importer: function(uri, prev, done) {
-        done(sass.compiler.types.NULL);
-    }
-
-)
-
-console.log(eyeglass);
-// Disable import once with gulp until we
-// figure out how to make them work together.
-eyeglass.enableImportOnce = false
-*/
 
 const paths = {
     admin: {
@@ -75,7 +58,7 @@ function clean() {
 
 function adminSass() {
     return gulp.src(paths.admin.styles.sass.src)
-        .pipe(sass(/*eyeglass.sassOptions()*/).on('error', sass.logError))
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(paths.admin.styles.sass.dest))
 }
 
