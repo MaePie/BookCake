@@ -1,37 +1,40 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item">
-      <?= $this->Html->image('slider/slide.png', ['class' => 'first-slide', 'alt' => 'First slide']) ?>
-      <div class="container">
-        <div class="carousel-caption text-left">
-          <h1>Example headline.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <?= $this->Html->image('slider/slide.png', ['class' => 'second-slide', 'alt' => 'Second slide']) ?>
+    <div class="carousel-item active">
+      <?= $this->Html->image('slider/slide1.png', ['class' => 'first-slide', 'alt' => 'First slide']) ?>
       <div class="container">
         <div class="carousel-caption">
-          <h1>Another example headline.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+          <h1>Un restaurant au bord de la Garonne.</h1>
+          <p>Restaurant composé d'une grande salle, d'une belle terrasse et d'un espace grill selon les envies.</p>
+          <p></p>
+          <p class="text-right"><a class="btn btn-lg btn-primary" href="#" role="button">En savoir plus.</a></p>
         </div>
       </div>
     </div>
-    <div class="carousel-item active">
-      <?= $this->Html->image('slider/slide.png', ['class' => 'third-slide', 'alt' => 'Third slide']) ?>
+    <div class="carousel-item">
+      <?= $this->Html->image('slider/slide2.png', ['class' => 'second-slide', 'alt' => 'Second slide']) ?>
       <div class="container">
-        <div class="carousel-caption text-right">
-          <h1>One more for good measure.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+        <div class="carousel-caption">
+          <h1>Un restaurant au bord de la Garonne.</h1>
+          <p>Restaurant composé d'une grande salle, d'une belle terrasse et d'un espace grill selon les envies.</p>
+          <p></p>
+          <p class="text-right"><a class="btn btn-lg btn-primary" href="#" role="button">En savoir plus.</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <?= $this->Html->image('slider/slide3.png', ['class' => 'third-slide', 'alt' => 'Third slide']) ?>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Un restaurant au bord de la Garonne.</h1>
+          <p>Restaurant composé d'une grande salle, d'une belle terrasse et d'un espace grill selon les envies.</p>
+          <p></p>
+          <p class="text-right"><a class="btn btn-lg btn-primary" href="#" role="button">En savoir plus.</a></p>
         </div>
       </div>
     </div>
@@ -45,3 +48,4 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
