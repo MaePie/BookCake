@@ -9,29 +9,17 @@
 namespace App\Controller\Restaurant;
 
 use App\Controller\AppController;
-
+use Cake\View\Helper\FlashHelper;
 
 class RestaurantController extends AppController
 {
 
     public function index(){
-        return null;
-        //Test Json
-        /*
-        if ($this->request->is('post')) {
-            $location = $this->Locations->patchEntity($location, $this->request->data);
 
-            $success = $this->Locations->save($location);
-
-            $result = [ 'result' => $success ? 'success' : 'error' ];
-
-            $this->setJsonResponse();
-            $this->set(['result' => $result, '_serialize' => 'result']);
-        }
-        */
     }
 
     public function test(){
-        return null;
+        $this->set('activeMenuButton','POST');
+        $this->render('../test');
     }
 }

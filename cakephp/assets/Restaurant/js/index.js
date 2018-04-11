@@ -1,4 +1,4 @@
 import {$,jQuery} from 'jquery'
-import './modules/bootstrap.js'
+import 'bootstrap'
 
 console.log('Coucou')

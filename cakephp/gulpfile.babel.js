@@ -68,7 +68,7 @@ function adminStyles() {
     //'/src/**/!(foobar)*.js', // all files that end in .js EXCEPT foobar*.js
     //'/src/js/foobar.js',
     //]
-    return gulp.src([paths.admin.styles.css.src])
+    return gulp.src([paths.admin.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
         .pipe(concat('admin.min.css'))
         .pipe(cleanCSS())
         .pipe(gulp.dest(paths.admin.styles.css.dest));
@@ -101,7 +101,7 @@ function restaurantStyles() {
     //'/src/**/!(foobar)*.js', // all files that end in .js EXCEPT foobar*.js
     //'/src/js/foobar.js',
     //]
-    return gulp.src([paths.restaurant.styles.css.src])
+    return gulp.src([paths.restaurant.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())
         .pipe(gulp.dest(paths.restaurant.styles.css.dest));
