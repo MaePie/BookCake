@@ -90,6 +90,9 @@ Router::prefix('admin', function ($routes) {
 Router::prefix('restaurant', function ($routes) {
     $routes->connect('/', ['controller' => 'Restaurant', 'action' => 'index']);
     $routes->connect('/test', ['controller' => 'Restaurant', 'action' => 'test']);
+    $routes->connect('/carte', ['controller' => 'Restaurant', 'action' => 'carte']);
+    $routes->connect('/galerie', ['controller' => 'Restaurant', 'action' => 'galerie']);
+    $routes->connect('/contact', ['controller' => 'Restaurant', 'action' => 'contact']);
 });
 
 /*

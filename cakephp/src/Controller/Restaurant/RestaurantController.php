@@ -18,8 +18,19 @@ class RestaurantController extends AppController
 
     }
 
+    public function carte(){
+
+    }
+
+    public function contact(){
+
+    }
+
+    public function galerie(){
+        
+    }
+
     public function test(){
         $this->set('activeMenuButton','POST');
-        $this->render('../test');
     }
 }
