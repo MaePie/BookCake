@@ -50,7 +50,6 @@
             <p class="col-lg-7"><small><em>Tomates mozzarella, campagnarde avec oeuf mimosa, asiatique, océane, crudités, endives et bleu</em></small></p>
           </div>
         </div>
-
       </div>
 
       <div class="carte-content">
@@ -86,12 +85,65 @@
 
         <div class="carte-object">
           <div class="row">
-            <p class="col-lg-7">Cod au vin</p>
+            <p class="col-lg-7">Coq au vin</p>
             <p class="text-right col-lg-2">18 €</p>
           </div>
         </div>
 
       </div>
-    </div>
-  </div>
-</div>
+
+      <div class="carte-content">
+        <h2 class="carte-title">Desserts</h2>
+
+        <div class="carte-object">
+          <div class="row">
+            <p class="col-lg-7">Croustade aux pommes</p>
+            <p class="text-right col-lg-2">10 €</p>
+          </div>
+        </div>
+
+        <div class="carte-object">
+          <div class="row">
+            <p class="col-lg-7">Mousse au chocolat</p>
+            <p class="text-right col-lg-2">10 €</p>
+          </div>
+        </div>
+
+        <div class="carte-object">
+          <div class="row">
+            <p class="col-lg-7">Île flottante</p>
+            <p class="text-right col-lg-2">10 €</p>
+          </div>
+        </div>
+
+        <div class="carte-object">
+          <div class="row">
+            <p class="col-lg-7">Crème brulée</p>
+            <p class="text-right col-lg-2">10 €</p>
+          </div>
+        </div>
+
+        <div class="carte-object">
+          <div class="row">
+            <p class="col-lg-7">Gâteau basque</p>
+            <p class="text-right col-lg-2">10  €</p>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="carte-header">Au Menu</h1>
+
+      <div class="carte-content col-lg-6">
+        <h2 class="carte-title">Menu midi</h2>
+
+        <div class="carte-object">
+          <div class="row">
+            <p class="col-lg-12">Assiette de cochonailles OU Entrée du jour</p>
+            <p class="center">ET</p>
+            <p class="col-lg-12">Sauté de porc OU Salade OU Plat du jour</p>
+          </div>
+        </div>
+      </div> <!-- Carte-content -->
+    </div> <!-- Row -->
+  </div> <!-- Container -->
+</div> <!-- Carte -->
