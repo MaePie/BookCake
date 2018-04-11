@@ -4,3 +4,6 @@ body {
 
 p {
   background: #f5f8fa; }
+
+img {
+  max-width: 100%; }

@@ -120,12 +120,12 @@ function restaurantScripts() {
         .pipe(gulp.dest(paths.restaurant.scripts.dest));
 }
 
-/*
+
 function watch() {
-gulp.watch(paths.scripts.src, scripts);
-gulp.watch(paths.styles.src, styles);
+    gulp.watch([paths.admin.scripts.src, paths.restaurant.scripts.src], scripts);
+    gulp.watch([paths.admin.styles.sass.src, paths.admin.styles.css.src, "!assets/Restaurant/css/default.css" , paths.restaurant.styles.sass.src, paths.restaurant.styles.css.src, "!assets/Admin/css/default.css"], styles);
 }
-*/
+
 
 function copyFile() {
     return gulp.src(paths.assets.src, {
@@ -137,12 +137,12 @@ function copyFile() {
 /*
  * You can use CommonJS `exports` module notation to declare tasks
  */
-/*
+
 exports.clean = clean;
-exports.styles = styles;
-exports.scripts = scripts;
 exports.watch = watch;
-*/
+
+const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
+const scripts = gulp.parallel(restaurantScripts, adminScripts)
 
 const admin = gulp.series(adminSass, gulp.parallel(adminStyles, adminScripts))
 const restaurant = gulp.series(restaurantSass, gulp.parallel(restaurantStyles, restaurantScripts))
