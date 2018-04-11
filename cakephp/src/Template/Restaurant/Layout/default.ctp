@@ -4,12 +4,8 @@
     <?= $this->Html->charset() ?>
     <title><?= $this->fetch('title') ?></title>
     <?= $this->Html->meta('icon') ?>
-
     <?= $this->Html->css('restaurant.min.css') ?>
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+    <?= $this->element('meta') ?>
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->
@@ -17,13 +13,10 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <?= $this->element('navbar') ?>
-        <div id="content">
-            <?= $this->Flash->render() ?>
-
-            <?= $this->fetch('content') ?>
-        </div>
-        <div id="footer">
-
-        </div>
+        <!-- HTML code of flash element if needed ? (use toastr.js probably way better) -->
+        <?= $this->Flash->render() ?>
+        <?= $this->fetch('content') ?>
+        <?= $this->element('footer') ?>
+        <?= $this->fetch('script') ?>
 </body>
 </html>
