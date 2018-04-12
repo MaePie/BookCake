@@ -18,6 +18,10 @@ class RestaurantController extends AppController
 
     }
 
+    public function restaurant(){
+        
+    }
+
     public function carte(){
 
     }
