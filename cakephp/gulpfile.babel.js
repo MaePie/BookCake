@@ -46,13 +46,7 @@ const paths = {
     }
 };
 
-/* Not all tasks need to use streams, a gulpfile is just another node program
- * and you can use all packages available on npm, but it must return either a
- * Promise, a Stream or take a callback and call it
- */
 function clean() {
-    // You can use multiple globbing patterns as you would with `gulp.src`,
-    // for example if you are using del 2.0 or above, return its promise
     return del(['webroot']);
 }
 
@@ -96,11 +90,6 @@ function restaurantSass() {
 }
 
 function restaurantStyles() {
-    //TODO find a way to put sass at the end
-    //[
-    //'/src/**/!(foobar)*.js', // all files that end in .js EXCEPT foobar*.js
-    //'/src/js/foobar.js',
-    //]
     return gulp.src([paths.restaurant.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())
@@ -134,19 +123,25 @@ function copyFile() {
         .pipe(gulp.dest(paths.assets.dest));
 }
 
+function copyNodeModules() {
+    return gulp.src(['node_modules/bootstrap/**', 'node_modules/jquery/**'], { "base" : "." })
+        .pipe(gulp.dest('webroot/'));
+}
+
 /*
  * You can use CommonJS `exports` module notation to declare tasks
  */
 
 exports.clean = clean;
 exports.watch = watch;
+exports.copyNodeModules = copyNodeModules
 
 const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
 const scripts = gulp.parallel(restaurantScripts, adminScripts)
 
 const admin = gulp.series(adminSass, gulp.parallel(adminStyles, adminScripts))
 const restaurant = gulp.series(restaurantSass, gulp.parallel(restaurantStyles, restaurantScripts))
-const build = gulp.series(clean, gulp.parallel(admin, restaurant), copyFile);
+const build = gulp.series(clean, gulp.parallel(admin, restaurant), copyFile, copyNodeModules);
 
 /*
  * Define default task that can be called by just running `gulp` from cli
