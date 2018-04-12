@@ -6,6 +6,7 @@
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('restaurant.min.css') ?>
     <?= $this->element('meta') ?>
+    <?= $this->Html->script('restaurant.min.js') ?>
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->

@@ -44,18 +44,9 @@ use Cake\Routing\Route\DashedRoute;
 Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
-    /**
-     * Here, we are connecting '/' (base path) to a controller called 'Pages',
-     * its action called 'display', and we pass a param to select the view file
-     * to use (in this case, src/Template/Pages/home.ctp)...
-     */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-
-    /**
-     * ...and connect the rest of 'Pages' controller's URLs.
-     */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
-
+    $routes->connect('/sendNudes', ['controller' => 'Mail', 'action' => 'sendNudes']);
     /**
      * Connect catchall routes for all controllers.
      *
@@ -83,7 +74,6 @@ Router::prefix('admin', function ($routes) {
     $routes->connect('/users', ['controller' => 'users', 'action' => 'list']);
     $routes->connect('/rzones', ['controller' => 'rzones', 'action' => 'list']);
     $routes->connect('/rres', ['controller' => 'rres', 'action' => 'list']);
-
     $routes->fallbacks(DashedRoute::class);
 });
 
@@ -95,12 +85,7 @@ Router::prefix('restaurant', function ($routes) {
     $routes->connect('/contact', ['controller' => 'Restaurant', 'action' => 'contact']);
 });
 
-/*
-Router::scope('/resto', function (RouteBuilder $routes){
-    $routes->connect('/', ['controller' => 'Restaurant\FrontResto', 'action' => 'index']);
-    $routes->connect('/test', ['controller' => 'Restaurant\FrontResto', 'action' => 'test']);
-});
-*/
+
 /**
  * Load all plugin routes. See the Plugin documentation on
  * how to customize the loading of plugin routes.
