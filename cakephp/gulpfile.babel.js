@@ -5,6 +5,8 @@ import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
 import cleanCSS from 'gulp-clean-css';
+import { create } from 'browser-sync';
+const browserSync = create();
 import del from 'del';
 
 const paths = {
@@ -46,6 +48,14 @@ const paths = {
     }
 };
 
+browserSync.init({
+    ui: {
+        port: 8081
+    },
+    server: "./webroot",
+    port: 3010
+});
+
 function clean() {
     return del(['webroot']);
 }
@@ -65,7 +75,8 @@ function adminStyles() {
     return gulp.src([paths.admin.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
         .pipe(concat('admin.min.css'))
         .pipe(cleanCSS())
-        .pipe(gulp.dest(paths.admin.styles.css.dest));
+        .pipe(gulp.dest(paths.admin.styles.css.dest))
+        //.pipe(browserSync.stream());
 }
 
 function adminScripts() {
@@ -78,7 +89,8 @@ function adminScripts() {
             basename: 'admin',
             suffix: '.min'
         }))
-        .pipe(gulp.dest(paths.admin.scripts.dest));
+        .pipe(gulp.dest(paths.admin.scripts.dest))
+        //.pipe(browserSync.stream());
 }
 
 /* Restaurant part */
@@ -93,7 +105,8 @@ function restaurantStyles() {
     return gulp.src([paths.restaurant.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())
-        .pipe(gulp.dest(paths.restaurant.styles.css.dest));
+        .pipe(gulp.dest(paths.restaurant.styles.css.dest))
+        //.pipe(browserSync.stream());
 }
 
 function restaurantScripts() {
@@ -106,13 +119,17 @@ function restaurantScripts() {
             basename: 'restaurant',
             suffix: '.min'
         }))
-        .pipe(gulp.dest(paths.restaurant.scripts.dest));
+        .pipe(gulp.dest(paths.restaurant.scripts.dest))
+        //.pipe(browserSync.stream());
 }
 
 
 function watch() {
-    gulp.watch([paths.admin.scripts.src, paths.restaurant.scripts.src], scripts);
-    gulp.watch([paths.admin.styles.sass.src, paths.admin.styles.css.src, "!assets/Restaurant/css/default.css" , paths.restaurant.styles.sass.src, paths.restaurant.styles.css.src, "!assets/Admin/css/default.css"], styles);
+    gulp.watch([paths.admin.scripts.src, paths.restaurant.scripts.src], scripts)
+        .on('change', browserSync.reload);
+    gulp.watch([paths.admin.styles.sass.src, paths.admin.styles.css.src, "!assets/Restaurant/css/default.css" , paths.restaurant.styles.sass.src, paths.restaurant.styles.css.src, "!assets/Admin/css/default.css"], styles)
+        .on('change', browserSync.reload);
+    gulp.watch('./*.ctp', browserSync.reload);
 }
 
 
