@@ -35,7 +35,7 @@
         </div>
         <script>
             $('#contact').on('submit', function(){
-                toastr.success('Un message a bien été envoyé', 'Envoi réussi')
+                toastr.success('Votre message a bien été envoyé', 'Envoi réussi')
                 $.ajax({
                     type: "POST",
                     url: "/sendNudes",
