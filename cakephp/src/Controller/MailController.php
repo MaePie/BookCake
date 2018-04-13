@@ -3,15 +3,17 @@ namespace App\Controller;
 
 use Cake\Mailer\Email;
 
-class MailController
+class MailController extends AppController
 {
-    public function signUp()
+    public function sendNudes()
     {
-        $email = new Email('default');
-        $email->from(['me@example.com' => 'My Site'])
-            ->to('mael.mayon@free.fr')
-            ->subject('About')
-            ->send('My message');
+        $this->setJsonResponse();
+        $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+        $result =  json_encode($arr);
+        $this->response->body($result);
+        return $this->response;
+        //Email::deliver('you@example.com', 'Subject', 'Message', ['from' => 'me@example.com']);
+        //$this->getMailer('User')->send('welcome', ['mael.mayon@free.fr']);
     }
 
 }

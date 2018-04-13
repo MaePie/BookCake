@@ -39,6 +39,7 @@
                 $.ajax({
                     type: "POST",
                     url: "/sendNudes",
+                    dataType: 'json',
                     data: $("#contact").serialize(),
                     success: function(data){
                         console.log(data);
