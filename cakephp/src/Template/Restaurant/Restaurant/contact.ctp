@@ -35,7 +35,7 @@
         </div>
         <script>
             $('#contact').on('submit', function(){
-                console.log($('#contact').serialize())
+                toastr.success('Un message a bien été envoyé', 'Envoi réussi')
                 $.ajax({
                     type: "POST",
                     url: "/sendNudes",
@@ -46,6 +46,7 @@
                 });
                 return false;
             })
+            //TODO set limiter l'envoi a une fois et afficher un message indiquant que l'envoie a déjà eu lieu si tel est le cas
         </script>
     </div>
 </div>

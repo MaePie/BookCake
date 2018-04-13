@@ -94,7 +94,10 @@ function restaurantSass() {
 }
 
 function restaurantStyles() {
-    return gulp.src([paths.restaurant.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
+    return gulp.src([
+        paths.restaurant.styles.css.src,
+        'node_modules/bootstrap/dist/css/bootstrap.min.css',
+        'node_modules/toastr/build/toastr.min.css'])
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())
         .pipe(gulp.dest(paths.restaurant.styles.css.dest));
@@ -129,8 +132,8 @@ function copyFile() {
         .pipe(gulp.dest(paths.assets.dest));
 }
 
-exports.clean = clean;
-exports.watch = watch;
+exports.clean = clean
+exports.watch = watch
 
 const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
 const scripts = gulp.parallel(restaurantScripts, adminScripts)
