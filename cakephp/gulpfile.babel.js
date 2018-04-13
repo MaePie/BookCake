@@ -1,11 +1,13 @@
-import gulp from 'gulp';
-import sass from 'gulp-sass';
-import babel from 'gulp-babel';
-import concat from 'gulp-concat';
-import uglify from 'gulp-uglify';
-import rename from 'gulp-rename';
-import cleanCSS from 'gulp-clean-css';
-import del from 'del';
+import gulp from 'gulp'
+import bro from 'gulp-bro'
+import sass from 'gulp-sass'
+import babel from 'gulp-babel'
+import concat from 'gulp-concat'
+import uglify from 'gulp-uglify'
+import rename from 'gulp-rename'
+import cleanCSS from 'gulp-clean-css'
+import del from 'del'
+import babelify from 'babelify'
 
 const paths = {
     admin: {
@@ -73,7 +75,9 @@ function adminScripts() {
     return gulp.src(paths.admin.scripts.src, {
             sourcemaps: true
         })
-        .pipe(babel())
+        .pipe(bro({
+            transform: babelify.configure({ presets: ['es2015'] })
+        }))
         .pipe(uglify())
         .pipe(rename({
             basename: 'admin',
@@ -100,7 +104,9 @@ function restaurantScripts() {
     return gulp.src(paths.restaurant.scripts.src, {
             sourcemaps: true
         })
-        .pipe(babel())
+        .pipe(bro({
+            transform: babelify.configure({ presets: ['es2015'] })
+        }))
         .pipe(uglify())
         .pipe(rename({
             basename: 'restaurant',
@@ -123,21 +129,15 @@ function copyFile() {
         .pipe(gulp.dest(paths.assets.dest));
 }
 
-function copyNodeModules() {
-    return gulp.src(['node_modules/bootstrap/**', 'node_modules/jquery/**'], { "base" : "." })
-        .pipe(gulp.dest('webroot/'));
-}
-
 exports.clean = clean;
 exports.watch = watch;
-exports.copyNodeModules = copyNodeModules
 
 const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
 const scripts = gulp.parallel(restaurantScripts, adminScripts)
 
 const admin = gulp.series(adminSass, gulp.parallel(adminStyles, adminScripts))
 const restaurant = gulp.series(restaurantSass, gulp.parallel(restaurantStyles, restaurantScripts))
-const build = gulp.series(clean, gulp.parallel(admin, restaurant), copyFile, copyNodeModules);
+const build = gulp.series(clean, gulp.parallel(admin, restaurant), copyFile);
 
 /*
  * Define default task that can be called by just running `gulp` from cli
