@@ -5,8 +5,11 @@
     <title><?= $this->fetch('title') ?></title>
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('restaurant.min.css') ?>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <?= $this->element('meta') ?>
     <?= $this->Html->script('restaurant.min.js') ?>
+    <script src="/node_modules/jquery/dist/jquery.min.js"/></script>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/js/bootstrap.min.css"/>
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->

@@ -11,3 +11,7 @@ img {
 .form-group.required label:after {
   content: " *";
   color: red; }
+
+@media (max-width: 768px) {
+  #map {
+    height: 400px; } }

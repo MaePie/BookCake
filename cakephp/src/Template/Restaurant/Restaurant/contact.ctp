@@ -7,7 +7,7 @@
                 var map = new google.maps.Map(document.getElementById('map'), {
                   center: {lat: 43.6238167, lng: 1.399773},
                   zoom: 18,
-                  mapTypeId: 'roadmap'
+                  mapTypeId: 'hybrid'
                 });
                 map.setTilt(45);
               }

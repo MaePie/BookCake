@@ -50,6 +50,7 @@ function clean() {
     return del(['webroot']);
 }
 
+/* Admin part */
 function adminSass() {
     return gulp.src(paths.admin.styles.sass.src)
         .pipe(sass().on('error', sass.logError))
@@ -82,7 +83,6 @@ function adminScripts() {
 }
 
 /* Restaurant part */
-
 function restaurantSass() {
     return gulp.src(paths.restaurant.styles.sass.src)
         .pipe(sass().on('error', sass.logError))
@@ -127,10 +127,6 @@ function copyNodeModules() {
     return gulp.src(['node_modules/bootstrap/**', 'node_modules/jquery/**'], { "base" : "." })
         .pipe(gulp.dest('webroot/'));
 }
-
-/*
- * You can use CommonJS `exports` module notation to declare tasks
- */
 
 exports.clean = clean;
 exports.watch = watch;
