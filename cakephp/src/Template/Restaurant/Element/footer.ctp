@@ -8,10 +8,10 @@
             <div class="col-xs-12 col-sm-4">
                 <h3>Site Map</h3>
                 <ul>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
+                    <li><a href="#">Link to thing</a></li>
+                    <li><a href="#">Link to thing</a></li>
+                    <li><a href="#">Link to thing</a></li>
+                    <li><a href="#">Link to thing</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-4">
