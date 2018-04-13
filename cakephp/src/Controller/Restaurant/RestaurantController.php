@@ -10,6 +10,7 @@ namespace App\Controller\Restaurant;
 
 use App\Controller\AppController;
 use Cake\View\Helper\FlashHelper;
+use Cake\Mailer\Email;
 
 class RestaurantController extends AppController
 {
@@ -23,11 +24,11 @@ class RestaurantController extends AppController
     }
 
     public function contact(){
-
+        
     }
 
     public function galerie(){
-        
+
     }
 
     public function test(){

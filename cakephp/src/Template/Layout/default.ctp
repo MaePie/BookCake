@@ -2,12 +2,8 @@
 <html>
 <head>
 	<title>Au fil de l'eau</title>
-
-	<?= $this->Html->css('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css') ?>
-	<?= $this->Html->css('style.css') ?>
-
-	<?= $this->Html->script('https://code.jquery.com/jquery-3.2.1.slim.min.js') ?>
-	<?= $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js') ?>
+	<?= $this->Html->css('restaurant.min.css') ?>
+	<?= $this->Html->script('restaurant.min.js') ?>
 </head>
 <body>
 	<header>
@@ -48,7 +44,7 @@
 	</div>
 
 	<footer>
-		
+
 	</footer>
 </body>
 </html>

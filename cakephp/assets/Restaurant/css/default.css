@@ -7,3 +7,13 @@ p {
 
 img {
   max-width: 100%; }
+
+.form-group.required label:after {
+  content: " *";
+  color: red; }
+
+@media (max-width: 767px) {
+  #map {
+    height: 400px; } }
+
+/* TODO find a way to import node_modules */

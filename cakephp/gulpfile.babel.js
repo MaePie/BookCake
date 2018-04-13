@@ -1,11 +1,13 @@
-import gulp from 'gulp';
-import sass from 'gulp-sass';
-import babel from 'gulp-babel';
-import concat from 'gulp-concat';
-import uglify from 'gulp-uglify';
-import rename from 'gulp-rename';
-import cleanCSS from 'gulp-clean-css';
-import del from 'del';
+import gulp from 'gulp'
+import bro from 'gulp-bro'
+import sass from 'gulp-sass'
+import babel from 'gulp-babel'
+import concat from 'gulp-concat'
+import uglify from 'gulp-uglify'
+import rename from 'gulp-rename'
+import cleanCSS from 'gulp-clean-css'
+import del from 'del'
+import babelify from 'babelify'
 
 const paths = {
     admin: {
@@ -46,16 +48,11 @@ const paths = {
     }
 };
 
-/* Not all tasks need to use streams, a gulpfile is just another node program
- * and you can use all packages available on npm, but it must return either a
- * Promise, a Stream or take a callback and call it
- */
 function clean() {
-    // You can use multiple globbing patterns as you would with `gulp.src`,
-    // for example if you are using del 2.0 or above, return its promise
     return del(['webroot']);
 }
 
+/* Admin part */
 function adminSass() {
     return gulp.src(paths.admin.styles.sass.src)
         .pipe(sass().on('error', sass.logError))
@@ -78,7 +75,9 @@ function adminScripts() {
     return gulp.src(paths.admin.scripts.src, {
             sourcemaps: true
         })
-        .pipe(babel())
+        .pipe(bro({
+            transform: babelify.configure({ presets: ['es2015'] })
+        }))
         .pipe(uglify())
         .pipe(rename({
             basename: 'admin',
@@ -88,7 +87,6 @@ function adminScripts() {
 }
 
 /* Restaurant part */
-
 function restaurantSass() {
     return gulp.src(paths.restaurant.styles.sass.src)
         .pipe(sass().on('error', sass.logError))
@@ -96,12 +94,10 @@ function restaurantSass() {
 }
 
 function restaurantStyles() {
-    //TODO find a way to put sass at the end
-    //[
-    //'/src/**/!(foobar)*.js', // all files that end in .js EXCEPT foobar*.js
-    //'/src/js/foobar.js',
-    //]
-    return gulp.src([paths.restaurant.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
+    return gulp.src([
+        paths.restaurant.styles.css.src,
+        'node_modules/bootstrap/dist/css/bootstrap.min.css',
+        'node_modules/toastr/build/toastr.min.css'])
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())
         .pipe(gulp.dest(paths.restaurant.styles.css.dest));
@@ -111,7 +107,9 @@ function restaurantScripts() {
     return gulp.src(paths.restaurant.scripts.src, {
             sourcemaps: true
         })
-        .pipe(babel())
+        .pipe(bro({
+            transform: babelify.configure({ presets: ['es2015'] })
+        }))
         .pipe(uglify())
         .pipe(rename({
             basename: 'restaurant',
@@ -134,12 +132,8 @@ function copyFile() {
         .pipe(gulp.dest(paths.assets.dest));
 }
 
-/*
- * You can use CommonJS `exports` module notation to declare tasks
- */
-
-exports.clean = clean;
-exports.watch = watch;
+exports.clean = clean
+exports.watch = watch
 
 const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
 const scripts = gulp.parallel(restaurantScripts, adminScripts)

@@ -1,4 +1,8 @@
-import {$,jQuery} from 'jquery'
+//TODO find a wway to pass over export manualy done
+import jQuery from 'jquery'
+window.$ = window.jQuery = jQuery;
+
 import 'bootstrap'
 
-console.log('Coucou')
+import toastr from 'toastr'
+window.toastr = toastr
