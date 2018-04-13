@@ -16,4 +16,13 @@ img {
   #map {
     height: 400px; } }
 
+footer {
+  background: #2c2c54;
+  color: #f7f1e3; }
+  footer a {
+    color: #f7f1e3; }
+
+#social-network svg {
+  max-width: 4rem; }
+
 /* TODO find a way to import node_modules */
