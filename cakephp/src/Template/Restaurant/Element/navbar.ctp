@@ -22,10 +22,25 @@
         </ul>
     </div>
     <div class="navbar-right">
-        <span class="text"><i class="fa fa-home"></i>Home</span>
-        <span class="text"><i class="fa fa-home"></i>Home</span>
+        <span class="text"><i class="fa fa-phone"></i> +33 6 80 63 16 39</span>
+        <span class="text"><i class="fa fa-envelope"></i> restaurant@aufildeleau.com</span>
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">
-    
+    <div class="row">
+        <form method="post">
+            <div class="col-2">
+                <input type="date" name="dateRRes" class="form-control">
+            </div>
+            <div class="col-2">
+                <select name="heureRRes" class="form-control">
+                    <option>Dejeuner</option>
+                    <option>Diner</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <input type="number" name="nbPersonnes" class="form-control">
+            </div>
+        </form>
+    </div>
 </nav>
