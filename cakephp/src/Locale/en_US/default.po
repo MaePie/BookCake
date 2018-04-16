@@ -1,0 +1,5 @@
+msgid "home.test"
+msgstr "My name is {0}"
+
+msgid "I'm {0,number} years old"
+msgstr "J'ai {0,number} ans"
