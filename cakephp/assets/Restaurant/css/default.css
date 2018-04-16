@@ -2,9 +2,8 @@
 body {
   background: red; }
 
-p {
-  background: #f5f8fa; }
-
+/*p
+    background: $body-bg*/
 img {
   max-width: 100%; }
 
@@ -15,6 +14,37 @@ img {
 @media (max-width: 767px) {
   #map {
     height: 400px; } }
+
+nav {
+  padding: 1rem 1em; }
+
+.navbar {
+  height: 106px; }
+
+.navbar-nav li a {
+  color: #888; }
+
+.navbar-nav li a:hover {
+  color: #fff;
+  background-color: #ddd; }
+
+.navbar-nav li.active {
+  color: #888;
+  border-top: 4px solid wheat;
+  background-color: #f8f8f8; }
+
+ul.navbar-nav {
+  font-size: 14px;
+  color: #888;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.navbar-right span {
+  color: #888; }
+
+.nav-bot {
+  background-color: #f8f8f8;
+  height: 56px; }
 
 footer {
   padding: 2rem 0;

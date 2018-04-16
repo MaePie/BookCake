@@ -1,1 +1,3 @@
-<?= $this->element('carousel') ?>
+<div class="container">
+	<?= $this->element('carousel') ?>
+</div>
