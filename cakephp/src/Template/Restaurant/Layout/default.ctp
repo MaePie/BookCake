@@ -7,6 +7,7 @@
     <?= $this->Html->css('restaurant.min.css') ?>
     <?= $this->element('meta') ?>
     <?= $this->Html->script('restaurant.min.js') ?>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->
@@ -16,7 +17,9 @@
         <?= $this->element('navbar') ?>
         <!-- HTML code of flash element if needed ? (use toastr.js probably way better) -->
         <?= $this->Flash->render() ?>
-        <?= $this->fetch('content') ?>
+        <main>
+            <?= $this->fetch('content') ?>
+        </main>
         <?= $this->element('footer') ?>
         <?= $this->fetch('script') ?>
 </body>

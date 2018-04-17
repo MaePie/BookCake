@@ -6,6 +6,7 @@ import concat from 'gulp-concat'
 import uglify from 'gulp-uglify'
 import rename from 'gulp-rename'
 import cleanCSS from 'gulp-clean-css'
+import sourcemaps from 'gulp-sourcemaps'
 import del from 'del'
 import babelify from 'babelify'
 
@@ -72,9 +73,7 @@ function adminStyles() {
 }
 
 function adminScripts() {
-    return gulp.src(paths.admin.scripts.src, {
-            sourcemaps: true
-        })
+    return gulp.src(paths.admin.scripts.src, {sourcemaps: true})
         .pipe(bro({
             transform: babelify.configure({ presets: ['es2015'] })
         }))
@@ -89,7 +88,9 @@ function adminScripts() {
 /* Restaurant part */
 function restaurantSass() {
     return gulp.src(paths.restaurant.styles.sass.src)
+        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.restaurant.styles.sass.dest))
 }
 
@@ -98,8 +99,10 @@ function restaurantStyles() {
         paths.restaurant.styles.css.src,
         'node_modules/bootstrap/dist/css/bootstrap.min.css',
         'node_modules/toastr/build/toastr.min.css'])
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.restaurant.styles.css.dest));
 }
 

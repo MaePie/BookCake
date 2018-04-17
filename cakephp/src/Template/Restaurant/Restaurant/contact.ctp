@@ -1,5 +1,12 @@
-<div class="container-fluid" id="contact-panel">
-    <h3>NOUS CONTACTER</h3>
+<section class="container-fluid" id="contact-panel">
+    <header>
+        <h3 class="text-center">NOUS CONTACTER</h3>
+        <address class="row">
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-map-marker"></i>Hôtel Le Deauville, 1 Rue du Bac, 31700 Blagnac</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-phone"></i>+336 80 63 16 39</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-at"></i>mpbookcake@gmail.com</p>
+        </address>
+    </header>
     <div class="row">
         <div class="col-xs-12 col-md-7" id="map">
             <script>
@@ -50,4 +57,4 @@
             //TODO set limiter l'envoi a une fois et afficher un message indiquant que l'envoie a déjà eu lieu si tel est le cas
         </script>
     </div>
-</div>
+</section>

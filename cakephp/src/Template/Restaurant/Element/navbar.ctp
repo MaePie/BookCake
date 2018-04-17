@@ -17,7 +17,7 @@
                 <?= $this->Html->Link('Galerie photos', ['controller' => 'restaurant', 'action' => 'galerie'], ['class' => 'nav-link']) ?>
             </li>
             <?php echo ($this->request['action'] == 'contact') ? '<li class="active">' : '<li>' ?>
-                <?= $this->Html->Link('Carte', ['controller' => 'restaurant', 'action' => 'contact'], ['class' => 'nav-link']) ?>
+                <?= $this->Html->Link('Contact', ['controller' => 'restaurant', 'action' => 'contact'], ['class' => 'nav-link']) ?>
             </li>
         </ul>
     </div>
