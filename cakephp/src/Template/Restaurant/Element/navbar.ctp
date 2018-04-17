@@ -7,40 +7,53 @@
     </button>
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav mr-auto">
-            <li class="active">
+            <?php echo ($this->request['action'] == 'index') ? '<li class="active">' : '<li>' ?>
                 <?= $this->Html->Link('Restaurant', ['controller' => 'restaurant', 'action' => 'index'], ['class' => 'nav-link']) ?>
             </li>
-            <li>
+            <?php echo ($this->request['action'] == 'carte') ? '<li class="active">' : '<li>' ?>
                 <?= $this->Html->Link('Carte', ['controller' => 'restaurant', 'action' => 'carte'], ['class' => 'nav-link']) ?>
             </li>
-            <li>
+            <?php echo ($this->request['action'] == 'galerie') ? '<li class="active">' : '<li>' ?>
                 <?= $this->Html->Link('Galerie photos', ['controller' => 'restaurant', 'action' => 'galerie'], ['class' => 'nav-link']) ?>
             </li>
-            <li>
+            <?php echo ($this->request['action'] == 'contact') ? '<li class="active">' : '<li>' ?>
                 <?= $this->Html->Link('Carte', ['controller' => 'restaurant', 'action' => 'contact'], ['class' => 'nav-link']) ?>
             </li>
         </ul>
     </div>
     <div class="navbar-right">
-        <span class="text"><i class="fa fa-phone"></i> +33 6 80 63 16 39</span>
+        <span class="text"><i class="fa fa-phone"></i> +33 6 80 63 16 39 </span>
         <span class="text"><i class="fa fa-envelope"></i> restaurant@aufildeleau.com</span>
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">
-    <div class="row">
-        <form method="post">
-            <div class="col-2">
-                <input type="date" name="dateRRes" class="form-control">
-            </div>
-            <div class="col-2">
-                <select name="heureRRes" class="form-control">
-                    <option>Dejeuner</option>
-                    <option>Diner</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <input type="number" name="nbPersonnes" class="form-control">
-            </div>
-        </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <form method="post">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                    </div>
+                    <input type="date" name="dateRRes" class="form-control" value="<?= date('Y-m-d') ?>">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-clock"></i></span>
+                    </div>
+                    <select name="heureRRes" class="form-control">
+                        <option>Déjeuner</option>
+                        <option>Dîner</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-users"></i></span>
+                    </div>
+                    <input type="number" name="nbPersonnes" class="form-control" value="2">
+                </div>
+            </form>
+        </div>
+        </div>
     </div>
 </nav>
