@@ -88,7 +88,7 @@ function adminScripts() {
 /* Restaurant part */
 function restaurantSass() {
     return gulp.src(paths.restaurant.styles.sass.src)
-        .pipe(sourcemaps.init())
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.restaurant.styles.sass.dest))
@@ -102,7 +102,7 @@ function restaurantStyles() {
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.restaurant.styles.css.dest));
 }
 

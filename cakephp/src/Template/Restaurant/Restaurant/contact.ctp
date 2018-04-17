@@ -2,9 +2,9 @@
     <header>
         <h3 class="text-center">NOUS CONTACTER</h3>
         <address class="row">
-            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-map-marker"></i>Hôtel Le Deauville, 1 Rue du Bac, 31700 Blagnac</p>
-            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-phone"></i>+336 80 63 16 39</p>
-            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-at"></i>mpbookcake@gmail.com</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-map-marker"></i>&nbsp;Hôtel Le Deauville, 1 Rue du Bac, 31700 Blagnac</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-phone"></i>&nbsp;+336 80 63 16 39</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-at"></i>&nbsp;mpbookcake@gmail.com</p>
         </address>
     </header>
     <div class="row">
@@ -24,20 +24,20 @@
             </script>
         </div>
         <div class="Col-xs-12 col-md-5">
+            <h4>Message rapide</h4>
             <form action="/sendNudes"  method="post" id="contact">
-              <div class="form-group required">
-                <label for="email">Adresse mail</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Entrer votre mail" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Nom Prénom</label>
-                <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Entrer votre nom et prénom" name="name">
-              </div>
-              <div class="form-group required">
-                  <label for="message">Message</label>
-                  <textarea class="form-control" id="message" placeholder="Entrez votre message ici" name="message"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            <div class="row">
+                <div class="form-group required col">
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre mail" name="email" required>
+                </div>
+                <div class="form-group col">
+                    <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom" name="name">
+                </div>
+            </div>
+                <div class="form-group required">
+                    <textarea class="form-control" id="message" placeholder="Entrez votre message ici" name="message"></textarea>
+                </div>
+              <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
             </form>
         </div>
         <script>
