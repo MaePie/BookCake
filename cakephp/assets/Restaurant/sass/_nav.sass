@@ -18,18 +18,22 @@ nav
         	border-top: 4px solid wheat
         	background-color: #f8f8f8
 
-ul.navbar-nav
+.navbar-nav
     font-size: 14px
     color: #888
     text-transform: uppercase
     font-weight: bold
 
-.navbar-right span
-	color: #888
+.navbar-right
+    span
+        color: #888
 
 .nav-bot
-	background-color: #f8f8f8
-	box-shadow: 0 5px 15px 0 rgba(0,0,0,.05) inset, 0 -5px 15px 0 rgba(0,0,0,.05) inset
+    background-color: #f8f8f8
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,.05) inset, 0 -5px 15px 0 rgba(0,0,0,.05) inset
+    &.sticky
+        position: fixed
+        top: 0
 
 .input-group .input-group-prepend .input-group-text
 	background-color: wheat

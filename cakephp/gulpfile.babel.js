@@ -7,6 +7,7 @@ import uglify from 'gulp-uglify'
 import rename from 'gulp-rename'
 import cleanCSS from 'gulp-clean-css'
 import sourcemaps from 'gulp-sourcemaps'
+import uglifyify from 'uglifyify'
 import del from 'del'
 import babelify from 'babelify'
 
@@ -73,15 +74,20 @@ function adminStyles() {
 }
 
 function adminScripts() {
-    return gulp.src(paths.admin.scripts.src, {sourcemaps: true})
+    return gulp.src(paths.admin.scripts.src)
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(bro({
-            transform: babelify.configure({ presets: ['es2015'] })
+            transform: [
+              babelify.configure({ presets: ['es2015'] }),
+              [ 'uglifyify', { global: true } ]
+            ]
         }))
         .pipe(uglify())
         .pipe(rename({
             basename: 'admin',
             suffix: '.min'
         }))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(paths.admin.scripts.dest));
 }
 
@@ -107,23 +113,26 @@ function restaurantStyles() {
 }
 
 function restaurantScripts() {
-    return gulp.src(paths.restaurant.scripts.src, {
-            sourcemaps: true
-        })
+    return gulp.src(paths.restaurant.scripts.src)
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(bro({
-            transform: babelify.configure({ presets: ['es2015'] })
+            transform: [
+              babelify.configure({ presets: ['es2015'] }),
+              [ 'uglifyify', { global: true } ]
+            ]
         }))
         .pipe(uglify())
         .pipe(rename({
             basename: 'restaurant',
             suffix: '.min'
         }))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(paths.restaurant.scripts.dest));
 }
 
 
 function watch() {
-    gulp.watch([paths.admin.scripts.src, paths.restaurant.scripts.src], scripts);
+    gulp.watch(['assets/Admin/js/', 'assets/Restaurant/js/'], scripts);
     gulp.watch([paths.admin.styles.sass.src, paths.admin.styles.css.src, "!assets/Restaurant/css/default.css" , paths.restaurant.styles.sass.src, paths.restaurant.styles.css.src, "!assets/Admin/css/default.css"], styles);
 }
 
@@ -137,6 +146,7 @@ function copyFile() {
 
 exports.clean = clean
 exports.watch = watch
+exports.restaurantScripts = restaurantScripts
 
 const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
 const scripts = gulp.parallel(restaurantScripts, adminScripts)

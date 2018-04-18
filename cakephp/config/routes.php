@@ -46,7 +46,7 @@ Router::defaultRouteClass(DashedRoute::class);
 Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
-    $routes->post('/sendNudes', ['controller' => 'Mail', 'action' => 'sendNudes']);
+    $routes->post('/quickContact', ['controller' => 'Mail', 'action' => 'quickContact']);
     //Find post route
     /**
      * Connect catchall routes for all controllers.
