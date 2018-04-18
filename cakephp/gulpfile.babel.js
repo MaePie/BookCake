@@ -123,7 +123,7 @@ function restaurantScripts() {
 
 
 function watch() {
-    gulp.watch([paths.admin.scripts.src, paths.restaurant.scripts.src], scripts);
+    gulp.watch(['assets/Admin/js/', 'assets/Restaurant/js/'], scripts);
     gulp.watch([paths.admin.styles.sass.src, paths.admin.styles.css.src, "!assets/Restaurant/css/default.css" , paths.restaurant.styles.sass.src, paths.restaurant.styles.css.src, "!assets/Admin/css/default.css"], styles);
 }
 
