@@ -28,32 +28,43 @@
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
+        <div class="col-lg-12">
             <form method="post">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                            <input type="date" name="dateRRes" class="form-control" value="<?= date('Y-m-d') ?>">
+                        </div>
                     </div>
-                    <input type="date" name="dateRRes" class="form-control" value="<?= date('Y-m-d') ?>">
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-clock"></i></span>
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-clock"></i></span>
+                            </div>
+                            <select name="heureRRes" class="form-control">
+                                <option>Déjeuner</option>
+                                <option>Dîner</option>
+                            </select>
+                        </div>
                     </div>
-                    <select name="heureRRes" class="form-control">
-                        <option>Déjeuner</option>
-                        <option>Dîner</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-users"></i></span>
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-users"></i></span>
+                            </div>
+                            <input type="number" name="nbPersonnes" class="form-control" value="2">
+                        </div>
                     </div>
-                    <input type="number" name="nbPersonnes" class="form-control" value="2">
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <button class="btn btn-primary">Réserver</button>
+                        </div>
+                    </div>
                 </div>
             </form>
-        </div>
         </div>
     </div>
 </nav>
