@@ -52,7 +52,7 @@ class AppController extends Controller
 
     public function beforeRender(Event $event)
     {
-        //$this->viewBuilder()->theme('Gentelella');
+        $this->viewBuilder()->helpers(['Flash']);
     }
 
     protected function json($data){
