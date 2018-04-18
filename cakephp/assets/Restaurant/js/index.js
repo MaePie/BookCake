@@ -7,4 +7,5 @@ import 'bootstrap'
 import toastr from 'toastr'
 window.toastr = toastr
 
-import './modules/navbar.js'
+//import './modules/navbar.js'
+//import './modules/contact.js'

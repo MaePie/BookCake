@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="input-group">
-                            <button class="btn btn-primary">Réserver</button>
+                            <button class="btn btn-primary btn-block">Réserver</button>
                         </div>
                     </div>
                 </div>

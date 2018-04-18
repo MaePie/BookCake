@@ -23,9 +23,9 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjoUwUY66Lrv3sJ0aEGkawmsX4QBjXLM4&callback=initMap">
             </script>
         </div>
-        <div class="Col-xs-12 col-md-5">
+        <div class="Col-xs-12 col-md-5" id="formContact">
             <h4>Message rapide</h4>
-            <form action="/sendNudes"  method="post" id="contact">
+            <form action="/quickContact"  method="post" id="contact">
             <div class="row">
                 <div class="form-group required col">
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre mail" name="email" required>
@@ -40,21 +40,32 @@
               <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
             </form>
         </div>
-        <script>
-            $('#contact').on('submit', function(){
-                toastr.success('Votre message a bien été envoyé', 'Envoi réussi')
-                $.ajax({
-                    type: "POST",
-                    url: "/sendNudes",
-                    dataType: 'json',
-                    data: $("#contact").serialize(),
-                    success: function(data){
-                        console.log(data);
-                    }
-                });
-                return false;
-            })
-            //TODO set limiter l'envoi a une fois et afficher un message indiquant que l'envoie a déjà eu lieu si tel est le cas
-        </script>
     </div>
 </section>
+
+<?php $this->start('footer_javascript'); ?>
+    <script>
+        function disableForm(id){
+            $(id).find('[type="submit"]').attr('type','button')
+        }
+
+        $('#contact').on('click','[type="button"]', function(){
+            toastr.warning('Votre message à déjà été envoyé')
+        })
+
+        $('#contact').on('submit', function(){
+            $.ajax({
+                type: "POST",
+                url: "/quickContact",
+                dataType: 'json',
+                data: $("#contact").serialize(),
+                success: function(data){
+                    toastr.success('Votre message a bien été envoyé', 'Envoi réussi')
+                    disableForm('#contact')
+                }
+            });
+            return false;
+        })
+        //TODO set limiter l'envoi a une fois et afficher un message indiquant que l'envoie a déjà eu lieu si tel est le cas
+    </script>
+<?php $this->end(); ?>

@@ -26,6 +26,7 @@
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3",
     "through2": "^2.0.3",
-    "toastr": "^2.1.4"
+    "toastr": "^2.1.4",
+    "uglifyify": "^4.0.5"
   }
 }
