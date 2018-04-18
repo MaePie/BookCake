@@ -16,7 +16,7 @@ class MailController extends AppController
             ->from('mpbookcake@gmail.com')
             ->send();
 
-        $result = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+        $result = ['success' => 'success'];
         $this->json($result);
     }
 }

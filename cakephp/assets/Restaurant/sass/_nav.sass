@@ -2,7 +2,6 @@ nav
     padding: 1rem 1em
 
 .navbar
-    height: 106px
     li
         &:hover
             background-color: #ddd
@@ -31,10 +30,17 @@ nav
 .nav-bot
     background-color: #f8f8f8
     box-shadow: 0 5px 15px 0 rgba(0,0,0,.05) inset, 0 -5px 15px 0 rgba(0,0,0,.05) inset
+    padding: 2rem 0
+    @media(max-width: 767px)
+        padding: 0
     &.sticky
         position: fixed
         top: 0
-
-.input-group .input-group-prepend .input-group-text
-	background-color: wheat
-	border: none
+        z-index: 999
+    form
+        width: 100%
+        .input-group
+            margin: 0.25rem 0
+            .input-group-text
+            	background-color: wheat
+            	border: none

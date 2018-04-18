@@ -1,3 +1,3 @@
-<div class="container">
+<div class="container-fluid">
 	<?= $this->element('carousel') ?>
 </div>
