@@ -22,8 +22,13 @@
         </ul>
     </div>
     <div class="navbar-right">
-        <span class="text"><i class="fa fa-phone"></i> +33 6 80 63 16 39 </span>
-        <span class="text"><i class="fa fa-envelope"></i> restaurant@aufildeleau.com</span>
+        <div class="row">
+            <div class="col-12">
+                <span class="text"><i class="fa fa-phone"></i> +33 6 80 63 16 39 </span>
+            </div>
+            <div class="col-12">
+                <span class="text"><i class="fa fa-envelope"></i> restaurant@aufildeleau.com</span>
+            </div>
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">

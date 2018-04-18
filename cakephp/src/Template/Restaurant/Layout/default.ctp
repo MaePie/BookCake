@@ -2,7 +2,7 @@
 <html>
 <head>
     <?= $this->Html->charset() ?>
-    <title><?= $this->fetch('title') ?></title>
+    <title><?= $title ?></title>
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('restaurant.min.css') ?>
     <?= $this->element('meta') ?>

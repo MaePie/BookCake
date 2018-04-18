@@ -19,6 +19,11 @@ img {
   content: " *";
   color: red; }
 
+.btn-primary {
+  background-color: wheat;
+  color: #888;
+  border: none; }
+
 #map {
   height: 250px; }
   @media (max-width: 767px) {
@@ -31,6 +36,10 @@ img {
 #contact-panel textarea {
   resize: none;
   height: 95px; }
+
+.carte {
+  color: #c52d2f;
+  text-align: justify; }
 
 nav {
   padding: 1rem 1em; }
@@ -61,7 +70,6 @@ ul.navbar-nav {
 
 .nav-bot {
   background-color: #f8f8f8;
-  height: 56px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05) inset, 0 -5px 15px 0 rgba(0, 0, 0, 0.05) inset; }
 
 .input-group .input-group-prepend .input-group-text {
