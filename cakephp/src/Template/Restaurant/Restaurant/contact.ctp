@@ -8,7 +8,7 @@
         </address>
     </header>
     <div class="row">
-        <div class="col-xs-12 col-md-7" id="map">
+        <div class="col-xs-12 col-md-7 mb-3" id="map">
             <script>
               function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
@@ -23,7 +23,7 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjoUwUY66Lrv3sJ0aEGkawmsX4QBjXLM4&callback=initMap">
             </script>
         </div>
-        <div class="Col-xs-12 col-md-5" id="formContact">
+        <div class="col-xs-12 col-md-5 mb-3" id="formContact">
             <h4>Message rapide</h4>
             <form action="/quickContact"  method="post" id="contact">
             <div class="row">
