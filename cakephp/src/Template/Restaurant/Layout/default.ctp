@@ -6,7 +6,6 @@
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('restaurant.min.css') ?>
     <?= $this->element('meta') ?>
-    <?= $this->Html->script('restaurant.min.js') ?>
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -21,6 +20,7 @@
             <?= $this->fetch('content') ?>
         </main>
         <?= $this->element('footer') ?>
+        <?= $this->Html->script('restaurant.min.js') ?>
         <?= $this->fetch('footer_javascript') ?>
 </body>
 </html>
