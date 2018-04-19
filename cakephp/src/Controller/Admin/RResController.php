@@ -50,7 +50,7 @@ class RResController extends AppController
             }
         }
     }
-
+    /*
     public function JSON()
     {
         $ress = $this->Rres->find()
@@ -77,6 +77,7 @@ class RResController extends AppController
 
         die();
     }
+    */
 
     public function view($id = null)
     {
@@ -117,5 +118,12 @@ class RResController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function reservationForm()
+    {
+        $true = rand(1,2);
+        $result = ['dispo' => $true];
+        $this->json($result);
     }
 }
