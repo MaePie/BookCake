@@ -44,8 +44,7 @@ use Cake\Routing\Route\DashedRoute;
 Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    $routes->connect('/', ['controller' => 'Restaurant', 'action' => 'index']);
     $routes->post('/quickContact', ['controller' => 'Mail', 'action' => 'quickContact']);
     //Find post route
     /**

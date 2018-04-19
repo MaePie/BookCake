@@ -25,7 +25,7 @@ img {
   border: none; }
 
 #map {
-  height: 250px; }
+  /*height: 250px*/ }
   @media (max-width: 767px) {
     #map {
       height: 300px; } }
@@ -35,13 +35,12 @@ img {
 
 #contact-panel textarea {
   resize: none;
-  height: 95px; }
+  height: 195px; }
 
-<<<<<<< HEAD
 @media (max-width: 767px) {
   #contact-panel #formContact {
     margin: 0.5rem 0; } }
-=======
+
 .carte {
   color: #c52d2f;
   text-align: justify; }
@@ -53,43 +52,38 @@ img {
 
 .carte-content {
   width: 100%; }
+  .carte-content:hover {
+    background-color: #f8f8f8; }
 
 .carte-header {
-  color: #888;
-  background-color: wheat;
+  color: #c52d2f;
   text-transform: uppercase;
   padding: 1%;
-  border-radius: 10px;
-  width: 60%; }
-
-.carte-body .item-text {
-  font-weight: bold;
-  border-bottom: 1px solid; }
-
-.carte-menu {
-  border-right: 1px solid;
+  width: 60%;
   text-align: center; }
 
-.carte-header {
-  text-align: center; }
+.carte-body {
+  color: #888; }
+  .carte-body .item-text {
+    font-weight: bold; }
+  .carte-body p.text-right {
+    font-weight: bold; }
+  .carte-body:hover {
+    background-color: #f8f8f8; }
 
-.carte-menu p {
-  font-weight: bold; }
->>>>>>> feature/feature5
+small {
+  font-style: italic; }
+
+.row {
+  margin-right: 0; }
 
 nav {
   padding: 1rem 1em; }
 
-<<<<<<< HEAD
 .navbar li:hover {
   background-color: #ddd; }
   .navbar li:hover a {
     color: #fff; }
-=======
-.navbar li:hover a {
-  color: #fff;
-  background-color: #ddd; }
->>>>>>> feature/feature5
 
 .navbar li a {
   color: #888; }
@@ -102,11 +96,7 @@ nav {
   border-top: 4px solid wheat;
   background-color: #f8f8f8; }
 
-<<<<<<< HEAD
 .navbar-nav {
-=======
-ul.navbar-nav {
->>>>>>> feature/feature5
   font-size: 14px;
   color: #888;
   text-transform: uppercase;
@@ -117,7 +107,6 @@ ul.navbar-nav {
 
 .nav-bot {
   background-color: #f8f8f8;
-<<<<<<< HEAD
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05) inset, 0 -5px 15px 0 rgba(0, 0, 0, 0.05) inset;
   padding: 2rem 0; }
   @media (max-width: 767px) {
@@ -135,13 +124,6 @@ ul.navbar-nav {
       .nav-bot form .input-group .input-group-text {
         background-color: wheat;
         border: none; }
-=======
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05) inset, 0 -5px 15px 0 rgba(0, 0, 0, 0.05) inset; }
-
-.input-group .input-group-prepend .input-group-text {
-  background-color: wheat;
-  border: none; }
->>>>>>> feature/feature5
 
 footer {
   padding: 2rem 0;
