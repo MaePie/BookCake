@@ -12,6 +12,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   -webkit-appearance: none; }
 
+body, html {
+  font-family: Tajawal !important;
+  font-size: 19px; }
+
 img {
   max-width: 100%; }
 
@@ -19,9 +23,9 @@ img {
   content: " *";
   color: red; }
 
-.btn-primary {
+button {
   background-color: wheat;
-  color: #888;
+  color: #555;
   border: none; }
 
 #map {
