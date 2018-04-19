@@ -82,7 +82,6 @@ function adminScripts() {
               [ 'uglifyify', { global: true } ]
             ]
         }))
-        .pipe(uglify())
         .pipe(rename({
             basename: 'admin',
             suffix: '.min'
@@ -121,7 +120,6 @@ function restaurantScripts() {
               [ 'uglifyify', { global: true } ]
             ]
         }))
-        .pipe(uglify())
         .pipe(rename({
             basename: 'restaurant',
             suffix: '.min'
