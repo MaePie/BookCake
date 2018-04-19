@@ -30,3 +30,13 @@ And then push it to the limit
  - Go to project folder : `cd /path/to/cakephp/`
  - Install node_modules : `npm install`
  - Run gulp : `gulp`
+
+### Add a node_modules
+
+ - Download a new module : `npm install my_module`
+ - Add module to `vendor.js`
+ - Add Css from `node_modules/my_module/my_module.min.css` to the needing style function in `gulpfile.bable.js`
+
+ If you need to run a specific function
+ - Create a new module `my_module_swag.js` with your running
+ - Add your module in `index.js`
