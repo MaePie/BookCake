@@ -41,23 +41,54 @@ img {
   color: #c52d2f;
   text-align: justify; }
 
+.carte-title {
+  color: #c52d2f;
+  width: 100%;
+  text-align: center; }
+
+.carte-content {
+  width: 100%; }
+
+.carte-header {
+  color: #888;
+  background-color: wheat;
+  text-transform: uppercase;
+  padding: 1%;
+  border-radius: 10px;
+  width: 60%; }
+
+.carte-body .item-text {
+  font-weight: bold;
+  border-bottom: 1px solid; }
+
+.carte-menu {
+  border-right: 1px solid;
+  text-align: center; }
+
+.carte-header {
+  text-align: center; }
+
+.carte-menu p {
+  font-weight: bold; }
+
 nav {
   padding: 1rem 1em; }
 
-.navbar {
-  height: 106px; }
-  .navbar li:hover {
-    background-color: #ddd; }
-    .navbar li:hover a {
-      color: #fff; }
-  .navbar li a {
-    color: #888; }
-  .navbar li:not(.active) a {
-    padding-top: calc(0.5rem + 4px); }
-  .navbar li.active {
-    color: #888;
-    border-top: 4px solid wheat;
-    background-color: #f8f8f8; }
+.navbar li:hover {
+  background-color: #ddd; }
+  .navbar li:hover a {
+    color: #fff; }
+
+.navbar li a {
+  color: #888; }
+
+.navbar li:not(.active) a {
+  padding-top: calc(0.5rem + 4px); }
+
+.navbar li.active {
+  color: #888;
+  border-top: 4px solid wheat;
+  background-color: #f8f8f8; }
 
 ul.navbar-nav {
   font-size: 14px;
