@@ -38,6 +38,10 @@ nav
         top: 0
         z-index: 999
         width: 100%
+        + main
+            padding-top: 62px
+            @media(max-width: 767px)
+                padding-top: 200px
     form
         width: 100%
         .input-group
@@ -45,3 +49,5 @@ nav
             .input-group-text
             	background-color: wheat
             	border: none
+        .hideForm
+            display: none

@@ -121,6 +121,11 @@ nav {
     top: 0;
     z-index: 999;
     width: 100%; }
+    .nav-bot.sticky + main {
+      padding-top: 62px; }
+      @media (max-width: 767px) {
+        .nav-bot.sticky + main {
+          padding-top: 200px; } }
   .nav-bot form {
     width: 100%; }
     .nav-bot form .input-group {
@@ -128,6 +133,8 @@ nav {
       .nav-bot form .input-group .input-group-text {
         background-color: wheat;
         border: none; }
+    .nav-bot form .hideForm {
+      display: none; }
 
 footer {
   padding: 2rem 0;

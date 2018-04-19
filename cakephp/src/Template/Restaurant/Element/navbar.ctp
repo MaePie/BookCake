@@ -32,10 +32,10 @@
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">
-    <div class="container">
-        <form method="post">
+    <form method="post" id="reservationForm">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-md-3">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -43,7 +43,7 @@
                         <input type="date" name="dateRRes" class="form-control" value="<?= date('Y-m-d') ?>">
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-md-3">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-clock"></i></span>
@@ -54,7 +54,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-md-3">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-users"></i></span>
@@ -62,12 +62,32 @@
                         <input type="number" name="nbPersonnes" class="form-control" value="2">
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-md-3">
                     <div class="input-group">
-                        <button class="btn btn-primary btn-block">Réserver</button>
+                        <button type="button" class="btn btn-primary btn-block">Réserver</button>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+        <div class="container hideForm">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                        </div>
+                        <input type="text" name="name" class="form-control" placeholder="Nom">
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="email" name="email" class="form-control" placeholder="Mail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </nav>

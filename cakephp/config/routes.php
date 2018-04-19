@@ -44,9 +44,10 @@ use Cake\Routing\Route\DashedRoute;
 Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
-    $routes->connect('/', ['controller' => 'Restaurant', 'action' => 'index']);
+    
+    $routes->redirect('/',['controller' => 'Restaurant', 'action' => 'index']);
     $routes->post('/quickContact', ['controller' => 'Mail', 'action' => 'quickContact']);
-    //Find post route
+
     /**
      * Connect catchall routes for all controllers.
      *
@@ -74,6 +75,11 @@ Router::prefix('admin', function ($routes) {
     $routes->connect('/users', ['controller' => 'users', 'action' => 'list']);
     $routes->connect('/rzones', ['controller' => 'rzones', 'action' => 'list']);
     $routes->connect('/rres', ['controller' => 'rres', 'action' => 'list']);
+
+    // Ajax
+    $routes->post('/reservationForm', ['controller' => 'RRes', 'action' => 'reservationForm']);
+
+
     $routes->fallbacks(DashedRoute::class);
 });
 
