@@ -12,6 +12,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   -webkit-appearance: none; }
 
+body, html {
+  font-family: Tajawal !important;
+  font-size: 19px; }
+
 img {
   max-width: 100%; }
 
@@ -19,13 +23,13 @@ img {
   content: " *";
   color: red; }
 
-.btn-primary {
+button {
   background-color: wheat;
-  color: #888;
+  color: #555;
   border: none; }
 
 #map {
-  height: 250px; }
+  /*height: 250px*/ }
   @media (max-width: 767px) {
     #map {
       height: 300px; } }
@@ -35,7 +39,7 @@ img {
 
 #contact-panel textarea {
   resize: none;
-  height: 95px; }
+  height: 195px; }
 
 @media (max-width: 767px) {
   #contact-panel #formContact {
@@ -52,35 +56,38 @@ img {
 
 .carte-content {
   width: 100%; }
+  .carte-content:hover {
+    background-color: #f8f8f8; }
 
 .carte-header {
-  color: #888;
-  background-color: wheat;
+  color: #c52d2f;
   text-transform: uppercase;
   padding: 1%;
-  border-radius: 10px;
-  width: 60%; }
-
-.carte-body .item-text {
-  font-weight: bold;
-  border-bottom: 1px solid; }
-
-.carte-menu {
-  border-right: 1px solid;
+  width: 60%;
   text-align: center; }
 
-.carte-header {
-  text-align: center; }
+.carte-body {
+  color: #888; }
+  .carte-body .item-text {
+    font-weight: bold; }
+  .carte-body p.text-right {
+    font-weight: bold; }
+  .carte-body:hover {
+    background-color: #f8f8f8; }
 
-.carte-menu p {
-  font-weight: bold; }
+small {
+  font-style: italic; }
+
+.row {
+  margin-right: 0; }
 
 nav {
   padding: 1rem 1em; }
 
-.navbar li:hover a {
-  color: #fff;
+.navbar li:hover {
   background-color: #ddd; }
+  .navbar li:hover a {
+    color: #fff; }
 
 .navbar li a {
   color: #888; }
@@ -123,8 +130,6 @@ nav {
     width: 100%; }
     .nav-bot form .input-group {
       margin: 0.25rem 0; }
-      .nav-bot form .input-group .input-group-prepend {
-        width: 39px; }
       .nav-bot form .input-group .input-group-text {
         background-color: wheat;
         border: none; }
