@@ -129,11 +129,13 @@ nav {
   color: #888; }
 
 .nav-bot {
+  height: 138px;
   background-color: #f8f8f8;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05) inset, 0 -5px 15px 0 rgba(0, 0, 0, 0.05) inset;
   padding: 2rem 0; }
   @media (max-width: 767px) {
     .nav-bot {
+      display: none !important;
       padding: 0; } }
   .nav-bot.sticky {
     position: fixed;
@@ -141,10 +143,10 @@ nav {
     z-index: 999;
     width: 100%; }
     .nav-bot.sticky + main {
-      padding-top: 62px; }
+      padding-top: 138px; }
       @media (max-width: 767px) {
         .nav-bot.sticky + main {
-          padding-top: 200px; } }
+          padding-top: 344.6px; } }
   .nav-bot .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
