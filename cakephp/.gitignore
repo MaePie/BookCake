@@ -6,6 +6,7 @@
 /tmp/*
 /vendor/*
 /webroot/*
+default.css.map
 
 # OS generated files #
 ######################

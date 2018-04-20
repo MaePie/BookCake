@@ -126,6 +126,47 @@ nav {
       @media (max-width: 767px) {
         .nav-bot.sticky + main {
           padding-top: 200px; } }
+  .nav-bot .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px; }
+    @media (max-width: 767px) {
+      .nav-bot .grid {
+        grid-template-columns: 1fr;
+        grid-row-gap: 0px;
+        grid-template-rows: repeat(6, 1fr); } }
+    .nav-bot .grid .input1 {
+      grid-area: 1 / 1 / 2 / 2; }
+      @media (max-width: 767px) {
+        .nav-bot .grid .input1 {
+          grid-area: 1 / 1 / 2 / 2; } }
+    .nav-bot .grid .input2 {
+      grid-area: 1 / 2 / 2 / 3; }
+      @media (max-width: 767px) {
+        .nav-bot .grid .input2 {
+          grid-area: 2 / 1 / 3 / 2; } }
+    .nav-bot .grid .input3 {
+      grid-area: 1 / 3 / 2/ 4; }
+      @media (max-width: 767px) {
+        .nav-bot .grid .input3 {
+          grid-area: 3 / 1 / 4 / 2; } }
+    .nav-bot .grid .input4 {
+      grid-area: 2 / 1 / 3 / 3; }
+      @media (max-width: 767px) {
+        .nav-bot .grid .input4 {
+          grid-area: 4 / 1 / 5 / 2; } }
+    .nav-bot .grid .input5 {
+      grid-area: 2 / 3 / 3/ 5; }
+      @media (max-width: 767px) {
+        .nav-bot .grid .input5 {
+          grid-area: 5 / 1 / 6 / 2; } }
+    .nav-bot .grid .grid-button {
+      grid-area: 1 / 4 / 2 / 5; }
+      @media (max-width: 767px) {
+        .nav-bot .grid .grid-button {
+          grid-area: 6 / 1 / 7 / 2; } }
   .nav-bot form {
     width: 100%; }
     .nav-bot form .input-group {
