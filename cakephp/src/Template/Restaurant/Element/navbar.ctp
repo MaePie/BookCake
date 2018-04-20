@@ -40,7 +40,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                         </div>
-                        <input type="date" name="dateRRes" class="form-control" value="<?= date('Y-m-d') ?>">
+                        <input type="text" name="dateRRes" class="form-control hasDatepicker" value="<?= date('Y-m-d') ?>">
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="input-group">
-                        <button type="button" class="btn btn-primary btn-block">Réserver</button>
+                        <button type="button" class="btn btn-block">Réserver</button>
                     </div>
                 </div>
             </div>
