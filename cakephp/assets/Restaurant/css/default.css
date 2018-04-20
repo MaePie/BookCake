@@ -29,6 +29,22 @@ button {
   border: none;
   font-weight: bold; }
 
+h1.title {
+  color: #c52d2f !important;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase; }
+
+h2.header {
+  color: #c52d2f !important;
+  text-transform: uppercase;
+  padding: 1%;
+  width: 60%;
+  text-align: center; }
+
+.text-bold {
+  font-weight: bold; }
+
 #map {
   /*height: 250px*/ }
   @media (max-width: 767px) {
@@ -47,13 +63,13 @@ button {
     margin: 0.5rem 0; } }
 
 .carte {
-  color: #c52d2f;
-  text-align: justify; }
+  color: #c52d2f; }
 
 .carte-title {
   color: #c52d2f;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  text-style: underline; }
 
 .carte-content {
   width: 100%; }
@@ -69,12 +85,14 @@ button {
 
 .carte-body {
   color: #888; }
-  .carte-body .item-text {
-    font-weight: bold; }
-  .carte-body p.text-right {
-    font-weight: bold; }
+  .carte-body p.item-text, .carte-body p.text-right {
+    font-weight: bold;
+    margin-bottom: 0; }
   .carte-body:hover {
     background-color: #f8f8f8; }
+
+.menu-title {
+  color: #c52d2f; }
 
 small {
   font-style: italic; }

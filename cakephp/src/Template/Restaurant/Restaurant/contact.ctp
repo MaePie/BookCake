@@ -1,9 +1,9 @@
 <section class="container-fluid" id="contact-panel">
     <header>
-        <h3 class="text-center">NOUS CONTACTER</h3>
+        <h1 class="title">Nous contacter</h1>
         <address class="row">
             <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-map-marker"></i>&nbsp;Hôtel Le Deauville, 1 Rue du Bac, 31700 Blagnac</p>
-            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-phone"></i>&nbsp;+336 80 63 16 39</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-phone"></i>&nbsp;+33 6 80 63 16 39</p>
             <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-at"></i>&nbsp;mpbookcake@gmail.com</p>
         </address>
     </header>
@@ -24,21 +24,34 @@
             </script>
         </div>
         <div class="col-xs-12 col-md-5 mb-3" id="formContact">
-            <h4>Message rapide</h4>
+            <h2 class="header">Message rapide</h2>
             <form action="/quickContact"  method="post" id="contact">
-            <div class="row">
-                <div class="form-group required col">
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre mail" name="email" required>
+                <div class="row">
+                    <div class="form-group required col">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre mail" name="email" required>
+                    </div>
+                    <div class="form-group col">
+                        <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom" name="name">
+                    </div>
                 </div>
-                <div class="form-group col">
-                    <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom" name="name">
-                </div>
-            </div>
                 <div class="form-group required">
                     <textarea class="form-control" id="message" placeholder="Entrez votre message ici" name="message"></textarea>
                 </div>
-              <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+              <button type="submit" class="btn btn-block">Envoyer</button>
             </form>
+        </div>
+        <div class="col-xs-12 col-md-8 col-lg-6 mb-3 mt-3">
+            <h2 class="header">Horaires</h2>
+
+            <div class="row">
+                <label class="col-lg-3 text-bold">Lundi:</label><p class="col-lg-9"> 12h - 00h</p>
+                <label class="col-lg-3 text-bold">Mardi:</label><p class="col-lg-9"> 12h - 00h</p>
+                <label class="col-lg-3 text-bold">Mercredi:</label><p class="col-lg-9"> 12h - 00h</p>
+                <label class="col-lg-3 text-bold">Jeudi:</label><p class="col-lg-9"> 12h - 00h</p>
+                <label class="col-lg-3 text-bold">Vendredi:</label><p class="col-lg-9"> 12h - 00h</p>
+                <label class="col-lg-3 text-bold">Samedi:</label><p class="col-lg-9"> 12h - 00h</p>
+                <label class="col-lg-3 text-bold">Dimanche:</label><p class="col-lg-9"> 12h - 00h</p>
+            </div>
         </div>
     </div>
 </section>
