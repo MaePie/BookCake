@@ -103,7 +103,8 @@ function restaurantStyles() {
     return gulp.src([
         paths.restaurant.styles.css.src,
         'node_modules/bootstrap/dist/css/bootstrap.min.css',
-        'node_modules/toastr/build/toastr.min.css'])
+        'node_modules/toastr/build/toastr.min.css',
+        'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'])
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())

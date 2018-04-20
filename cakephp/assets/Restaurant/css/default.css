@@ -26,7 +26,8 @@ img {
 button {
   background-color: wheat;
   color: #555;
-  border: none; }
+  border: none;
+  font-weight: bold; }
 
 #map {
   /*height: 250px*/ }
