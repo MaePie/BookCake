@@ -38,7 +38,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
-                <input type="date" name="dateRRes" class="form-control" value="<?= date('Y-m-d') ?>">
+                <input type="text" name="dateRRes" class="form-control hasDatepicker" value="<?= date('Y-m-d') ?>">
             </div>
             <div class="input-group input2">
                 <div class="input-group-prepend">
@@ -56,7 +56,7 @@
                 <input type="number" name="nbPersonnes" class="form-control" value="2">
             </div>
             <div class="input-group grid-button">
-                <button type="button" class="btn btn-primary btn-block">Réserver</button>
+                <button type="button" class="btn btn-block">Réserver</button>
             </div>
             <div class="input-group input4">
                 <div class="input-group-prepend">
