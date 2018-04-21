@@ -35,7 +35,12 @@ class RestaurantController extends AppController
         $this->set('title', $title);
     }
 
-    public function test(){
-        $this->set('activeMenuButton','POST');
+    public function formAddReservation(){
+        $title = 'Reservation - Au fil de l\'eau';
+        $this->set('title', $title);
+
+        debug($this->request->data);
+
+        die();
     }
 }
