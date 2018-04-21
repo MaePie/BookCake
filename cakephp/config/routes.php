@@ -89,6 +89,7 @@ Router::prefix('restaurant', function ($routes) {
     $routes->connect('/carte', ['controller' => 'Restaurant', 'action' => 'carte']);
     $routes->connect('/galerie', ['controller' => 'Restaurant', 'action' => 'galerie']);
     $routes->connect('/contact', ['controller' => 'Restaurant', 'action' => 'contact']);
+    $routes->connect('/formAddReservation', ['controller' => 'Restaurant', 'action' => 'formAddReservation']);
 });
 
 

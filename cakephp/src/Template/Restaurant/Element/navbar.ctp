@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#"><?= $this->Html->Image('logo.png', ['height' => '94px']) ?></a>
+        <a class="navbar-brand" href="/"><?= $this->Html->Image('logo.png', ['height' => '94px']) ?></a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">
-    <form method="post" id="reservationForm">
+    <form method="post" id="reservationForm" action="formAddReservation">
         <div class="grid">
             <div class="input-group input1">
                 <div class="input-group-prepend">
@@ -56,7 +56,7 @@
                 <input type="number" name="nbPersonnes" class="form-control" value="2">
             </div>
             <div class="input-group grid-button">
-                <button type="button" class="btn btn-block">Réserver</button>
+                <button type="submit" class="btn btn-block">Réserver</button>
             </div>
             <div class="input-group input4">
                 <div class="input-group-prepend">
