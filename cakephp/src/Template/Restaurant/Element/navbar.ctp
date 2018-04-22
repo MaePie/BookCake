@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav mr-auto">
             <?php echo ($this->request['action'] == 'index') ? '<li class="active">' : '<li>' ?>
-                <?= $this->Html->Link('Restaurant', ['controller' => 'restaurant', 'action' => 'index'], ['class' => 'nav-link']) ?>
+                <?= $this->Html->Link('Accueil', ['controller' => 'restaurant', 'action' => 'index'], ['class' => 'nav-link']) ?>
             </li>
             <?php echo ($this->request['action'] == 'carte') ? '<li class="active">' : '<li>' ?>
                 <?= $this->Html->Link('Carte', ['controller' => 'restaurant', 'action' => 'carte'], ['class' => 'nav-link']) ?>
             </li>
             <?php echo ($this->request['action'] == 'galerie') ? '<li class="active">' : '<li>' ?>
-                <?= $this->Html->Link('Galerie', ['controller' => 'restaurant', 'action' => 'galerie'], ['class' => 'nav-link']) ?>
+                <?= $this->Html->Link('Restaurant', ['controller' => 'restaurant', 'action' => 'galerie'], ['class' => 'nav-link']) ?>
             </li>
             <?php echo ($this->request['action'] == 'contact') ? '<li class="active">' : '<li>' ?>
                 <?= $this->Html->Link('Contact', ['controller' => 'restaurant', 'action' => 'contact'], ['class' => 'nav-link']) ?>
@@ -32,7 +32,7 @@
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">
-    <form method="post" id="reservationForm" action="rres/add">
+    <form method="post" id="reservationForm" action="/rres/add">
         <div class="grid">
             <div class="input-group input1">
                 <div class="input-group-prepend">
