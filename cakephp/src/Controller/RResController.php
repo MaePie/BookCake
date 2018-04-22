@@ -21,7 +21,7 @@ class RResController extends AppController
         $prospectsTable = TableRegistry::get('Prospects');
 
         $prospect = $prospectsTable->find()
-                                    ->where(['emailProspect' => $dataP['emailProspect']])
+                                    ->where(['emailProspect' => $dataP['emailProspect']])   
                                     ->first();
 
         if($prospect) {
@@ -36,10 +36,15 @@ class RResController extends AppController
         if (isset($dataR))
         {
             $res = $this->RRes->newEntity($dataR);
-
-            $this->RRes->save($res);
-
-            return $this->redirect(['controller' => 'restaurant', 'action' => 'index']);
+            
+            if ($this->RRes->save($res))
+            {
+                return $this->redirect(['controller' => 'mail', 'action' => 'rres', $res->idRRes]);
+            }
+            else 
+            {
+                return $this->redirect(['controller' => 'restaurant', 'action' => 'index']);
+            }
         }
     }
 

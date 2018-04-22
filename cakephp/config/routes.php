@@ -49,6 +49,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->post('/quickContact', ['controller' => 'Mail', 'action' => 'quickContact']);
     $routes->connect('/prospects/add', ['controller' => 'Prospects', 'action' => 'add']);
     $routes->connect('/rres/add', ['controller' => 'RRes', 'action' => 'add']);
+    $routes->connect('/mail/rres', ['controller' => 'Mail', 'action' => 'rres']);
     /**
      * Connect catchall routes for all controllers.
      *
