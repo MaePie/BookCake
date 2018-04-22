@@ -270,18 +270,21 @@
       <div class="carte-body container-fluid">
         <div class="row ml-3 mb-3">
           <div class="carte-menu col-lg-6 col-md-6">
-            <p>Entrée du jour</p>
-            <p>Assiette de cochonailles</p>
+            <h4 class="menu-title">Entrées</h4>
+            <p class="item-text">Entrée du jour</p>
+            <p class="item-text">Assiette de cochonailles</p>
           </div>
           <div class="carte-menu col-lg-6 col-md-6">
-            <p>Plat du jour</p>
-            <p>Sauté de porc</p>
-            <p>Salade</p>
+            <h4 class="menu-title">Plats</h4>
+            <p class="item-text">Plat du jour</p>
+            <p class="item-text">Sauté de porc</p>
+            <p class="item-text">Salade</p>
           </div>
           <div class="carte-menu col-lg-12 col-md-12">
-            <p>Dessert du jour</p>
-            <p>Crème brulée</p>
-            <p>Gâteau basque</p>
+            <h4 class="menu-title">Desserts</h4>
+            <p class="item-text">Dessert du jour</p>
+            <p class="item-text">Crème brulée</p>
+            <p class="item-text">Gâteau basque</p>
           </div>
         </div>
       </div>
@@ -294,20 +297,20 @@
         <div class="row ml-3 mb-3">
           <div class="carte-menu col-6">
             <h4 class="menu-title">Entrées</h4>
-            <p>Entrée du jour</p>
-            <p>Assiette de cochonailles</p>
+            <p class="item-text">Entrée du jour</p>
+            <p class="item-text">Assiette de cochonailles</p>
           </div>
           <div class="carte-menu col-6">
             <h4 class="menu-title">Plats</h4>
-            <p>Plat du jour</p>
-            <p>Sauté de porc</p>
-            <p>Salade</p>
+            <p class="item-text">Plat du jour</p>
+            <p class="item-text">Sauté de porc</p>
+            <p class="item-text">Salade</p>
           </div>
           <div class="carte-menu col-12">
             <h4 class="menu-title">Desserts</h4>
-            <p>Dessert du jour</p>
-            <p>Crème brulée</p>
-            <p>Gâteau basque</p>
+            <p class="item-text">Dessert du jour</p>
+            <p class="item-text">Crème brulée</p>
+            <p class="item-text">Gâteau basque</p>
           </div>
         </div>
       </div>
