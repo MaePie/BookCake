@@ -47,7 +47,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     
     $routes->redirect('/',['controller' => 'Restaurant', 'action' => 'index']);
     $routes->post('/quickContact', ['controller' => 'Mail', 'action' => 'quickContact']);
-
+    $routes->connect('/prospects/add', ['controller' => 'Prospects', 'action' => 'add']);
+    $routes->connect('/rres/add', ['controller' => 'RRes', 'action' => 'add']);
     /**
      * Connect catchall routes for all controllers.
      *
@@ -89,7 +90,6 @@ Router::prefix('restaurant', function ($routes) {
     $routes->connect('/carte', ['controller' => 'Restaurant', 'action' => 'carte']);
     $routes->connect('/galerie', ['controller' => 'Restaurant', 'action' => 'galerie']);
     $routes->connect('/contact', ['controller' => 'Restaurant', 'action' => 'contact']);
-    $routes->connect('/formAddReservation', ['controller' => 'Restaurant', 'action' => 'formAddReservation']);
 });
 
 
