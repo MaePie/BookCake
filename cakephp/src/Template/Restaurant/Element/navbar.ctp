@@ -14,7 +14,7 @@
                 <?= $this->Html->Link('Carte', ['controller' => 'restaurant', 'action' => 'carte'], ['class' => 'nav-link']) ?>
             </li>
             <?php echo ($this->request['action'] == 'galerie') ? '<li class="active">' : '<li>' ?>
-                <?= $this->Html->Link('Galerie photos', ['controller' => 'restaurant', 'action' => 'galerie'], ['class' => 'nav-link']) ?>
+                <?= $this->Html->Link('Galerie', ['controller' => 'restaurant', 'action' => 'galerie'], ['class' => 'nav-link']) ?>
             </li>
             <?php echo ($this->request['action'] == 'contact') ? '<li class="active">' : '<li>' ?>
                 <?= $this->Html->Link('Contact', ['controller' => 'restaurant', 'action' => 'contact'], ['class' => 'nav-link']) ?>
@@ -32,28 +32,28 @@
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">
-    <form method="post" id="reservationForm" action="formAddReservation">
+    <form method="post" id="reservationForm" action="rres/add">
         <div class="grid">
             <div class="input-group input1">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
-                <input type="text" name="dateRRes" class="form-control hasDatepicker" value="<?= date('Y-m-d') ?>">
+                <input type="text" name="rres[dateRRes]" class="form-control hasDatepicker" value="<?= date('Y-m-d') ?>">
             </div>
             <div class="input-group input2">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-clock"></i></span>
                 </div>
-                <select name="heureRRes" class="form-control">
-                    <option>Déjeuner</option>
-                    <option>Dîner</option>
+                <select name="rres[heureRRes]" class="form-control">
+                    <option value="12:00">Déjeuner</option>
+                    <option value="20:00">Dîner</option>
                 </select>
             </div>
             <div class="input-group input3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-users"></i></span>
                 </div>
-                <input type="number" name="nbPersonnes" class="form-control" value="2">
+                <input type="number" name="rres[nbPersRRes]" class="form-control" value="2">
             </div>
             <div class="input-group grid-button">
                 <button type="submit" class="btn btn-block">Réserver</button>
@@ -62,13 +62,13 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
                 </div>
-                <input type="text" name="name" class="form-control" placeholder="Nom">
+                <input type="text" name="prospects[nomProspect]" class="form-control" placeholder="Nom">
             </div>
             <div class="input-group input5">
                 <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                 </div>
-                <input type="email" name="email" class="form-control" placeholder="Mail">
+                <input type="email" name="prospects[emailProspect]" class="form-control" placeholder="Mail">
             </div>
         </div>
     </form>
