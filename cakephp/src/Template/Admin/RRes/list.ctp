@@ -6,8 +6,6 @@ use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 
-$this->layout = 'default';
-
 $cakeDescription = 'Hotel Réservations Restaurant';
 ?>
 
@@ -28,13 +26,13 @@ $cakeDescription = 'Hotel Réservations Restaurant';
     </thead>
 </table>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function() {
         $('#datatable').DataTable( {
             "ajax": '/rres/JSON'
         } );
     } );
-</script>
+</script> -->
 
 </body>
 </html>

@@ -27,6 +27,8 @@ class RResTable extends Table
 
         $this->belongsTo('Users')
             ->setForeignKey('idUser');
+        $this->belongsTo('Prospects')
+            ->setForeignKey('idProspect');
         $this->belongsTo('RZones')
             ->setForeignKey('idRZone');
         $this->belongsTo('RTables')
@@ -41,7 +43,11 @@ class RResTable extends Table
 
         $validator
             ->integer('idUser')
-            ->notEmpty('idUser');
+            ->allowEmpty('idUser');
+
+        $validator
+            ->integer('idProspect')
+            ->allowEmpty('idProspect');
 
         $validator
             ->integer('idRZone')
@@ -58,6 +64,10 @@ class RResTable extends Table
         $validator
             ->time('heureRRes')
             ->notEmpty('heureRRes');
+
+        $validator
+            ->integer('nbPersRRes')
+            ->allowEmpty('nbPersRRes');
 
         $validator
             ->date('createdRRes')
