@@ -30,6 +30,7 @@
     "uglifyify": "^4.0.5"
   },
   "dependencies": {
-    "bootstrap-datepicker": "^1.8.0"
+    "bootstrap-datepicker": "^1.8.0",
+    "gentelella": "^1.4.0"
   }
 }

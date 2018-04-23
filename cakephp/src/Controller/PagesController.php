@@ -66,24 +66,4 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
-
-    public function restaurant()
-    {
-
-    }
-
-    public function carte()
-    {
-        
-    }
-
-    public function galerie()
-    {
-        
-    }
-
-    public function contact()
-    {
-        
-    }
 }

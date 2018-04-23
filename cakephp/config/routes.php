@@ -47,7 +47,9 @@ Router::scope('/', function (RouteBuilder $routes) {
     
     $routes->redirect('/',['controller' => 'Restaurant', 'action' => 'index']);
     $routes->post('/quickContact', ['controller' => 'Mail', 'action' => 'quickContact']);
-
+    $routes->connect('/prospects/add', ['controller' => 'Prospects', 'action' => 'add']);
+    $routes->connect('/rres/add', ['controller' => 'RRes', 'action' => 'add']);
+    $routes->connect('/mail/rres', ['controller' => 'Mail', 'action' => 'rres']);
     /**
      * Connect catchall routes for all controllers.
      *
@@ -71,8 +73,8 @@ Router::prefix('admin', function ($routes) {
     // All routes here will be prefixed with `/admin`
     // And have the prefix => admin route element added.
     $routes->connect('/', ['controller' => 'admin', 'action' => 'login']);
-    $routes->connect('/rtables', ['controller' => 'rtables', 'action' => 'list']);
     $routes->connect('/users', ['controller' => 'users', 'action' => 'list']);
+    $routes->connect('/rtables', ['controller' => 'rtables', 'action' => 'list']);
     $routes->connect('/rzones', ['controller' => 'rzones', 'action' => 'list']);
     $routes->connect('/rres', ['controller' => 'rres', 'action' => 'list']);
 
@@ -89,7 +91,6 @@ Router::prefix('restaurant', function ($routes) {
     $routes->connect('/carte', ['controller' => 'Restaurant', 'action' => 'carte']);
     $routes->connect('/galerie', ['controller' => 'Restaurant', 'action' => 'galerie']);
     $routes->connect('/contact', ['controller' => 'Restaurant', 'action' => 'contact']);
-    $routes->connect('/formAddReservation', ['controller' => 'Restaurant', 'action' => 'formAddReservation']);
 });
 
 
