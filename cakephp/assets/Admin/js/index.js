@@ -1,5 +1,6 @@
-import {$,jQuery} from 'jquery'
+// import {$,jQuery} from 'jquery'
+import './modules/vendor.js'
 import './modules/bootstrap.js'
 import './modules/datatables.js'
-
-console.log('Coucou')
+import './modules/bootstrap-datepicker.js'
+import './modules/fullcalendar.min.js'
