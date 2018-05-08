@@ -1,4 +1,4 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide row" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1" class=""></li>
@@ -7,7 +7,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <?= $this->Html->image('slider/slide1.png', ['class' => 'first-slide', 'alt' => 'First slide']) ?>
-      <div class="container">
+      <div class="container-fluid">
         <div class="carousel-caption">
           <h1>Un restaurant au bord de la Garonne.</h1>
           <p>Restaurant composé d'une grande salle, d'une belle terrasse et d'un espace grill selon les envies.</p>

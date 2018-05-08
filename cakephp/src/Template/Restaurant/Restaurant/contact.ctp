@@ -55,7 +55,3 @@
         </div>
     </div>
 </section>
-
-<?php $this->start('footer_javascript'); ?>
-
-<?php $this->end(); ?>
