@@ -1,9 +1,7 @@
 import gulp from 'gulp'
 import bro from 'gulp-bro'
 import sass from 'gulp-sass'
-import babel from 'gulp-babel'
 import concat from 'gulp-concat'
-import uglify from 'gulp-uglify'
 import rename from 'gulp-rename'
 import cleanCSS from 'gulp-clean-css'
 import sourcemaps from 'gulp-sourcemaps'
@@ -100,11 +98,7 @@ function restaurantSass() {
 }
 
 function restaurantStyles() {
-    return gulp.src([
-        paths.restaurant.styles.css.src,
-        'node_modules/bootstrap/dist/css/bootstrap.min.css',
-        'node_modules/toastr/build/toastr.min.css',
-        'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'])
+    return gulp.src(paths.restaurant.styles.css.src)
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(concat('restaurant.min.css'))
         .pipe(cleanCSS())
