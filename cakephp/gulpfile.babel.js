@@ -60,11 +60,6 @@ function adminSass() {
 }
 
 function adminStyles() {
-    //TODO find a way to put sass at the end
-    //[
-    //'/src/**/!(foobar)*.js', // all files that end in .js EXCEPT foobar*.js
-    //'/src/js/foobar.js',
-    //]
     return gulp.src([paths.admin.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
         .pipe(concat('admin.min.css'))
         .pipe(cleanCSS())
