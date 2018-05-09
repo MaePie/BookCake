@@ -170,7 +170,8 @@ footer {
 #galerie img {
   width: 100%;
   height: auto;
-  object-fit: cover; }
+  object-fit: cover;
+  padding: 0; }
 
 #galerie header {
   width: 100%; }
@@ -179,7 +180,7 @@ footer {
     color: #c52d2f; }
 
 #galerie > section:nth-child(even) {
-  background: #0b2e13; }
+  background: wheat; }
 
 #map {
   /*height: 250px*/ }
