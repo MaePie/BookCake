@@ -3,6 +3,7 @@ import bro from 'gulp-bro'
 import sass from 'gulp-sass'
 import concat from 'gulp-concat'
 import rename from 'gulp-rename'
+import imagemin from 'gulp-imagemin'
 import cleanCSS from 'gulp-clean-css'
 import sourcemaps from 'gulp-sourcemaps'
 import uglifyify from 'uglifyify'
@@ -39,6 +40,12 @@ const paths = {
             css: {
                 src: 'assets/Restaurant/css/*.css',
                 dest: 'webroot/css/'
+            }
+        },
+        assets: {
+            img: {
+                src: 'assets/Restaurant/img/**',
+                dest: 'webroot/img/'
             }
         }
     },
@@ -118,6 +125,21 @@ function restaurantScripts() {
         .pipe(gulp.dest(paths.restaurant.scripts.dest));
 }
 
+function restaurantImg() {
+    return gulp.src(paths.restaurant.assets.img.src)
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.jpegtran({progressive: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
+        .pipe(gulp.dest(paths.restaurant.assets.img.dest))
+}
 
 function watch() {
     gulp.watch(['assets/Admin/js/', 'assets/Restaurant/js/'], scripts);
@@ -135,13 +157,14 @@ function copyFile() {
 exports.clean = clean
 exports.watch = watch
 exports.restaurantScripts = restaurantScripts
+exports.restaurantImg = restaurantImg
 
 const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
 const scripts = gulp.parallel(restaurantScripts, adminScripts)
 
 const admin = gulp.series(adminSass, gulp.parallel(adminStyles, adminScripts))
 const restaurant = gulp.series(restaurantSass, gulp.parallel(restaurantStyles, restaurantScripts))
-const build = gulp.series(clean, gulp.parallel(admin, restaurant), copyFile);
+const build = gulp.series(clean, gulp.parallel(admin, restaurant), restaurantImg, copyFile);
 
 /*
  * Define default task that can be called by just running `gulp` from cli
