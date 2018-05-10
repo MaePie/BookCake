@@ -25,10 +25,18 @@ class AdministrateursController extends AppController
 
                 $this->Flash->success(__('Vous êtes connecté.'));
 
+                if ($this->Auth->redirectUrl() == '/')
+                    return $this->redirect(['controller' => 'pages', 'action' => 'home']);
+                
                 return $this->redirect($this->Auth->redirectUrl());
             }
             else $this->Flash->error(__('Votre identifiant ou votre mot de passe est incorrect.'));
         }
+    }
+
+    public function logout() {
+        $this->Flash->success('Vous avez été déconnecté.');
+        return $this->redirect($this->Auth->logout());
     }
 
     public function add() {
