@@ -25,6 +25,12 @@ const paths = {
                 src: 'assets/Admin/css/*.css',
                 dest: 'webroot/css/'
             }
+        },
+        assets: {
+            img: {
+                src: 'assets/Admin/img/**',
+                dest: 'webroot/img/'
+            }
         }
     },
     restaurant: {
@@ -88,6 +94,22 @@ function adminScripts() {
         }))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(paths.admin.scripts.dest));
+}
+
+function adminImg() {
+    return gulp.src(paths.admin.assets.img.src)
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.jpegtran({progressive: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
+        .pipe(gulp.dest(paths.admin.assets.img.dest))
 }
 
 /* Restaurant part */
@@ -162,9 +184,9 @@ exports.restaurantImg = restaurantImg
 const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
 const scripts = gulp.parallel(restaurantScripts, adminScripts)
 
-const admin = gulp.series(adminSass, gulp.parallel(adminStyles, adminScripts))
-const restaurant = gulp.series(restaurantSass, gulp.parallel(restaurantStyles, restaurantScripts))
-const build = gulp.series(clean, gulp.parallel(admin, restaurant), restaurantImg, copyFile);
+const admin = gulp.series(adminSass, gulp.parallel(adminStyles, adminScripts, adminImg))
+const restaurant = gulp.series(restaurantSass, gulp.parallel(restaurantStyles, restaurantScripts, restaurantImg))
+const build = gulp.series(clean, gulp.parallel(admin, restaurant), copyFile);
 
 /*
  * Define default task that can be called by just running `gulp` from cli
