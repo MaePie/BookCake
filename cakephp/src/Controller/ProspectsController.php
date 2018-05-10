@@ -25,7 +25,7 @@ class ProspectsController extends AppController
         debug($prospect);
         $this->Prospects->save($prospect);
         
-        return $this->redirect(['controller' => 'restaurant', 'action' => 'index'])
+        return $this->redirect(['controller' => 'restaurant', 'action' => 'index']);
     }
 
 }

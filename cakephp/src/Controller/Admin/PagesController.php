@@ -67,4 +67,9 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+    public function home() {
+        $title = 'Admin - Home';
+        $this->set('title', $title);
+    }
 }
