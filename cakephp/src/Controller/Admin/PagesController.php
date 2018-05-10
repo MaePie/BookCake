@@ -68,7 +68,7 @@ class PagesController extends AppController
         }
     }
 
-    public function home() {
+    public function index() {
         $title = 'Admin - Home';
         $this->set('title', $title);
     }

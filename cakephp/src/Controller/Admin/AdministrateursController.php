@@ -26,7 +26,7 @@ class AdministrateursController extends AppController
                 $this->Flash->success(__('Vous êtes connecté.'));
 
                 if ($this->Auth->redirectUrl() == '/')
-                    return $this->redirect(['controller' => 'pages', 'action' => 'home']);
+                    return $this->redirect(['controller' => 'pages', 'action' => 'index']);
                 
                 return $this->redirect($this->Auth->redirectUrl());
             }

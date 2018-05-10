@@ -3,13 +3,7 @@
         <div class="menu_section">
             <h3>Restaurant</h3>
             <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="/pages/index">Dashboard</a></li>
-                        <li><a href="/pages/index2">Dashboard2</a></li>
-                        <li><a href="/pages/index3">Dashboard3</a></li>
-                    </ul>
-                </li>
+                <li><a href="/admin/pages/index"><i class="fa fa-home"></i> Home</a></li>
                 <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><?= $this->Html->Link('Liste Users', ['controller' => 'prospects', 'action' => 'list']) ?></li>
