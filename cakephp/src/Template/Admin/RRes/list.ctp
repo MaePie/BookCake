@@ -5,8 +5,6 @@ use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
-
-$cakeDescription = 'Hotel Réservations Restaurant';
 ?>
 
 
@@ -17,22 +15,37 @@ $cakeDescription = 'Hotel Réservations Restaurant';
 <table id="datatable" class="table margin-top table-striped table-hover table-bordered">
     <thead>
         <th>ID</th>
-        <th>User</th>
-        <th>Zone</th>
-        <th>Table</th>
+        <th>Nom</th>
+        <th>Mail</th>
         <th>Date</th>
         <th>Heure</th>
         <th>Actions</th>
     </thead>
+    <tbody>
+        <?php foreach($ress as $res) : ?> 
+            <tr>
+                <td><?= $res->idRRes ?></td>
+                <td>
+                    <?php 
+                        if ($res->prospect) echo $res->prospect['nomProspect'];
+                        if ($res->user) echo $res->user['nomUser'] . ' ' . $res->user['prenomUser'];
+                    ?>
+                </td>
+                <td>
+                    <?php 
+                        if ($res->prospect) echo $res->prospect['emailProspect'];
+                        if ($res->user) echo $res->user['emailUser'];
+                    ?>
+                </td>
+                <td><?= $res->dateRRes->format('d / m / Y') ?></td>
+                <td><?= $res->heureRRes->format('H:i') ?></td>
+                <td>
+                    <?= $this->Html->Link('Voir', ['controller' => 'rres', 'action' => 'view', $res->idRRes]) ?> - <?= $this->Html->Link('Modifier', ['controller' => 'rres', 'action' => 'edit', $res->idRRes]) ?> - <?= $this->Html->Link('Supprimer', ['controller' => 'rres', 'action' => 'delete', $res->idRRes]) ?>                    
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
 </table>
-
-<!-- <script type="text/javascript">
-    $(document).ready(function() {
-        $('#datatable').DataTable( {
-            "ajax": '/rres/JSON'
-        } );
-    } );
-</script> -->
 
 </body>
 </html>

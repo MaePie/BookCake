@@ -37,6 +37,7 @@ class AppController extends Controller
      *
      * @return void
      */
+
     public function initialize()
     {
         parent::initialize();
@@ -44,7 +45,20 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
-        //$this->Auth->config('authenticate', ['Form']);
+        $this->loadComponent('Auth', [
+            'loginAction' => [
+                'controller' => 'Administrateurs',
+                'action' => 'login'
+            ],
+            'authError' => 'Did you really think you are allowed to see that?',
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'emailAdmin', 'password' => 'passwordAdmin'],
+                    'userModel' => 'Administrateurs'
+                ]
+            ],
+            'storage' => 'Session'
+        ]);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
