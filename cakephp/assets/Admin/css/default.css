@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-body {
-  background: red; }
+.mt-3 {
+  margin-top: 3%; }
 
-p {
-  background: #f5f8fa; }
+.input.form-control {
+  border-radius: 10px; }
+
+.input.button {
+  padding: 0;
+  border: 0; }

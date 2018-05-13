@@ -1,10 +1,10 @@
 <section class="container-fluid" id="contact-panel">
-    <header>
+    <header class="mb-3">
         <h1 class="title">Nous contacter</h1>
         <address class="row">
             <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-map-marker"></i>&nbsp;Hôtel Le Deauville, 1 Rue du Bac, 31700 Blagnac</p>
-            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-phone"></i>&nbsp;+33 6 80 63 16 39</p>
-            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-at"></i>&nbsp;mpbookcake@gmail.com</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-phone"></i>&nbsp;+33 5 xx xx xx xx</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-at"></i>&nbsp;restaurant@aufildeleau.com</p>
         </address>
     </header>
     <div class="row">
