@@ -19,6 +19,7 @@
 
 
 $('.hasDatepicker').datepicker({
+	todayBtn: true,
     startDate: "today",
     autoclose: true,	
     language: "fr",
