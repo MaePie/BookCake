@@ -1,4 +1,3 @@
-// import {$,jQuery} from 'jquery'
 import './modules/vendor.js'
 import './modules/bootstrap.js'
 import './modules/datatables.js'

@@ -1,1 +1,29 @@
-mysql
+# CakePHP specific files #
+##########################
+cakephp/config/app.php
+cakephp/config/.env
+cakephp/logs/*
+cakephp/tmp/*
+cakephp/vendor/*
+cakephp/webroot/*
+default.css.map
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Tool specific files #
+#######################
+node_modules/
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+.idea/*
+# Sass preprocessor
+.sass-cache/
+mysql/
