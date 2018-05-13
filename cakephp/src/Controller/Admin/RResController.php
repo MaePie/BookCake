@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller\Admin;
 
-use App\Controller\AppController;
+use App\Controller\Admin\AppController;
 use Cake\Validation\Validator;
 
 class RResController extends AppController
@@ -14,15 +14,24 @@ class RResController extends AppController
 
     public function list()
     {
-        $ress = $this->Rres->find();
+        $title = 'Admin Réservations';
+        $this->set('title', $title);
+
+        $ress = $this->Rres->find()
+                            // ->where(['dateRRes >=' => date('Y-m-d')])
+                            ->contain(['Users'])
+                            ->contain(['Prospects'])
+                            ->contain(['RZones'])
+                            ->contain(['RTables'])
+                            ->order('dateRRes, heureRRes');
 
         $this->set('ress', $ress);
     }
 
     public function add()
     {
-        $users = $this->Rres->Users->find('list');
-        $this->set('users', $users);
+        $title = 'Admin Add Réservation';
+        $this->set('title', $title);
 
         $zones = $this->Rres->Rzones->find('list');
         $this->set('zones', $zones);
@@ -30,13 +39,11 @@ class RResController extends AppController
         $tables = $this->Rres->Rtables->find('list');
         $this->set('tables', $tables);
 
-        $data = $this->request->data;
-
         if ($this->request->is('post'))
         {
             $res = $this->Rres->newEntity();
 
-            $res = $this->Rres->patchEntity($res, $data);
+            $res = $this->Rres->patchEntity($res, $this->request->data);
 
             $this->Rres->save($res);
 
@@ -50,62 +57,46 @@ class RResController extends AppController
             }
         }
     }
-    
-    /*
-    public function JSON()
-    {
-        $ress = $this->Rres->find()
-                            ->contain(['Users'])
-                            ->contain(['RZones'])
-                            ->contain(['RTables']);
-
-        $i = 0;
-
-        echo "{\"data\": [";
-        foreach ($ress as $res)
-        {
-          if($i != 0) echo ",";
-          echo "[\"". $res->idRRes ."\",";
-          echo "\"". $res->user->nomUser ." ". $res->user->prenomUser ."\",";
-          echo "\"". $res->r_zone->nomRZone ."\",";
-          echo "\"". $res->r_table->nomRTable ."\",";
-          echo "\"". $res->dateRRes ."\",";
-          echo "\"". $res->heureRRes ."\",";
-          echo "\"<a href='view/". $res->idRRes ."'>View </a><a href='edit/". $res->idRRes ."'>Edit </a><a href='delete/". $res->idRRes ."'>Delete</a>\"]";
-          $i++;
-        }
-        echo "]}";
-
-        die();
-    }
-    */
 
     public function view($id = null)
     {
-        $res = $this->Rres->find()
+        $title = 'Admin Réservation ' . $id;
+        $this->set('title', $title);
+
+        $rres = $this->Rres->find()
                             ->where(['idRRes' => $id])
+                            ->contain(['Users'])
+                            ->contain(['Prospects'])
                             ->contain(['RZones'])
+                            ->contain(['RTables'])
                             ->first();
 
-        $this->set('res', $res);
+        $this->set('rres', $rres);
     }
 
     public function edit($id = null)
     {
-        $table = $this->Rtables->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $table = $this->Rtables->patchEntity($table, $this->request->getData());
-            if ($this->Rtables->save($table)) {
+        $title = 'Admin Edit Réservation ' . $id;
+        $this->set('title', $title);
+
+        $res = $this->Rres->find()
+                            ->where(['idRRes' => $id])
+                            ->contain(['Users'])
+                            ->contain(['Prospects'])
+                            ->contain(['RZones'])
+                            ->contain(['RTables'])
+                            ->first();
+
+        if ($this->request->is('post')) {
+            $res = $this->Rres->patchEntity($res, $this->request->data);
+            if ($this->Rres->save($res)) {
                 $this->Flash->success(__('The table has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view', $id]);
             }
             $this->Flash->error(__('The table could not be saved. Please, try again.'));
         }
-        $this->set(compact('table'));
-        $this->set('_serialize', ['table']);
+        $this->set('res', $res);
     }
 
     public function delete($id = null)
@@ -118,7 +109,7 @@ class RResController extends AppController
             $this->Flash->error(__('The table could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'list']);
     }
 
     public function reservationForm()

@@ -1,31 +1,49 @@
-<?php
-    $this->layout = 'default';
-?>
-
 <div class="container">
     <div class="row">
-        <h3><?= __($table->nomRTable) ?></h3>
+        <h3>Réservation <?= $rres['idRRes'] ?></h3>
 
         <table class="table table-striped table-hover table-bordered">
             <tr>
                 <th scope="row"><?= __('ID') ?></th>
-                <td><?= $this->Number->format($table->idRTable) ?></td>
+                <td><?= $rres['idRRes'] ?></td>
             </tr>
             <tr>
+                <th scope="row"><?= __('Date') ?></th>
+                <td><?= $rres['dateRRes']->format('d / m / Y') ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Heure') ?></th>
+                <td><?= $rres['heureRRes']->format('H:i') ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('User') ?></th>
+                <td>
+                    <?php if($rres->user['nomUser']) echo $rres->user['nomUser'] ?>
+                    <?php if($rres->prospect['nomProspect']) echo $rres->prospect['nomProspect'] ?>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('User mail') ?></th>
+                <td>
+                    <?php if($rres->user['emailUser']) echo $rres->user['emailUser'] ?>
+                    <?php if($rres->prospect['emailProspect']) echo $rres->prospect['emailProspect'] ?>
+                </td>
+            </tr>
+            <!-- <tr>
                 <th scope="row"><?= __('Zone') ?></th>
-                <td><?= $table->r_zone->nomRZone ?></td>
+                <td><?php if ($rres->r_zone) echo $rres->r_zone['nomZone'] ?></td>
             </tr>
             <tr>
-                <th scope="row"><?= __('Nom') ?></th>
-                <td><?= $table->nomRTable ?></td>
-            </tr>
+                <th scope="row"><?= __('Table') ?></th>
+                <td><?php if ($rres->r_table) echo $rres->r_table['nomTable'] ?></td>
+            </tr> -->
             <tr>
                 <th scope="row"><?= __('Date de création') ?></th>
-                <td><?= date('d / m / Y H:i:s', strtotime($table['createdRTable'])) ?></td>
+                <td><?= $rres['createdRRes']->format('d / m / Y H:i') ?></td>
             </tr>
             <tr>
                 <th scope="row"><?= __('Date de modification') ?></th>
-                <td><?= date('d / m / Y H:i:s', strtotime($table['modifiedRTable'])) ?></td>
+                <td><?= $rres['modifiedRRes']->format('d / m / Y H:i') ?></td>
             </tr>
         </table>
     </div>

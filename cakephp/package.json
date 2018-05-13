@@ -35,5 +35,9 @@
         "toastr": "^2.1.4",
         "uglifyify": "^4.0.5"
     },
-    "dependencies": {}
+  "dependencies": {
+    "bootstrap-datepicker": "^1.8.0",
+    "fullcalendar": "^3.9.0",
+    "gentelella": "^1.4.0"
+  }
 }
