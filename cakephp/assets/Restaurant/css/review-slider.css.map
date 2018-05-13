@@ -1,0 +1,1 @@
+{"version":3,"file":"review-slider.css","sources":["review-slider.sass"],"sourcesContent":[".glide__arrow--right {\n    right: -70px; }\n.glide__arrow--left {\n    left: -70px; }\n"],"names":[],"mappings":"AAAA,AAAA,oBAAoB,CAAC;EACjB,KAAK,EAAE,KAAK,GAAG;;AACnB,AAAA,mBAAmB,CAAC;EAChB,IAAI,EAAE,KAAK,GAAG"}

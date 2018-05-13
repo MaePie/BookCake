@@ -347,4 +347,10 @@ footer {
 small {
   font-style: italic; }
 
+.glide__arrow--right {
+  right: -70px; }
+
+.glide__arrow--left {
+  left: -70px; }
+
 /*# sourceMappingURL=default.css.map */
