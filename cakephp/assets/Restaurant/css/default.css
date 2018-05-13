@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Great+Vibes|Norican|Sail");
 @import url(../../../node_modules/bootstrap/dist/css/bootstrap.min.css);
 @import url(../../../node_modules/toastr/build/toastr.min.css);
 @import url(../../../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css);
@@ -347,10 +349,20 @@ footer {
 small {
   font-style: italic; }
 
-.glide__arrow--right {
-  right: -70px; }
+.review-slider {
+  text-align: center; }
+  .review-slider h3 {
+    font-family: Great Vibes,sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: none;
+    color: #000; }
 
-.glide__arrow--left {
-  left: -70px; }
+.glide {
+  text-align: center; }
+  .glide__arrow--right {
+    right: -70px; }
+  .glide__arrow--left {
+    left: -70px; }
 
 /*# sourceMappingURL=default.css.map */
