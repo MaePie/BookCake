@@ -390,7 +390,10 @@ small {
     font-weight: 900;
     margin: 1rem; }
     .review-slider__author-sub {
-      color: darkgrey; }
+      color: darkgrey;
+      font-weight: 900; }
+      .review-slider__author-sub a {
+        color: wheat; }
 
 .glide {
   text-align: center; }
