@@ -27,7 +27,7 @@ img {
   color: red; }
 
 button {
-  background-color: wheat;
+  background-color: #f5deb3;
   color: #555;
   border: none;
   font-weight: bold; }
@@ -48,6 +48,9 @@ h2 {
 .text-bold {
   font-weight: bold; }
 
+a {
+  color: #f5deb3; }
+
 nav {
   padding: 1rem 1em; }
 
@@ -64,7 +67,7 @@ nav {
 
 .navbar li.active {
   color: #888;
-  border-top: 4px solid wheat;
+  border-top: 4px solid #f5deb3;
   background-color: #f8f8f8; }
 
 .navbar-nav {
@@ -75,6 +78,9 @@ nav {
 
 .navbar-right span {
   color: #888; }
+
+table.table-condensed {
+  width: 315px; }
 
 .nav-bot {
   height: 138px;
@@ -142,14 +148,16 @@ nav {
     .nav-bot form .input-group {
       margin: 0.25rem 0; }
       .nav-bot form .input-group .input-group-text {
-        background-color: wheat;
+        background-color: #f5deb3;
         border: none; }
     .nav-bot form .hideForm {
       display: none; }
+  .nav-bot span.input-group-text {
+    width: 47px; }
 
 footer {
   padding: 2rem 0;
-  background: #f7ce5b;
+  background: #aa9a88;
   color: #f7f1e3; }
   footer a {
     color: #f7f1e3; }
@@ -167,6 +175,16 @@ footer {
     max-width: 3.5rem;
     fill: #fff; }
 
+#myCarousel a {
+  color: #f5deb3; }
+  #myCarousel afocus {
+    box-shadow: 0 0 0 0.2rem wheat; }
+
+#myCarousel .carousel-caption {
+  color: #555;
+  background-color: #fff;
+  text-align: left; }
+
 #galerie img {
   width: 100%;
   height: auto;
@@ -180,7 +198,7 @@ footer {
     color: #c52d2f; }
 
 #galerie > section:nth-child(even) {
-  background: wheat; }
+  background: #f5deb3; }
 
 #map {
   /*height: 250px*/ }

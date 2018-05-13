@@ -66,7 +66,7 @@
             </div>
             <div class="input-group input5">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
+                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                 </div>
                 <input type="email" name="prospects[emailProspect]" class="form-control" placeholder="Mail">
             </div>
