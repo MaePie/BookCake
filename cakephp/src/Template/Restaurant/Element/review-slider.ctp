@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container review-slider">
     <header>
         <h3>Retour de nos clients</h3>
     </header>
