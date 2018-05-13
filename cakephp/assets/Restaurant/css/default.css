@@ -198,10 +198,8 @@ table.table-condensed {
   width: 315px; }
 
 .nav-bot {
-  height: 138px;
   background-color: #f8f8f8;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05) inset, 0 -5px 15px 0 rgba(0, 0, 0, 0.05) inset;
-  padding: 2rem 0; }
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05) inset, 0 -5px 15px 0 rgba(0, 0, 0, 0.05) inset; }
   @media (max-width: 767px) {
     .nav-bot {
       display: none !important;
@@ -398,7 +396,8 @@ small {
 .glide {
   text-align: center; }
   .glide__arrow {
-    background: wheat; }
+    background: wheat;
+    top: 4rem; }
   .glide__arrow--right {
     right: -70px; }
   .glide__arrow--left {
@@ -416,5 +415,34 @@ small {
 
 .carousel {
   margin-bottom: 0; }
+
+.preview-services {
+  background-image: url("/img/placeholder/beverages-brunch-cocktail-5317.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 167.5px); }
+  .preview-services h3 {
+    text-align: center;
+    font-size: 4rem;
+    color: #fff; }
+  .preview-services__card {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    .preview-services__card h4 {
+      font-size: 2rem; }
+    .preview-services__card .rounded-circle {
+      width: 100px;
+      margin: auto;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: wheat;
+      border: 2px solid; }
+      .preview-services__card .rounded-circle svg {
+        font-size: 2.5rem; }
 
 /*# sourceMappingURL=default.css.map */
