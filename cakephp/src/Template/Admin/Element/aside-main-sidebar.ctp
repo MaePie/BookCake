@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="<?= $this->Url->build('/')?>" class="site_title"><span><?php echo isset($theme['title']) ? $theme['title'] : 'Au fil de l\'eau'; ?></span></a>
+            <a href="<?= $this->Url->build('/admin')?>" class="site_title"><span><?php echo isset($theme['title']) ? $theme['title'] : 'Au fil de l\'eau'; ?></span></a>
         </div>
 
         <div class="clearfix"></div>

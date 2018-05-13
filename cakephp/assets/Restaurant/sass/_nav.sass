@@ -14,7 +14,7 @@ nav
                 padding-top: calc(0.5rem + 4px)
         &.active
         	color: #888
-        	border-top: 4px solid wheat
+        	border-top: 4px solid $primary
         	background-color: #f8f8f8
 
 .navbar-nav
@@ -26,6 +26,9 @@ nav
 .navbar-right
     span
         color: #888
+
+table.table-condensed
+    width: 315px
 
 .nav-bot
     height: 138px
@@ -84,7 +87,9 @@ nav
         .input-group
             margin: 0.25rem 0
             .input-group-text
-            	background-color: wheat
+            	background-color: $primary
             	border: none
         .hideForm
             display: none
+    span.input-group-text
+        width: 47px
