@@ -32,17 +32,23 @@ class MailController extends AppController
 
     public function quickContact()
     {
+        $data = $this->request->data;
+
         //TODO Faire vérification
         $email = new Email();
         $email
             ->template('welcome', 'fancy')
             ->emailFormat('html')
+            ->subject('Contact client | Au fil de l\'eau')
             ->to('mauerpierre@gmail.com')
-            ->from('mauerpierre@gmail.com')
+            ->from($data['email'])
+            ->viewVars(['data' => $data])
             ->send();
 
         $result = ['success' => 'success'];
         $this->json($result);
+
+
     }
 
 

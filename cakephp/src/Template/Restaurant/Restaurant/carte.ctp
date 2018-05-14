@@ -1,5 +1,5 @@
 <div class="carte container-fluid">
-    <h1 class="carte-title mb-3 mt-3">A la Carte</h1>
+    <h1 class="carte-title title mb-3 mt-3">A la Carte</h1>
     <div class="row">
         <div class="col">
             <div class="carte-content">

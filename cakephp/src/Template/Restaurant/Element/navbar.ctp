@@ -24,10 +24,10 @@
     <div class="navbar-right">
         <div class="row">
             <div class="col-12">
-                <span class="text"><i class="fa fa-phone"></i> +33 5 xx xx xx xx </span>
+                <span class="text"><i class="fa fa-phone"></i> +33 6 40 68 42 81 </span>
             </div>
             <div class="col-12">
-                <span class="text"><i class="fa fa-envelope"></i> contact@restaurant-aufildeleau.com</span>
+                <span class="text"><i class="fa fa-envelope"></i> client@restaurant-aufildeleau.com</span>
             </div>
     </div>
 </nav>
