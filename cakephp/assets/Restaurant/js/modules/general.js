@@ -1,5 +1,5 @@
 $(document).ready(function () {
   setTimeout(function () {
       $('#flash').hide();
-  }, 6);
+  }, 6000);
 });
