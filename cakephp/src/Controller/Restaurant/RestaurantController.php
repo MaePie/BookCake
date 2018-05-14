@@ -18,6 +18,7 @@ class RestaurantController extends AppController
     public function index() {
         $title = 'Au fil de l\'eau';
         $this->set('title', $title);
+        $this->Flash->success('Test');
     }
 
     public function carte() {

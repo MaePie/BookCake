@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="row align-items-center justify-content-center">
-            <p>© 2018 Au fil de l'eau Restaurant | Created by MaePie</p>
+            <p>© 2018 Au fil de l'eau Restaurant</p>
         </div>
 
     </div>

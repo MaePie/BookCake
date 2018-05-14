@@ -26,6 +26,7 @@ class MailController extends AppController
             ->viewVars(['res' => $res])
             ->send();
 
+        $this->Flash->success('Votre demande de réservation a bien été prise en compte. Un email vous a été envoyé.');
         return $this->redirect(['controller' => 'restaurant', 'action' => 'index']);
     }
 
@@ -37,7 +38,7 @@ class MailController extends AppController
             ->template('welcome', 'fancy')
             ->emailFormat('html')
             ->to('mauerpierre@gmail.com')
-            ->from('mpbookcake@gmail.com')
+            ->from('mauerpierre@gmail.com')
             ->send();
 
         $result = ['success' => 'success'];

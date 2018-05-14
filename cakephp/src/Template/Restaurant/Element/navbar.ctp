@@ -24,10 +24,10 @@
     <div class="navbar-right">
         <div class="row">
             <div class="col-12">
-                <span class="text"><i class="fa fa-phone"></i> +33 6 80 63 16 39 </span>
+                <span class="text"><i class="fa fa-phone"></i> +33 5 xx xx xx xx </span>
             </div>
             <div class="col-12">
-                <span class="text"><i class="fa fa-envelope"></i> restaurant@aufildeleau.com</span>
+                <span class="text"><i class="fa fa-envelope"></i> contact@restaurant-aufildeleau.com</span>
             </div>
     </div>
 </nav>
@@ -38,16 +38,13 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
-                <input type="text" name="rres[dateRRes]" class="form-control hasDatepicker" value="<?= date('Y-m-d') ?>">
+                <input id="dateRRes" type="text" name="rres[dateRRes]" class="form-control hasDatepicker" value="<?= date('d/m/Y') ?>">
             </div>
             <div class="input-group input2">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-clock"></i></span>
                 </div>
-                <select name="rres[heureRRes]" class="form-control">
-                    <option value="12:00">Déjeuner</option>
-                    <option value="20:00">Dîner</option>
-                </select>
+                <input type="time" name="rres[heureRRes]" class="form-control" alt="Heure" value="20:00">
             </div>
             <div class="input-group input3">
                 <div class="input-group-prepend">
