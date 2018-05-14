@@ -19,6 +19,7 @@ class RRRes extends Entity
         'dateRRes' => true,
         'heureRRes' => true,
         'nbPersRRes' => true,
+        'statutRRes' => true,
         'createdRRes' => true,
         'modifiedRRes' => true
     ];
