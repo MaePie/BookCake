@@ -178,8 +178,6 @@ function copyFile() {
 
 exports.clean = clean
 exports.watch = watch
-exports.restaurantScripts = restaurantScripts
-exports.restaurantImg = restaurantImg
 
 const styles = gulp.parallel(gulp.series(adminSass, adminStyles), gulp.series(restaurantSass, restaurantStyles))
 const scripts = gulp.parallel(restaurantScripts, adminScripts)
