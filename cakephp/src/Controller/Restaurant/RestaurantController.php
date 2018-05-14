@@ -21,17 +21,17 @@ class RestaurantController extends AppController
     }
 
     public function carte() {
-        $title = 'Carte - Au fil de l\'eau';
+        $title = 'Carte | Au fil de l\'eau';
         $this->set('title', $title);
     }
 
     public function contact() {
-        $title = 'Contact - Au fil de l\'eau';
+        $title = 'Contact | Au fil de l\'eau';
         $this->set('title', $title);
     }
 
     public function galerie() {
-        $title = 'Galerie - Au fil de l\'eau';
+        $title = 'Galerie | Au fil de l\'eau';
         $this->set('title', $title);
     }
 }

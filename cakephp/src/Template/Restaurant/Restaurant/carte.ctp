@@ -1,5 +1,5 @@
 <div class="carte container-fluid">
-    <h1 class="carte-title mb-3 mt-3">A la Carte</h1>
+    <h1 class="carte-title title mb-3 mt-3">A la Carte</h1>
     <div class="row">
         <div class="col">
             <div class="carte-content">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="carte-body container-fluid">
                     <div class="row ml-3 mb-3">
-                        <p class="item-text col-lg-10 col-md-8">Oeufs en brioche/p>
+                        <p class="item-text col-lg-10 col-md-8">Oeufs en brioche</p>
                         <p class="text-right col-lg-2 col-md-4">10 €</p>
                     </div>
                 </div>

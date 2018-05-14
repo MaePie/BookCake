@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?= $this->Html->css('restaurant.min') ?>
 </head>
 <body>
 	<h1>Au fil de l'eau</h1>
 
-	<h2>Bonjour,</h2>
-	<p>Merci d'avoir réservé au restaurant <em>Au fil de l'eau</em></p>
-	<p>Le <?= date('d / m / Y', strtotime($res['dateRRes'])) ?> à <?= date('H:i', strtotime($res['heureRRes'])) ?> pour <?= $res['nbPersRRes'] ?> personnes</p>
+	<p>Bonjour,</p><br/>
+	<p>Votre réservation a bien été prise en compte.</p>
+	<p>Nous vous enverrons une confirmation dans les meilleurs délais.</p>
 
+	<br/>
+	<p>Détail réservation : </p>
+	<p>Date :  <?= date('d / m / Y', strtotime($res['dateRRes'])) ?> </p>
+	<p>Heure : <?= date('H:i', strtotime($res['heureRRes'])) ?> </p>
+	<p>Nombre de personnes : <?= $res['nbPersRRes'] ?> </p>
+
+	<p>Merci d'avoir réservé au restaurant <em>Au fil de l'eau</em></p>
 	<p>A bientôt,</p>
-	<p>Au fil de l'eau</p>
+
+	<?= $this->Html->image('logo.png') ?>
 </body>
 <footer>
 </footer>

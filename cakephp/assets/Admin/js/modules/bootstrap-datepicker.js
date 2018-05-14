@@ -6,7 +6,7 @@
 	$.fn.datepicker.dates['fr'] = {
 		days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
 		daysShort: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
-		daysMin: ["di", "lu", "ma", "me", "je", "ve", "sa"],
+		daysMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"],
 		months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
 		monthsShort: ["janv.", "févr.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
 		today: "Aujourd'hui",
@@ -19,6 +19,7 @@
 
 
 $('.hasDatepicker').datepicker({
+	todayBtn: true,
     startDate: "today",
     autoclose: true,	
     language: "fr",

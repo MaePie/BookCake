@@ -1,7 +1,7 @@
 #galerie
     img
         width: 100%
-        height: auto
+        max-height: 500px
         object-fit: cover
         padding: 0
     header
@@ -9,5 +9,5 @@
         h2
             width: 100%
             color: $secondary
-    > section:nth-child(even)
+    > section:nth-child(odd)
         background: $primary

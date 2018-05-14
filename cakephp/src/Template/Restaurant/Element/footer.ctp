@@ -8,13 +8,13 @@
             <div class="col-xs-12 col-sm-3">
                 <h3>Horaires</h3>
                 <ul>
-                    <li>Lundi : 12h - 00h
-                    <li>Mardi : 12h - 00h
-                    <li>Mercredi : 12h - 00h
-                    <li>Jeudi : 12h - 00h
-                    <li>Vendredi : 12h - 00h
-                    <li>Samedi : 12h - 00h
-                    <li>Dimanche : 12h - 00h
+                    <li>Lundi : 11h - 22h30
+                    <li>Mardi : 11h - 22h30
+                    <li>Mercredi : 11h - 22h30
+                    <li>Jeudi : 11h - 22h30
+                    <li>Vendredi : 11h - 22h30
+                    <li>Samedi : 11h - 22h30
+                    <li>Dimanche : 11h - 15h
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6">
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="row align-items-center justify-content-center">
-            <p>© 2018 Au fil de l'eau Restaurant | Created by MaePie</p>
+            <p>© 2018 Au fil de l'eau Restaurant</p>
         </div>
 
     </div>

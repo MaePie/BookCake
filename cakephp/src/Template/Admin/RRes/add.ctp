@@ -12,7 +12,7 @@ use Cake\Network\Exception\NotFoundException;
 <?= $this->Form->create('RRes', ['class' => 'form-group col-lg-6']) ?>
 <!-- <?= $this->Form->control('idRZone', ['label' => 'Zone', 'type' => 'select', 'options' => $zones, 'class' => 'form-control']) ?>
 <?= $this->Form->control('idRTable', ['label' => 'Table', 'type' => 'select', 'options' => $tables, 'class' => 'form-control']) ?> -->
-<div class="input-group date" data-provide="datepicker">
+<div class="input-group date" data-provide>
     <div class="input-group-addon">
         <span class="glyphicon glyphicon-th"></span>
     </div>

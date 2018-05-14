@@ -70,6 +70,10 @@ class RResTable extends Table
             ->allowEmpty('nbPersRRes');
 
         $validator
+            ->integer('statutRRes')
+            ->notEmpty('statutRRes');
+
+        $validator
             ->date('createdRRes')
             ->allowEmpty('createdRRes');
 
