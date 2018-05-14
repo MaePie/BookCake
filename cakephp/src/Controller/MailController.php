@@ -26,22 +26,29 @@ class MailController extends AppController
             ->viewVars(['res' => $res])
             ->send();
 
+        $this->Flash->success('Votre demande de réservation a bien été prise en compte. Un email vous a été envoyé.');
         return $this->redirect(['controller' => 'restaurant', 'action' => 'index']);
     }
 
     public function quickContact()
     {
+        $data = $this->request->data;
+
         //TODO Faire vérification
         $email = new Email();
         $email
             ->template('welcome', 'fancy')
             ->emailFormat('html')
+            ->subject('Contact client | Au fil de l\'eau')
             ->to('mauerpierre@gmail.com')
-            ->from('mpbookcake@gmail.com')
+            ->from($data['email'])
+            ->viewVars(['data' => $data])
             ->send();
 
         $result = ['success' => 'success'];
         $this->json($result);
+
+
     }
 
 

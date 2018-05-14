@@ -13,17 +13,27 @@ class RResController extends AppController
         parent::initialize();
     }
 
+    function dateFormatJJMMAAAA1($date)
+    {
+        list($year, $month, $day) = explode('-', $date);
+
+        return "$day / $month / $year";
+    }
+
     public function add()
     {
         $dataR = $this->request->data['rres'];
         $dataP = $this->request->data['prospects'];
+
+        list($day, $month, $year) = explode('/', $dataR['dateRRes']);
+        $dataR['dateRRes'] = $year . '-' . $month . '-' . $day;
 
         $prospectsTable = TableRegistry::get('Prospects');
 
         $prospect = $prospectsTable->find()
                                     ->where(['emailProspect' => $dataP['emailProspect']])   
                                     ->first();
-
+        
         if($prospect) {
             $dataR['idProspect'] = $prospect->idProspect;
         }
@@ -36,7 +46,7 @@ class RResController extends AppController
         if (isset($dataR))
         {
             $res = $this->RRes->newEntity($dataR);
-            
+
             if ($this->RRes->save($res))
             {
                 return $this->redirect(['controller' => 'mail', 'action' => 'rres', $res->idRRes]);
