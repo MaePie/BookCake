@@ -1,5 +1,5 @@
 <section class="container-fluid" id="galerie">
-    <header>
+    <header class="mb-3">
         <h1 class="title">Restaurant Au fil de l'eau</h1>
     </header>
 

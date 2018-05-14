@@ -51,6 +51,21 @@ h2 {
 a {
   color: #f5deb3; }
 
+.message.success {
+  position: absolute;
+  top: 59px;
+  right: 0;
+  min-height: 185px;
+  width: 15%;
+  background-color: #2ab27b;
+  color: #fff;
+  opacity: 0.8;
+  padding: 1%;
+  border-radius: 10px; }
+
+.hidden {
+  visibility: hidden; }
+
 nav {
   padding: 1rem 1em; }
 
@@ -197,7 +212,7 @@ footer {
     width: 100%;
     color: #c52d2f; }
 
-#galerie > section:nth-child(even) {
+#galerie > section:nth-child(odd) {
   background: #f5deb3; }
 
 #map {
@@ -234,7 +249,6 @@ footer {
 .carte-header {
   color: #c52d2f;
   text-transform: uppercase;
-  padding: 1%;
   width: 60%;
   text-align: center; }
 
