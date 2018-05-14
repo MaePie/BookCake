@@ -473,4 +473,34 @@ small {
       .preview-services__card .rounded-circle svg {
         font-size: 2.5rem; }
 
+.preview-blogging {
+  background-image: url("/img/placeholder/ash-barbecue-blur-403932.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: calc(100vh - 167.5px); }
+  .preview-blogging h3 {
+    text-align: center;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px black; }
+
+.about-us {
+  min-height: 40vh;
+  background: #f5deb3;
+  display: flex;
+  align-items: center; }
+  .about-us h3 {
+    font-family: Great Vibes,sans-serif;
+    text-transform: none;
+    font-size: 3rem; }
+  .about-us p {
+    text-align: center; }
+  .about-us figure img {
+    border: 1rem solid #fff;
+    border-radius: 5px; }
+  .about-us figure figcaption {
+    text-align: center;
+    color: #000;
+    font-size: 1.5rem; }
+
 /*# sourceMappingURL=default.css.map */
