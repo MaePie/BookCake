@@ -166,24 +166,23 @@ h2 {
 a {
   color: #f5deb3; }
 
-nav {
-  padding: 1rem 1em; }
+.black {
+  color: #000; }
 
-.navbar li:hover {
-  background-color: #ddd; }
-  .navbar li:hover a {
-    color: #fff; }
-
-.navbar li a {
-  color: #888; }
-
-.navbar li:not(.active) a {
-  padding-top: calc(0.5rem + 4px); }
-
-.navbar li.active {
-  color: #888;
-  border-top: 4px solid #f5deb3;
-  background-color: #f8f8f8; }
+.navbar {
+  padding: 0; }
+  .navbar li:hover {
+    background-color: #ddd; }
+    .navbar li:hover a {
+      color: #fff; }
+  .navbar li a {
+    color: #888; }
+  .navbar li:not(.active) a {
+    padding-top: calc(0.5rem + 4px); }
+  .navbar li.active {
+    color: #888;
+    border-top: 4px solid #f5deb3;
+    background-color: #f8f8f8; }
 
 .navbar-nav {
   font-size: 14px;
@@ -420,19 +419,31 @@ small {
   background-image: url("/img/placeholder/beverages-brunch-cocktail-5317.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 167.5px); }
+  min-height: calc(100vh - 167.5px); }
   .preview-services h3 {
     text-align: center;
     font-size: 4rem;
-    color: #fff; }
+    color: #fff;
+    text-shadow: 1px 1px 2px black; }
   .preview-services__card {
     height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; }
+    justify-content: space-between; }
     .preview-services__card h4 {
       font-size: 2rem; }
+    .preview-services__card p {
+      text-align: center; }
+    .preview-services__card a {
+      border-color: #000 !important;
+      transition: 0.5s;
+      padding: 0.35rem;
+      padding-top: 0.55rem; }
+      .preview-services__card a:hover {
+        text-decoration: none;
+        transform: scale(1.05);
+        color: black; }
     .preview-services__card .rounded-circle {
       width: 100px;
       margin: auto;
@@ -440,8 +451,11 @@ small {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: wheat;
-      border: 2px solid; }
+      color: #e4822e;
+      border: 2px solid;
+      transition: 1.5s; }
+      .preview-services__card .rounded-circle:hover {
+        transform: rotateY(180deg); }
       .preview-services__card .rounded-circle svg {
         font-size: 2.5rem; }
 
