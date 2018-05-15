@@ -12,7 +12,7 @@ class CreateGuestBookComments extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('guest_book_comments'
+        $table = $this->table('guest_book_comments');
         $table->addColumn('author_name', 'string', [
             'limit' => 255,
             'null' => false,
