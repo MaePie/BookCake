@@ -9,29 +9,30 @@
 namespace App\Controller\Restaurant;
 
 use App\Controller\AppController;
-use Cake\View\Helper\FlashHelper;
-use Cake\Mailer\Email;
+use Cake\ORM\TableRegistry;
 
 class RestaurantController extends AppController
 {
 
+    private $title = 'Au fil de l\'eau';
+
     public function index() {
-        $title = 'Au fil de l\'eau';
-        $this->set('title', $title);
+        $guestBookComments = TableRegistry::get('GuestBookComments');
+        $guestBookComments = $guestBookComments->find();
+
+        $this->set('title', $this->title);
+        $this->set('guestBookComments', $guestBookComments);
     }
 
     public function carte() {
-        $title = 'Carte | Au fil de l\'eau';
-        $this->set('title', $title);
+        $this->set('title', 'Carte | '.$this->title);
     }
 
     public function contact() {
-        $title = 'Contact | Au fil de l\'eau';
-        $this->set('title', $title);
+        $this->set('title', 'Contact | '.$this->title);
     }
 
     public function galerie() {
-        $title = 'Galerie | Au fil de l\'eau';
-        $this->set('title', $title);
+        $this->set('title', 'Galerie | '.$this->title);
     }
 }
