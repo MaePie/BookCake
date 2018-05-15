@@ -70,7 +70,8 @@ class RResTable extends Table
             ->allowEmpty('nbPersRRes');
 
         $validator
-            ->integer('statutRRes')
+            ->scalar('statutRRes')
+            ->maxLength('statutRRes', 255)
             ->allowEmpty('statutRRes');
 
         $validator
