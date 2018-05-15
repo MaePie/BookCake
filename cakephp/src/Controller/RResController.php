@@ -25,6 +25,8 @@ class RResController extends AppController
         $dataR = $this->request->data['rres'];
         $dataP = $this->request->data['prospects'];
 
+        $dataR['statutRRes'] = 'Demandée';
+
         list($day, $month, $year) = explode('/', $dataR['dateRRes']);
         $dataR['dateRRes'] = $year . '-' . $month . '-' . $day;
 
@@ -70,12 +72,12 @@ class RResController extends AppController
 
     public function edit($id = null)
     {
-        $table = $this->Rtables->get($id, [
+        $table = $this->Rres->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $table = $this->Rtables->patchEntity($table, $this->request->getData());
-            if ($this->Rtables->save($table)) {
+            $table = $this->Rres->patchEntity($table, $this->request->getData());
+            if ($this->Rres->save($table)) {
                 $this->Flash->success(__('The table has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -89,8 +91,8 @@ class RResController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $table = $this->Rtables->get($id);
-        if ($this->Rtables->delete($table)) {
+        $table = $this->Rres->get($id);
+        if ($this->Rres->delete($table)) {
             $this->Flash->success(__('The table has been deleted.'));
         } else {
             $this->Flash->error(__('The table could not be deleted. Please, try again.'));

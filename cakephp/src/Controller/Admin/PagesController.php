@@ -69,7 +69,7 @@ class PagesController extends AppController
     }
 
     public function index() {
-        $title = 'Admin - Home';
+        $title = 'Admin | Au fil de l\'eau';
         $this->set('title', $title);
     }
 }
