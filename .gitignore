@@ -6,7 +6,7 @@ cakephp/logs/*
 cakephp/tmp/*
 cakephp/vendor/*
 cakephp/webroot/*
-default.css.map
+webroot/
 
 # OS generated files #
 ######################
@@ -27,3 +27,4 @@ node_modules/
 # Sass preprocessor
 .sass-cache/
 mysql/
+*.map
