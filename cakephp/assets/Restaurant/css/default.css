@@ -208,6 +208,9 @@ a {
 .navbar-right span {
   color: #888; }
 
+button.navbar-toggler {
+  border: 3px solid #f5deb3 !important; }
+
 table.table-condensed {
   width: 315px; }
 
@@ -281,6 +284,14 @@ table.table-condensed {
       display: none; }
   .nav-bot span.input-group-text {
     width: 47px; }
+
+@media (max-width: 767px) {
+  .navbar-right {
+    display: none; } }
+
+@media (max-width: 767px) {
+  .navbar-nav li {
+    padding-left: 2%; } }
 
 .footer {
   padding: 2rem 0;

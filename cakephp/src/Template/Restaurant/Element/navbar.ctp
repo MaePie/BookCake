@@ -2,10 +2,10 @@
     <div class="navbar-header">
         <a class="navbar-brand" href="/"><?= $this->Html->Image('logo.png', ['height' => '94px']) ?></a>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse">
+    <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav mr-auto">
             <?php echo ($this->request['action'] == 'index') ? '<li class="active">' : '<li>' ?>
                 <?= $this->Html->Link('Accueil', ['controller' => 'restaurant', 'action' => 'index'], ['class' => 'nav-link']) ?>
