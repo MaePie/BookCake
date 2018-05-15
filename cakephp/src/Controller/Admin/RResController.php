@@ -3,6 +3,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\Admin\AppController;
 use Cake\Validation\Validator;
+use Cake\I18n\Time;
 
 class RResController extends AppController
 {
@@ -12,13 +13,14 @@ class RResController extends AppController
         parent::initialize();
     }
 
-    public function list()
+    public function fullList($month)
     {
-        $title = 'Admin Réservations';
+        $title = 'Admin | Liste Globale Réservations';
         $this->set('title', $title);
 
         $ress = $this->Rres->find()
-                            // ->where(['dateRRes >=' => date('Y-m-d')])
+                            // ->where(['dateRRes as date >=' => date('Y-m-d')])
+                            // ->where([date('m', $date) => $month])
                             ->contain(['Users'])
                             ->contain(['Prospects'])
                             ->contain(['RZones'])
@@ -28,9 +30,49 @@ class RResController extends AppController
         $this->set('ress', $ress);
     }
 
+    public function dayList($day)
+    {
+        $title = 'Admin | Liste Jour Réservations';
+        $this->set('title', $title);
+        $this->set('day', $day);
+
+        $ress = $this->Rres->find()
+                            ->where(['dateRRes' => $day])
+                            ->where(['statutRRes' => 'Validée'])
+                            ->contain(['Users'])
+                            ->contain(['Prospects'])
+                            ->contain(['RZones'])
+                            ->contain(['RTables'])
+                            ->order('dateRRes, heureRRes');
+
+        $this->set('ress', $ress);
+
+        $ressNV = $this->Rres->find()
+                            ->where(['dateRRes' => $day])
+                            ->where(['statutRRes' => 'Demandée'])
+                            ->contain(['Users'])
+                            ->contain(['Prospects'])
+                            ->contain(['RZones'])
+                            ->contain(['RTables'])
+                            ->order('dateRRes, heureRRes');
+
+        $this->set('ressNV', $ressNV);
+
+        $ressA = $this->Rres->find()
+                            ->where(['dateRRes' => $day])
+                            ->where(['statutRRes' => 'Annulée'])
+                            ->contain(['Users'])
+                            ->contain(['Prospects'])
+                            ->contain(['RZones'])
+                            ->contain(['RTables'])
+                            ->order('dateRRes, heureRRes');
+
+        $this->set('ressA', $ressA);
+    }
+
     public function add()
     {
-        $title = 'Admin Add Réservation';
+        $title = 'Admin | Ajout Réservation';
         $this->set('title', $title);
 
         $zones = $this->Rres->Rzones->find('list');
@@ -60,7 +102,7 @@ class RResController extends AppController
 
     public function view($id = null)
     {
-        $title = 'Admin Réservation ' . $id;
+        $title = 'Admin | Réservation ' . $id;
         $this->set('title', $title);
 
         $rres = $this->Rres->find()
@@ -76,7 +118,7 @@ class RResController extends AppController
 
     public function edit($id = null)
     {
-        $title = 'Admin Edit Réservation ' . $id;
+        $title = 'Admin | Modifier Réservation ' . $id;
         $this->set('title', $title);
 
         $res = $this->Rres->find()
@@ -90,32 +132,66 @@ class RResController extends AppController
         if ($this->request->is('post')) {
             $res = $this->Rres->patchEntity($res, $this->request->data);
             if ($this->Rres->save($res)) {
-                $this->Flash->success(__('The table has been saved.'));
+                $this->Flash->success(__('La réservation a été modifiée.'));
 
                 return $this->redirect(['action' => 'view', $id]);
             }
-            $this->Flash->error(__('The table could not be saved. Please, try again.'));
+            $this->Flash->error(__('La réservation n\'a pas pu être modifiée.'));
         }
         $this->set('res', $res);
     }
 
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $table = $this->Rtables->get($id);
-        if ($this->Rtables->delete($table)) {
-            $this->Flash->success(__('The table has been deleted.'));
+        $res = $this->Rres->find()
+                            ->where(['idRRes' => $id])
+                            ->first();
+
+        if ($this->Rres->delete($res)) {
+            $this->Flash->success(__('La réservation a été supprimée.'));
         } else {
-            $this->Flash->error(__('The table could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La réservation n\'a pas pu être supprimée.'));
         }
 
-        return $this->redirect(['action' => 'list']);
+        return $this->redirect(['action' => 'fullList']);
     }
 
-    public function reservationForm()
+    public function validRes($id = null)
     {
-        $true = rand(1,2);
-        $result = ['dispo' => $true];
-        $this->json($result);
+        $res = $this->Rres->find()
+                            ->where(['idRRes' => $id])
+                            ->first();
+
+        $res['statutRRes'] = 'Validée';
+
+        if ($this->Rres->save($res)) {
+            $this->Flash->success(__('La réservation a été validée.'));
+            return $this->redirect(['action' => 'view', $id]);
+        } else {
+            $this->Flash->error(__('La réservation n\'a pas pu être validée.'));
+        }
     }
+
+    public function cancelRes($id = null)
+    {
+        $res = $this->Rres->find()
+                            ->where(['idRRes' => $id])
+                            ->first();
+
+        $res['statutRRes'] = 'Annulée';
+
+        if ($this->Rres->save($res)) {
+            $this->Flash->success(__('La réservation a été validée.'));
+            return $this->redirect(['action' => 'view', $id]);
+        } else {
+            $this->Flash->error(__('La réservation n\'a pas pu être validée.'));
+        }
+    }
+
+    // public function reservationForm()
+    // {
+    //     $true = rand(1,2);
+    //     $result = ['dispo' => $true];
+    //     $this->json($result);
+    // }
 }

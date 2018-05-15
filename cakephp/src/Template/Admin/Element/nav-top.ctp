@@ -13,7 +13,9 @@
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <?php echo $this->Html->image('photoUser/user.png')?>
                                 <?php
-                                    echo $this->request->session()->read('Auth.User.nomAdmin') ?? $this->request->session()->read('Auth.User.username') ?? 'John Doe';
+                                    if ($this->request->session()->read('Auth.User.nomAdmin') !== 'NULL') {
+                                        echo $this->request->session()->read('Auth.User.nomAdmin');
+                                    }
                                 ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>

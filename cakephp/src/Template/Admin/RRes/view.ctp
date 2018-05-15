@@ -29,6 +29,14 @@
                     <?php if($rres->prospect['emailProspect']) echo $rres->prospect['emailProspect'] ?>
                 </td>
             </tr>
+            <tr>
+                <th scope="row"><?= __('Nombre de personnes') ?></th>
+                <td><?= $rres['nbPersRRes'] ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Statut') ?></th>
+                <td><?= $rres['statutRRes'] ?></td>
+            </tr>
             <!-- <tr>
                 <th scope="row"><?= __('Zone') ?></th>
                 <td><?php if ($rres->r_zone) echo $rres->r_zone['nomZone'] ?></td>

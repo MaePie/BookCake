@@ -205,8 +205,16 @@ a {
   text-transform: uppercase;
   font-weight: bold; }
 
-.navbar-right span {
-  color: #888; }
+.navbar-right {
+  text-align: right; }
+  .navbar-right span {
+    color: #888; }
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(189,154,55, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
+
+button.navbar-toggler {
+  border: 3px solid wheat; }
 
 table.table-condensed {
   width: 315px; }
@@ -281,6 +289,12 @@ table.table-condensed {
       display: none; }
   .nav-bot span.input-group-text {
     width: 47px; }
+
+@media (max-width: 991px) {
+  .navbar-right {
+    display: none; }
+  .navbar li {
+    padding-left: 1%; } }
 
 .footer {
   padding: 2rem 0;
