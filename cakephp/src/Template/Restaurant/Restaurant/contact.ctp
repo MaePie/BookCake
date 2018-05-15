@@ -40,17 +40,17 @@
               <button type="submit" class="btn btn-block">Envoyer</button>
             </form>
         </div>
-        <div class="col-xs-12 col-md-8 col-lg-6 mb-3 mt-3">
+        <div class="col-xs-6 col-md-4 col-lg-3 mb-3 mt-3">
             <h2 class="header">Horaires</h2>
 
             <div class="row">
-                <label class="col-lg-3 text-bold">Lundi:</label><p class="col-lg-9"> 11h - 22h30</p>
-                <label class="col-lg-3 text-bold">Mardi:</label><p class="col-lg-9"> 11h - 22h30</p>
-                <label class="col-lg-3 text-bold">Mercredi:</label><p class="col-lg-9"> 11h - 22h30</p>
-                <label class="col-lg-3 text-bold">Jeudi:</label><p class="col-lg-9"> 11h - 22h30</p>
-                <label class="col-lg-3 text-bold">Vendredi:</label><p class="col-lg-9"> 11h - 22h30</p>
-                <label class="col-lg-3 text-bold">Samedi:</label><p class="col-lg-9"> 11h - 22h30</p>
-                <label class="col-lg-3 text-bold">Dimanche:</label><p class="col-lg-9"> 11h - 15h</p>
+                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Lundi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
+                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Mardi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
+                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Mercredi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
+                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Jeudi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
+                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Vendredi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
+                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Samedi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
+                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Dimanche:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 15h</p>
             </div>
         </div>
     </div>

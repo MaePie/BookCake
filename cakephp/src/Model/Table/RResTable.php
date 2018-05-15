@@ -71,7 +71,7 @@ class RResTable extends Table
 
         $validator
             ->integer('statutRRes')
-            ->notEmpty('statutRRes');
+            ->allowEmpty('statutRRes');
 
         $validator
             ->date('createdRRes')
