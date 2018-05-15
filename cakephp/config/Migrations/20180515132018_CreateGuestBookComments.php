@@ -1,8 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
-use Cake\I18n\Time;
 
-class CreateGuestBook extends AbstractMigration
+class CreateGuestBookComments extends AbstractMigration
 {
     /**
      * Change Method.
@@ -13,7 +12,7 @@ class CreateGuestBook extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('guest_book');
+        $table = $this->table('guest_book_comments'
         $table->addColumn('author_name', 'string', [
             'limit' => 255,
             'null' => false,
@@ -31,11 +30,11 @@ class CreateGuestBook extends AbstractMigration
             'null' => false,
         ]);
         $table->addColumn('created_at', 'datetime', [
-            'default' => Time::now(),
+            'default' => date('Y-m-d H:i:s'),
             'null' => false,
         ]);
         $table->addColumn('modified_at', 'datetime', [
-            'default' => Time::now(),
+            'default' => date('Y-m-d H:i:s'),
             'null' => false,
         ]);
         $table->create();
