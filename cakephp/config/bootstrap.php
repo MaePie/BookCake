@@ -227,3 +227,5 @@ I18n::setTranslator(
     'fr_FR'
 );
 */
+
+Plugin::load('Migrations');
