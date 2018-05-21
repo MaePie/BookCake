@@ -6,9 +6,9 @@
         <div class="col preview-services__card shadow-lg p-3 m-4 bg-white">
             <div>
                 <div class="rounded-circle mt-1">
-                    <i class="fas fa-birthday-cake"></i>
+                    <i class="fas fa-glass-martini"></i>
                 </div>
-                <h4 class="black text-bold mt-4">Anniversaire</h4>
+                <h4 class="black text-bold mt-4">Séminaire</h4>
             </div>
             <p>Lorem Ipsum <br>Anniversaire Surprise</p>
             <a href="#" class="button rounded border text-uppercase m-2 ml-0 mr-0 d-inline-block font-weight-bold black">En savoir plus</a>
@@ -16,9 +16,9 @@
         <div class="col preview-services__card shadow-lg p-3 m-4 bg-white">
             <div>
                 <div class="rounded-circle mt-1">
-                    <i class="fas fa-glass-martini"></i>
+                    <i class="fas fa-users"></i>
                 </div>
-                <h4 class="black text-bold mt-4">Séminaire</h4>
+                <h4 class="black text-bold mt-4">Groupe</h4>
             </div>
             <p>Lorem Ipsum <br>Ipsum Psum Lorem  Ipsum</p>
             <a href="#" class="button rounded border text-uppercase m-2 ml-0 mr-0 d-inline-block font-weight-bold black">En savoir plus</a>
@@ -26,11 +26,11 @@
         <div class="col preview-services__card shadow-lg p-3 m-4 bg-white">
             <div>
                 <div class="rounded-circle mt-1">
-                    <i class="far fa-heart"></i>
+                    <i class="fa fa-birthday-cake"></i>
                 </div>
-                <h4 class="black text-bold mt-4">Marriage</h4>
+                <h4 class="black text-bold mt-4">Privatisation</h4>
             </div>
-            <p>Baptême et<br>Bar Mitsva</p>
+            <p>Anniversaire, baptême, mariage</p>
             <a href="#" class="button rounded border text-uppercase m-2 ml-0 mr-0 d-inline-block font-weight-bold black">En savoir plus</a>
         </div>
     </div>
