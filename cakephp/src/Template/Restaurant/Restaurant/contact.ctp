@@ -1,8 +1,8 @@
 <section class="container-fluid" id="contact-panel">
     <header class="mb-3">
-        <h1 class="title">Nous contacter</h1>
+        <h1 class="title mb-3">Nous contacter</h1>
         <address class="row">
-            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-map-marker"></i>&nbsp;Hôtel Le Deauville, 1 Rue du Bac, 31700 Blagnac</p>
+            <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-map-marker"></i>&nbsp;Hôtel Gemme, 1 Rue du Bac, 31700 Blagnac</p>
             <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-phone"></i>&nbsp;+33 6 40 68 42 81</p>
             <p class="col-xs-12 col-md-4 text-center"><i class="fas fa-at"></i>&nbsp;client@restaurant-aufildeleau.com</p>
         </address>
@@ -31,27 +31,14 @@
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre mail" name="email" required>
                     </div>
                     <div class="form-group col">
-                        <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom" name="name">
+                        <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom" name="name" required>
                     </div>
                 </div>
                 <div class="form-group required">
-                    <textarea class="form-control" id="message" placeholder="Entrez votre message ici" name="message"></textarea>
+                    <textarea class="form-control" id="message" placeholder="Entrez votre message ici" name="message" required></textarea>
                 </div>
               <button type="submit" class="btn btn-block">Envoyer</button>
             </form>
-        </div>
-        <div class="col-xs-6 col-md-4 col-lg-3 mb-3 mt-3">
-            <h2 class="header">Horaires</h2>
-
-            <div class="row">
-                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Lundi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
-                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Mardi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
-                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Mercredi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
-                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Jeudi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
-                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Vendredi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
-                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Samedi:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 22h30</p>
-                <label class="col-lg-6 col-md-6 col-xs-6 text-bold">Dimanche:</label><p class="col-lg-6 col-md-6 col-xs-6"> 11h - 15h</p>
-            </div>
         </div>
     </div>
 </section>

@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-3">
-                <h3>About Us</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <h3>A propos</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="col-xs-12 col-sm-3">
                 <h3>Horaires</h3>
@@ -24,10 +24,10 @@
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre mail" name="email" required>
                     </div>
                     <div class="form-group">
-                        <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom" name="name">
+                        <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom" name="name" required>
                     </div>
                     <div class="form-group required">
-                        <textarea class="form-control" id="message" placeholder="Entrez votre message ici" name="message"></textarea>
+                        <textarea class="form-control" id="message" placeholder="Entrez votre message ici" name="message" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-block">Envoyer</button>
                 </form>
