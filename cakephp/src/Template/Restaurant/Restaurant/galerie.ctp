@@ -1,6 +1,20 @@
 <section class="container-fluid" id="galerie">
     <header class="mb-3">
-        <h1 class="title">Restaurant Au fil de l'eau</h1>
+        <h1 class="title mb-3">Restaurant Au fil de l'eau</h1>
+
+        <div class="text-center">
+            <div class="col-12">
+                <ul>
+                    <li>Lundi : 11h - 22h30</li>
+                    <li>Mardi : 11h - 22h30</li>
+                    <li>Mercredi : 11h - 22h30</li>
+                    <li>Jeudi : 11h - 22h30</li>
+                    <li>Vendredi : 11h - 22h30</li>
+                    <li>Samedi : 11h - 22h30</li>
+                    <li>Dimanche : 11h - 15h</li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <section class="row">

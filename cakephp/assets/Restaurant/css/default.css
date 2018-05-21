@@ -149,12 +149,13 @@ button {
 
 h1, h2, h3 {
   color: #c52d2f;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-family: 'Alegreya Sans' !important; }
 
 .title {
   width: 100%;
   text-align: center;
-  font-size: 3rem; }
+  font-size: 2rem; }
 
 h2 {
   text-align: center;
@@ -205,10 +206,8 @@ a {
   text-transform: uppercase;
   font-weight: bold; }
 
-.navbar-right {
-  text-align: right; }
-  .navbar-right span {
-    color: #888; }
+.navbar-right span {
+  color: #888; }
 
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(189,154,55, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
@@ -291,8 +290,6 @@ table.table-condensed {
     width: 47px; }
 
 @media (max-width: 991px) {
-  .navbar-right {
-    display: none; }
   .navbar li {
     padding-left: 1%; } }
 
@@ -319,12 +316,27 @@ table.table-condensed {
 #myCarousel a {
   color: #f5deb3; }
   #myCarousel afocus {
-    box-shadow: 0 0 0 0.2rem wheat; }
+    box-shadow: 0 0 0 0.2rem #f5deb3; }
 
 #myCarousel .carousel-caption {
   color: #555;
   background-color: #fff;
-  text-align: left; }
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+  #myCarousel .carousel-caption p {
+    margin-bottom: 0; }
+
+#myCarousel .carousel-item {
+  height: 26rem; }
+
+#galerie h1, #galerie h2, #galerie h3, #galerie h4 {
+  color: #c52d2f;
+  font-family: 'Alegreya Sans'; }
 
 #galerie img {
   width: 100%;
@@ -340,6 +352,13 @@ table.table-condensed {
 
 #galerie > section:nth-child(odd) {
   background: #f5deb3; }
+
+#galerie ul {
+  list-style: none; }
+
+#contact-panel h1, #contact-panel h2, #contact-panel h3, #contact-panel h4 {
+  color: #c52d2f;
+  font-family: 'Alegreya Sans'; }
 
 #map {
   /*height: 250px*/ }
@@ -357,6 +376,10 @@ table.table-condensed {
 @media (max-width: 767px) {
   #contact-panel #formContact {
     margin: 0.5rem 0; } }
+
+#carte h1, #carte h2, #carte h3, #carte h4 {
+  color: #c52d2f;
+  font-family: 'Alegreya Sans'; }
 
 .carte {
   color: #c52d2f; }
@@ -447,14 +470,14 @@ small {
   background-image: url("/img/placeholder/beverages-brunch-cocktail-5317.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: calc(100vh - 167.5px); }
+  /*min-height: calc(100vh - 167.5px)*/ }
   .preview-services h3 {
     text-align: center;
     font-size: 4rem;
     color: #fff;
     text-shadow: 1px 1px 2px black; }
   .preview-services__card {
-    height: 50vh;
+    /*height: 50vh*/
     display: flex;
     flex-direction: column;
     align-items: center;
