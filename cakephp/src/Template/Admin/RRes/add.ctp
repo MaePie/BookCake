@@ -14,40 +14,29 @@ use Cake\Network\Exception\NotFoundException;
 <?= $this->Form->control('idRTable', ['label' => 'Table', 'type' => 'select', 'options' => $tables, 'class' => 'form-control']) ?> -->
 <div class="input-group date" data-provide>
     <div class="input-group-addon">
-        <span class="glyphicon glyphicon-th"></span>
+        <span class="glyphicon glyphicon-calendar"></span>
     </div>
-    <input type="text" name="dateRRes" class="form-control hasDatepicker">
+    <input type="text" name="dateRRes" class="form-control hasDatepicker" value="<?= date('d/m/Y') ?>">
 </div>
 <div class="input-group time">
-    <input type="time" name="dateRRes" class="form-control" value="<?= date('H:i') ?>">
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+    </div>
+    <input type="time" name="heureRRes" class="form-control" value="20:00">
 </div>
-<?= $this->Form->control('nbPersRRes', ['label' => 'Nb Personnes', 'type' => 'number', 'class' => 'form-control']) ?>
-<?= $this->Form->control('nomRRes', ['label' => 'Nom résrevation', 'type' => 'text', 'class' => 'form-control']) ?>
-<?= $this->Form->control('Ajouter', ['label' => false, 'type' => 'button', 'class' => 'btn btn-primary btn-block btn-flat mt-3']) ?>
+<div class="input-group number">
+    <div class="input-group-addon">
+        <span class="fa fa-users"></span>
+    </div>
+    <input type="number" name="nbPersRRes" class="form-control">
+</div>
+<div class="input-group text">
+    <div class="input-group-addon">
+        <span class="fa fa-user"></span>
+    </div>
+    <input type="text" name="nomRRes" class="form-control">
+</div>
+<div class="input">
+	<button type="button" class="btn btn-primary btn-block btn-flat mt-3" id="ajouter">Ajouter</button>
+</div>
 <?= $this->Form->end() ?>
-
-<script type="text/javascript">
-	;(function($){
-		$.fn.datepicker.dates['fr'] = {
-			days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
-			daysShort: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
-			daysMin: ["di", "lu", "ma", "me", "je", "ve", "sa"],
-			months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
-			monthsShort: ["janv.", "févr.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
-			today: "Aujourd'hui",
-			monthsTitle: "Mois",
-			clear: "Effacer",
-			weekStart: 1,
-			format: "dd/mm/yyyy"
-		};
-	}(jQuery));
-
-
-	$('.hasDatepicker').datepicker({
-	    startDate: "today",
-	    autoclose: true,	
-	    language: "fr",
-	    clearBtn: true,
-	    todayHighlight: true
-	});
-</script>
