@@ -20,7 +20,7 @@ use Cake\Network\Exception\NotFoundException;
     <button class="btn btn-primary"> <?= $this->Html->Link('>', ['controller' => 'rres', 'action' => 'dayList', date('Y-m-d', strtotime($day.'+1 day'))], ['style' => 'color: white']) ?> </button>
 </div>
 
-<br/><h3>Réservations validées</h3>
+<br/><h3 class="alert-sm alert-success">Réservations validées</h3>
 
 <table class="table margin-top table-striped table-hover table-bordered">
     <thead>
@@ -55,7 +55,7 @@ use Cake\Network\Exception\NotFoundException;
                     </td>
                     <td><?= $res->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $res->heureRRes->format('H:i') ?></td>
-                    <td><?= $res->statutRRes ?> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $res->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $res->idRRes]) ?></td>
+                    <td><b class="alert-sm alert-success"><?= $res->statutRRes ?></b> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $res->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $res->idRRes]) ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'rres', 'action' => 'view', $res->idRRes]) ?> - <?= $this->Html->Link('Modifier', ['controller' => 'rres', 'action' => 'edit', $res->idRRes]) ?> - <?= $this->Html->Link('Supprimer', ['controller' => 'rres', 'action' => 'delete', $res->idRRes]) ?>                    
                     </td>
@@ -65,7 +65,7 @@ use Cake\Network\Exception\NotFoundException;
     </tbody>
 </table>
 
-<br/><h3>Réservations non validées</h3>
+<br/><h3 class="alert-sm alert-warning">Réservations non validées</h3>
 
 <table class="table margin-top table-striped table-hover table-bordered">
     <thead>
@@ -100,7 +100,7 @@ use Cake\Network\Exception\NotFoundException;
                     </td>
                     <td><?= $resNV->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $resNV->heureRRes->format('H:i') ?></td>
-                    <td><?= $resNV->statutRRes ?> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $resNV->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $resNV->idRRes]) ?></td>
+                    <td><b class="alert-sm alert-warning"><?= $resNV->statutRRes ?></b> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $resNV->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $resNV->idRRes]) ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'rres', 'action' => 'view', $resNV->idRRes]) ?> - <?= $this->Html->Link('Modifier', ['controller' => 'rres', 'action' => 'edit', $resNV->idRRes]) ?> - <?= $this->Html->Link('Supprimer', ['controller' => 'rres', 'action' => 'delete', $resNV->idRRes]) ?>                    
                     </td>
@@ -110,7 +110,7 @@ use Cake\Network\Exception\NotFoundException;
     </tbody>
 </table>
 
-<br/><h3>Réservations annulées</h3>
+<br/><h3 class="alert-sm alert-danger">Réservations annulées</h3>
 
 <table class="table margin-top table-striped table-hover table-bordered">
     <thead>
@@ -145,7 +145,7 @@ use Cake\Network\Exception\NotFoundException;
                     </td>
                     <td><?= $resA->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $resA->heureRRes->format('H:i') ?></td>
-                    <td><?= $resA->statutRRes ?> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $resA->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $resA->idRRes]) ?></td>
+                    <td><b class="alert-sm alert-danger"><?= $resA->statutRRes ?></b> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $resA->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $resA->idRRes]) ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'rres', 'action' => 'view', $resA->idRRes]) ?> - <?= $this->Html->Link('Modifier', ['controller' => 'rres', 'action' => 'edit', $resA->idRRes]) ?> - <?= $this->Html->Link('Supprimer', ['controller' => 'rres', 'action' => 'delete', $resA->idRRes]) ?>                    
                     </td>

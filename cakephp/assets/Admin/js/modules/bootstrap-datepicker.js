@@ -26,4 +26,3 @@ $('.hasDatepicker').datepicker({
     clearBtn: true,
     todayHighlight: true
 });
-

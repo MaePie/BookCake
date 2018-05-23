@@ -34,6 +34,10 @@ class MailController extends AppController
     {
         $data = $this->request->data;
 
+        debug($data['message']);
+
+        die();
+
         //TODO Faire vérification
         $email = new Email();
         $email
@@ -47,8 +51,6 @@ class MailController extends AppController
 
         $result = ['success' => 'success'];
         $this->json($result);
-
-
     }
 
 

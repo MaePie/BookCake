@@ -1,6 +1,6 @@
 <section class="container-fluid preview-blogging__container">
     <header>
-        <h3 class="pt-4">Evennements & Blog</h3>
+        <h3 class="pt-4">Evenements & Blog</h3>
     </header>
     <div class="preview-blogging__grid">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTIfqgYIwX811k2fqOO71TgqS1iZr4rcGCHzw77hndVU8v4MFk" alt="" class="elp1">
