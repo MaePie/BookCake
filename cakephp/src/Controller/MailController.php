@@ -34,10 +34,6 @@ class MailController extends AppController
     {
         $data = $this->request->data;
 
-        debug($data['message']);
-
-        die();
-
         //TODO Faire vérification
         $email = new Email();
         $email
