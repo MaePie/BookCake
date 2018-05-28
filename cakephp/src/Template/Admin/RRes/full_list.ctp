@@ -12,6 +12,8 @@ use Cake\Network\Exception\NotFoundException;
 
 <?= $this->Html->Link('Ajouter une réservation', ['controller' => 'rres', 'action' => 'add'], ['class' => 'pull-right btn btn-primary margin-top margin-bottom']); ?>
 
+<div id="calendar"></div>
+
 <table class="table margin-top table-striped table-hover table-bordered">
     <thead>
         <th>ID</th>
