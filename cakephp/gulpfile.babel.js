@@ -73,7 +73,7 @@ function adminSass() {
 }
 
 function adminStyles() {
-    return gulp.src([paths.admin.styles.css.src, 'node_modules/bootstrap/dist/css/bootstrap.css'])
+    return gulp.src(paths.admin.styles.css.src)
         .pipe(concat('admin.min.css'))
         .pipe(cleanCSS())
         .pipe(gulp.dest(paths.admin.styles.css.dest));

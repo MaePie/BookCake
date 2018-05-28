@@ -10,6 +10,7 @@ use Cake\Network\Exception\NotFoundException;
 
 <h1><?= __('Réservations') ?></h1>
 
+<?= $this->Html->Link('< Vue globale', ['controller' => 'rres', 'action' => 'fullList', date('m')], ['class' => 'btn btn-primary margin-top margin-bottom']); ?>
 <?= $this->Html->Link('Ajouter une réservation', ['controller' => 'rres', 'action' => 'add'], ['class' => 'pull-right btn btn-primary margin-top margin-bottom']); ?>
 
 <br/>
@@ -26,7 +27,9 @@ use Cake\Network\Exception\NotFoundException;
     <thead>
         <th>ID</th>
         <th>Nom</th>
-        <th>Mail</th>
+        <?php if (isset($res->prospect) || isset($res->user)) : ?>        
+            <th>Mail</th>
+        <?php endif; ?>
         <th>Date</th>
         <th>Heure</th>
         <th>Statut</th>
@@ -41,21 +44,29 @@ use Cake\Network\Exception\NotFoundException;
             <?php foreach($ress as $res) : ?> 
                 <tr>
                     <td><?= $res->idRRes ?></td>
-                    <td>
-                        <?php 
-                            if ($res->prospect) echo $res->prospect['nomProspect'];
-                            if ($res->user) echo $res->user['nomUser'] . ' ' . $res->user['prenomUser'];
-                        ?>
-                    </td>
-                    <td>
-                        <?php 
-                            if ($res->prospect) echo $res->prospect['emailProspect'];
-                            if ($res->user) echo $res->user['emailUser'];
-                        ?>
-                    </td>
+                    <?php if (isset($res->prospect) || isset($res->user)) : ?>
+                        <td>
+                            <?php 
+                                if ($res->prospect) echo $res->prospect['nomProspect'];
+                                if ($res->user) echo $res->user['nomUser'] . ' ' . $res->user['prenomUser'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php 
+                                if ($res->prospect) echo $res->prospect['emailProspect'];
+                                if ($res->user) echo $res->user['emailUser'];
+                            ?>
+                        </td>
+                    <?php else : ?>
+                        <td>
+                            <?php 
+                                if ($res->prospect) echo $res->nomRRes;
+                            ?>
+                        </td>
+                    <?php endif; ?>
                     <td><?= $res->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $res->heureRRes->format('H:i') ?></td>
-                    <td><b class="alert-sm alert-success"><?= $res->statutRRes ?></b> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $res->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $res->idRRes]) ?></td>
+                    <td><b class="alert-sm alert-success"><?= $res->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $res->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $res->idRRes]) ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'rres', 'action' => 'view', $res->idRRes]) ?> - <?= $this->Html->Link('Modifier', ['controller' => 'rres', 'action' => 'edit', $res->idRRes]) ?> - <?= $this->Html->Link('Supprimer', ['controller' => 'rres', 'action' => 'delete', $res->idRRes]) ?>                    
                     </td>
@@ -100,7 +111,7 @@ use Cake\Network\Exception\NotFoundException;
                     </td>
                     <td><?= $resNV->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $resNV->heureRRes->format('H:i') ?></td>
-                    <td><b class="alert-sm alert-warning"><?= $resNV->statutRRes ?></b> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $resNV->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $resNV->idRRes]) ?></td>
+                    <td><b class="alert-sm alert-warning"><?= $resNV->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $resNV->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $resNV->idRRes]) ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'rres', 'action' => 'view', $resNV->idRRes]) ?> - <?= $this->Html->Link('Modifier', ['controller' => 'rres', 'action' => 'edit', $resNV->idRRes]) ?> - <?= $this->Html->Link('Supprimer', ['controller' => 'rres', 'action' => 'delete', $resNV->idRRes]) ?>                    
                     </td>
@@ -145,7 +156,7 @@ use Cake\Network\Exception\NotFoundException;
                     </td>
                     <td><?= $resA->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $resA->heureRRes->format('H:i') ?></td>
-                    <td><b class="alert-sm alert-danger"><?= $resA->statutRRes ?></b> - <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $resA->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $resA->idRRes]) ?></td>
+                    <td><b class="alert-sm alert-danger"><?= $resA->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $resA->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $resA->idRRes]) ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'rres', 'action' => 'view', $resA->idRRes]) ?> - <?= $this->Html->Link('Modifier', ['controller' => 'rres', 'action' => 'edit', $resA->idRRes]) ?> - <?= $this->Html->Link('Supprimer', ['controller' => 'rres', 'action' => 'delete', $resA->idRRes]) ?>                    
                     </td>
