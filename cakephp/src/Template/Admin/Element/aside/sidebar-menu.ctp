@@ -12,9 +12,9 @@
                 </li>
                 <li><a><i class="fa fa-calendar"></i> Réservations <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><?= $this->Html->Link('Vue globale', ['controller' => 'rres', 'action' => 'fullList', date('m')]) ?></li>
-                        <li><?= $this->Html->Link('Vue du jour', ['controller' => 'rres', 'action' => 'dayList', date('Y-m-d')]) ?></li>
-                        <li><?= $this->Html->Link('Ajouter une réservation', ['controller' => 'rres', 'action' => 'add']) ?></li>
+                        <li><?= $this->Html->Link('Vue globale', ['controller' => 'RRes', 'action' => 'fullList', date('m')]) ?></li>
+                        <li><?= $this->Html->Link('Vue du jour', ['controller' => 'RRes', 'action' => 'dayList', date('Y-m-d')]) ?></li>
+                        <li><?= $this->Html->Link('Ajouter une réservation', ['controller' => 'RRes', 'action' => 'add']) ?></li>
                     </ul>
                 </li>
             </ul>
