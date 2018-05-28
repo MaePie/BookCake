@@ -18,7 +18,7 @@ class RResController extends AppController
         $title = 'Admin | Liste Globale Réservations';
         $this->set('title', $title);
 
-        $ress = $this->Rres->find()
+        $ress = $this->RRes->find()
                             // ->where(['dateRRes as date >=' => date('Y-m-d')])
                             // ->where([date('m', $date) => $month])
                             ->contain(['Users'])
@@ -36,7 +36,7 @@ class RResController extends AppController
         $this->set('title', $title);
         $this->set('day', $day);
 
-        $ress = $this->Rres->find()
+        $ress = $this->RRes->find()
                             ->where(['dateRRes' => $day])
                             ->where(['statutRRes' => 'Validée'])
                             ->contain(['Users'])
@@ -47,7 +47,7 @@ class RResController extends AppController
 
         $this->set('ress', $ress);
 
-        $ressNV = $this->Rres->find()
+        $ressNV = $this->RRes->find()
                             ->where(['dateRRes' => $day])
                             ->where(['statutRRes' => 'Demandée'])
                             ->contain(['Users'])
@@ -58,7 +58,7 @@ class RResController extends AppController
 
         $this->set('ressNV', $ressNV);
 
-        $ressA = $this->Rres->find()
+        $ressA = $this->RRes->find()
                             ->where(['dateRRes' => $day])
                             ->where(['statutRRes' => 'Annulée'])
                             ->contain(['Users'])
@@ -86,9 +86,9 @@ class RResController extends AppController
         
             if (isset($data))
             {
-                $res = $this->Rres->newEntity($data);
+                $res = $this->RRes->newEntity($data);
 
-                if ($this->Rres->save($res))
+                if ($this->RRes->save($res))
                 {
                     return $this->redirect(['action' => 'view', $res->idRRes]);
                 }
@@ -105,7 +105,7 @@ class RResController extends AppController
         $title = 'Admin | Réservation ' . $id;
         $this->set('title', $title);
 
-        $rres = $this->Rres->find()
+        $rres = $this->RRes->find()
                             ->where(['idRRes' => $id])
                             ->contain(['Users'])
                             ->contain(['Prospects'])
@@ -121,7 +121,7 @@ class RResController extends AppController
         $title = 'Admin | Modifier Réservation ' . $id;
         $this->set('title', $title);
 
-        $res = $this->Rres->find()
+        $res = $this->RRes->find()
                             ->where(['idRRes' => $id])
                             ->contain(['Users'])
                             ->contain(['Prospects'])
@@ -130,8 +130,8 @@ class RResController extends AppController
                             ->first();
 
         if ($this->request->is('post')) {
-            $res = $this->Rres->patchEntity($res, $this->request->data);
-            if ($this->Rres->save($res)) {
+            $res = $this->RRes->patchEntity($res, $this->request->data);
+            if ($this->RRes->save($res)) {
                 $this->Flash->success(__('La réservation a été modifiée.'));
 
                 return $this->redirect(['action' => 'view', $id]);
@@ -143,11 +143,11 @@ class RResController extends AppController
 
     public function delete($id = null)
     {
-        $res = $this->Rres->find()
+        $res = $this->RRes->find()
                             ->where(['idRRes' => $id])
                             ->first();
 
-        if ($this->Rres->delete($res)) {
+        if ($this->RRes->delete($res)) {
             $this->Flash->success(__('La réservation a été supprimée.'));
         } else {
             $this->Flash->error(__('La réservation n\'a pas pu être supprimée.'));
@@ -158,13 +158,13 @@ class RResController extends AppController
 
     public function validRes($id = null)
     {
-        $res = $this->Rres->find()
+        $res = $this->RRes->find()
                             ->where(['idRRes' => $id])
                             ->first();
 
         $res['statutRRes'] = 'Validée';
 
-        if ($this->Rres->save($res)) {
+        if ($this->RRes->save($res)) {
             $this->Flash->success(__('La réservation a été validée.'));
             return $this->redirect(['action' => 'view', $id]);
         } else {
@@ -174,13 +174,13 @@ class RResController extends AppController
 
     public function cancelRes($id = null)
     {
-        $res = $this->Rres->find()
+        $res = $this->RRes->find()
                             ->where(['idRRes' => $id])
                             ->first();
 
         $res['statutRRes'] = 'Annulée';
 
-        if ($this->Rres->save($res)) {
+        if ($this->RRes->save($res)) {
             $this->Flash->success(__('La réservation a été validée.'));
             return $this->redirect(['action' => 'view', $id]);
         } else {
