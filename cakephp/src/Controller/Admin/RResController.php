@@ -75,27 +75,27 @@ class RResController extends AppController
         $title = 'Admin | Ajout Réservation';
         $this->set('title', $title);
 
-        $zones = $this->Rres->Rzones->find('list');
-        $this->set('zones', $zones);
+        if ($this->request->is('post')) {
 
-        $tables = $this->Rres->Rtables->find('list');
-        $this->set('tables', $tables);
+            $data = $this->request->data;
 
-        if ($this->request->is('post'))
-        {
-            $res = $this->Rres->newEntity();
+            $data['statutRRes'] = 'Validée';
 
-            $res = $this->Rres->patchEntity($res, $this->request->data);
+            list($day, $month, $year) = explode('/', $data['dateRRes']);
+            $data['dateRRes'] = $year . '-' . $month . '-' . $day;
+        
+            if (isset($data))
+            {
+                $res = $this->Rres->newEntity($data);
 
-            $this->Rres->save($res);
-
-            if ($this->Rres->save($res)) {
-                $this->Flash->success(__('La réservation a bien été enregistrée.'));
-
-                return $this->redirect(['action' => 'view/'.$res->idRRes]);
-            }
-            else if (!$this->Rres->save($res)) {
-                $this->Flash->error(__('Eléments manquants'));
+                if ($this->Rres->save($res))
+                {
+                    return $this->redirect(['action' => 'view', $res->idRRes]);
+                }
+                else 
+                {
+                    $this->Flash->error(__('Eléments manquants'));
+                }
             }
         }
     }
@@ -153,7 +153,7 @@ class RResController extends AppController
             $this->Flash->error(__('La réservation n\'a pas pu être supprimée.'));
         }
 
-        return $this->redirect(['action' => 'fullList']);
+        return $this->redirect(['action' => 'fullList', date('m')]);
     }
 
     public function validRes($id = null)

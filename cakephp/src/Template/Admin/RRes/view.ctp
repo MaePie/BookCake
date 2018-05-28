@@ -16,14 +16,15 @@
                 <td><?= $rres['heureRRes']->format('H:i') ?></td>
             </tr>
             <tr>
-                <th scope="row"><?= __('User') ?></th>
+                <th scope="row"><?= __('Nom') ?></th>
                 <td>
                     <?php if($rres->user['nomUser']) echo $rres->user['nomUser'] ?>
                     <?php if($rres->prospect['nomProspect']) echo $rres->prospect['nomProspect'] ?>
+                    <?php if($rres['nomRRes']) echo $rres['nomRRes'] ?>
                 </td>
             </tr>
             <tr>
-                <th scope="row"><?= __('User mail') ?></th>
+                <th scope="row"><?= __('Mail') ?></th>
                 <td>
                     <?php if($rres->user['emailUser']) echo $rres->user['emailUser'] ?>
                     <?php if($rres->prospect['emailProspect']) echo $rres->prospect['emailProspect'] ?>
@@ -35,7 +36,20 @@
             </tr>
             <tr>
                 <th scope="row"><?= __('Statut') ?></th>
-                <td><?= $rres['statutRRes'] ?></td>
+                <td>
+                    <?php if ($rres['statutRRes'] == 'Validée') : ?>
+                        <b class="alert-sm alert-success">
+                    <?php endif; ?>
+                    <?php if ($rres['statutRRes'] == 'Demandée') : ?>     
+                        <b class="alert-sm alert-warning">
+                    <?php endif; ?>
+                    <?php if ($rres['statutRRes'] == 'Annulée') : ?>
+                        <b class="alert-sm alert-danger">
+                    <?php endif; ?>
+                    
+                        <?= $rres['statutRRes'] ?>  | <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $res->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $res->idRRes]) ?> 
+                    </b>
+                </td>
             </tr>
             <!-- <tr>
                 <th scope="row"><?= __('Zone') ?></th>
