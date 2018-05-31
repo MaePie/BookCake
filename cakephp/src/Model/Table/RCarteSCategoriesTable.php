@@ -15,6 +15,7 @@ class RCarteSCategoriesTable extends Table
         parent::initialize($config);
         $this->setTable('RCarteSCategories');
         $this->setPrimaryKey('idRCarteSCategorie');
+        $this->setDisplayField('nomRCarteSCategorie');
 
         $this->addBehavior('Timestamp', [
             'events' => [

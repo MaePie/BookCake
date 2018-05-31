@@ -12,29 +12,29 @@ use Cake\Network\Exception\NotFoundException;
 <?= $this->Form->create('RRes', ['class' => 'form-group col-lg-6']) ?>
 <!-- <?= $this->Form->control('idRZone', ['label' => 'Zone', 'type' => 'select', 'options' => $zones, 'class' => 'form-control']) ?>
 <?= $this->Form->control('idRTable', ['label' => 'Table', 'type' => 'select', 'options' => $tables, 'class' => 'form-control']) ?> -->
-<div class="input-group col-lg-6 date">
+<div class="input-group col-lg-6">
     <div class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
     </div>
-    <input type="text" name="dateRRes" class="form-control hasDatepicker" value="<?= date('d/m/Y') ?>">
+    <input type="text" id="dateRRes" name="dateRRes" class="form-control hasDatepicker" value="<?= date('d/m/Y') ?>" required>
 </div>
 <div class="input-group col-lg-6 time">
     <div class="input-group-addon">
         <span class="glyphicon glyphicon-time"></span>
     </div>
-    <input type="time" name="heureRRes" class="form-control" value="20:00">
+    <input type="time" name="heureRRes" class="form-control" value="20:00" required>
 </div>
 <div class="input-group col-lg-6 number">
     <div class="input-group-addon">
         <span class="fa fa-users"></span>
     </div>
-    <input type="number" name="nbPersRRes" class="form-control">
+    <input type="number" name="nbPersRRes" class="form-control" required>
 </div>
 <div class="input-group col-lg-6 text">
     <div class="input-group-addon">
         <span class="fa fa-user"></span>
     </div>
-    <input type="text" name="nomRRes" class="form-control">
+    <input type="text" name="nomRRes" class="form-control" required>
 </div>
 <div class="input col-lg-6 pl-0">
 	<button type="submit" class="btn btn-primary btn-block btn-flat mt-3" id="ajouter">Ajouter</button>

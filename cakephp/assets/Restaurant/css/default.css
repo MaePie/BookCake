@@ -334,6 +334,15 @@ button.navbar-toggler {
 #myCarousel .carousel-item {
   height: 26rem; }
 
+#myCarousel a.carousel-control-next,
+#myCarousel a.carousel-control-prev {
+  bottom: 81px; }
+
+#myCarousel a.btn {
+  background-color: #f5deb3;
+  color: #555;
+  border: none; }
+
 #galerie h1, #galerie h2, #galerie h3, #galerie h4 {
   color: #c52d2f;
   font-family: 'Alegreya Sans'; }

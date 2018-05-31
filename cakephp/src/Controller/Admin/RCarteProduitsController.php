@@ -12,9 +12,9 @@ class RCarteProduitsController extends AppController
         parent::initialize();
     }
 
-    public function list($id = null)
+    public function liste($id = null)
     {
-        $title = 'Admin | Liste Produits Carte';
+        $title = 'Admin | Liste Produits';
         $this->set('title', $title);
 
         if ($id != null) {
@@ -50,20 +50,37 @@ class RCarteProduitsController extends AppController
 
     public function add()
     {
-        $title = 'Admin | Ajout Réservation';
+        $title = 'Admin | Ajout Produit';
         $this->set('title', $title);
+
+        $categories = $this->RCarteProduits->RCarteCategories->find('list');
+        $this->set('categories', $categories);
 
         if ($this->request->is('post')) {
 
             $data = $this->request->data;
-        
+            debug($data);
+
+            $ordre = $this->RCarteProduits->find()
+                                        ->select('ordreRCarteProduit')
+                                        ->where(['idRCarteCategorie' => $data['idRCarteCategorie']])
+                                        ->where(['idRCarteSCategorie' => $data['idRCarteSCategorie']]);
+
+            $ordre->select(['ordre' => $ordre->func()->max('ordreRCarteProduit')])->first();
+
             if (isset($data))
             {
                 $produit = $this->RCarteProduits->newEntity($data);
+                debug($ordre->toArray());
+                foreach ($ordre as $o) {
+                    $ordre = $o['ordre'];
+                }
+                $produit['ordreRCarteProduit'] = $ordre + 1;
+                $produit['statutRCarteProduit'] = 1;
 
                 if ($this->RCarteProduits->save($produit))
                 {
-                    return $this->redirect(['action' => 'list']);
+                    return $this->redirect(['action' => 'liste']);
                 }
                 else 
                 {
@@ -98,16 +115,20 @@ class RCarteProduitsController extends AppController
                             ->contain(['RCarteCategories'])
                             ->first();
 
+        $categories = $this->RCarteProduits->RCarteCategories->find('list');
+
         if ($this->request->is('post')) {
             $produit = $this->RCarteProduits->patchEntity($produit, $this->request->data);
             if ($this->RCarteProduits->save($produit)) {
                 $this->Flash->success(__('Le produit a été modifié.'));
 
-                return $this->redirect(['action' => 'list']);
+                return $this->redirect(['action' => 'liste', $produit->r_carte_category->idRCarteCategorie]);
             }
             $this->Flash->error(__('Le produit n\'a pas pu être modifié.'));
         }
+
         $this->set('produit', $produit);
+        $this->set('categories', $categories);
     }
 
     public function delete($id = null)
@@ -122,7 +143,7 @@ class RCarteProduitsController extends AppController
             $this->Flash->error(__('Le produit n\'a pas pu être supprimé.'));
         }
 
-        return $this->redirect(['action' => 'list']);
+        return $this->redirect(['action' => 'liste']);
     }
 
     public function open($id = null, $cat = null)
@@ -135,7 +156,7 @@ class RCarteProduitsController extends AppController
 
         if ($this->RCarteProduits->save($produit)) {
             $this->Flash->success(__('Le produit a été activé.'));
-            return $this->redirect(['action' => 'list', $cat]);
+            return $this->redirect(['action' => 'liste', $cat]);
         } else {
             $this->Flash->error(__('Le produit n\'a pas pu être activé.'));
         }
@@ -151,9 +172,21 @@ class RCarteProduitsController extends AppController
 
         if ($this->RCarteProduits->save($produit)) {
             $this->Flash->success(__('Le produit a été désactivé.'));
-            return $this->redirect(['action' => 'list', $cat]);
+            return $this->redirect(['action' => 'liste', $cat]);
         } else {
             $this->Flash->error(__('Le produit n\'a pas pu être désactivé.'));
         }
+    }
+
+    public function scategories()
+    {
+        $this->loadModel('RCarteSCategories');
+
+        $scategories = $this->RCarteSCategories->find('list')
+                                                ->where(['idRCarteCategorie' => $this->request->data['idRCarteCategorie']]);
+
+
+        echo json_encode($scategories, JSON_PRETTY_PRINT);
+        die();
     }
 }

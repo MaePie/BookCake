@@ -1,7 +1,7 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
+// use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -14,6 +14,7 @@ class RCarteCategoriesTable extends Table
     {
         parent::initialize($config);
         $this->setTable('RCarteCategories');
+        $this->setDisplayField('nomRCarteCategorie');
         $this->setPrimaryKey('idRCarteCategorie');
 
         $this->addBehavior('Timestamp', [
