@@ -399,7 +399,8 @@ button.navbar-toggler {
   color: #c52d2f;
   text-transform: uppercase;
   width: 60%;
-  text-align: center; }
+  text-align: center;
+  font-size: 1.4rem; }
 
 .carte-body {
   color: #888; }
