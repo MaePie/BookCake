@@ -24,12 +24,12 @@
             <ul class="nav side-menu">
                 <li><a><i class="fa fa-th-list"></i> Catégorie <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><?= $this->Html->Link('Vue globale', ['controller' => 'RCarteCategories', 'action' => 'list']) ?></li>
+                        <li><?= $this->Html->Link('Vue globale', ['controller' => 'RCarteCategories', 'action' => 'liste']) ?></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-shopping-cart"></i> Produits <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><?= $this->Html->Link('Produits activés', ['controller' => 'RCarteProduits', 'action' => 'list']) ?></li>
+                        <li><?= $this->Html->Link('Produits', ['controller' => 'RCarteProduits', 'action' => 'liste']) ?></li>
                     </ul>
                 </li>
                 <!-- <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>

@@ -1,7 +1,7 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
+// use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -15,6 +15,7 @@ class RCarteProduitsTable extends Table
         parent::initialize($config);
         $this->setTable('RCarteProduits');
         $this->setPrimaryKey('idRCarteProduit');
+        $this->setDisplayField('nomRCarteProduit');
 
         $this->addBehavior('Timestamp', [
             'events' => [
