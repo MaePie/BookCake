@@ -47,8 +47,9 @@
                         <b class="alert-sm alert-danger">
                     <?php endif; ?>
                     
-                        <?= $rres['statutRRes'] ?>  | <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $res->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $res->idRRes]) ?> 
+                        <?= $rres['statutRRes'] ?> 
                     </b>
+                     | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $rres->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $rres->idRRes]) ?> 
                 </td>
             </tr>
             <!-- <tr>

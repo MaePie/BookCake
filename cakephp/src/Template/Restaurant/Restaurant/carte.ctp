@@ -2,7 +2,7 @@
     <h1 class="carte-title title mt-3">Au Menu</h1>
     <div class="row">
         <div class="carte-content col-4">
-            <h2 class="carte-header mt-3">Menu midi  13 €</h2>
+            <h2 class="carte-header mt-3 mb-1">Menu midi  13 €</h2>
 
             <div class="carte-body container-fluid">
                 <div class="row ml-3 mb-1">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="carte-content col-4">
-            <h2 class="carte-header mt-3">Menu soir  25 €</h2>
+            <h2 class="carte-header mt-3 mb-1">Menu soir  25 €</h2>
 
             <div class="carte-body container-fluid">
                 <div class="row ml-3 mb-1">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="carte-content col-4">
-            <h2 class="carte-header mt-3">Côté Grill</h2>
+            <h2 class="carte-header mt-3 mb-1">Côté Grill</h2>
 
             <div class="carte-body container-fluid">
                 <div class="row mb-1">
@@ -80,7 +80,7 @@
     <div class="row">
         <div class="col">
             <div class="carte-content">
-                <h2 class="carte-header mt-3">Entrées</h2>
+                <h2 class="carte-header mt-3 mb-1">Entrées</h2>
                 <div class="carte-body container-fluid">
                     <div class="row ml-3 mb-1">
                         <p class="item-text col-lg-10 col-md-8">Assiette de cochonailles</p>
@@ -126,7 +126,7 @@
         </div>
         <div class="col">
             <div class="carte-content">
-                <h2 class="carte-header mt-3">Plats</h2>
+                <h2 class="carte-header mt-3 mb-1">Plats</h2>
                 <div class="carte-body container-fluid">
                     <div class="row ml-3 mb-1">
                         <p class="item-text col-lg-10 col-md-8">Sauté de porc aux olives</p>
@@ -163,7 +163,7 @@
     <div class="row mb-3">
         <div class="col">
             <div class="carte-content">
-                <h2 class="carte-header mt-3">Desserts</h2>
+                <h2 class="carte-header mt-3 mb-1">Desserts</h2>
                 <div class="carte-body container-fluid">
                     <div class="row ml-3 mb-1">
                         <p class="item-text col-lg-10 col-md-8">Croustade aux pommes</p>
@@ -198,7 +198,7 @@
         </div>
         <div class="col">
             <div class="carte-content">
-                <h2 class="carte-header mt-3">Boissons</h2>
+                <h2 class="carte-header mt-3 mb-1">Boissons</h2>
 
                 <h3 class="carte-header ml-3 mb-1">Bières pressions</h3>
 
@@ -249,7 +249,7 @@
         </div>
         <div class="col">
             <div class="carte-content">
-                <h2 class="carte-header mt-3">Vins</h2>
+                <h2 class="carte-header mt-3 mb-1">Vins</h2>
 
                 <h3 class="carte-header ml-3 mb-1">Rouges</h3>
 
