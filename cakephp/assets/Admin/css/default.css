@@ -143,6 +143,9 @@
 .pr-5 {
   padding-right: 3rem !important; }
 
+.center {
+  text-align: center; }
+
 .form-control {
   border-top-right-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
@@ -172,3 +175,16 @@ b.alert-sm {
 .alert-sm {
   border-radius: 5px;
   padding: 0.3%; }
+
+.categorie {
+  background-color: #2A3F54 !important;
+  color: #fff;
+  text-transform: uppercase; }
+
+.scategorie {
+  background-color: #73879C !important;
+  color: #fff;
+  text-transform: uppercase; }
+
+.btn.categories {
+  text-transform: uppercase; }
