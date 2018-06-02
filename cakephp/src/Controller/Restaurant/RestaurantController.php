@@ -26,6 +26,25 @@ class RestaurantController extends AppController
 
     public function carte() {
         $this->set('title', 'Carte | '.$this->title);
+        
+        $this->loadModel('RCarteProduits');
+
+        $produits = $this->RCarteProduits->find()
+                                ->contain(['RCarteCategories'])
+                                ->contain(['RCarteSCategories'])
+                                ->where(['statutRCarteProduit' => 1])
+                                ->order('RCarteCategories.sectionRCarteCategorie, RCarteCategories.ordreRCarteCategorie, RCarteSCategories.ordreRCarteSCategorie, ordreRCarteProduit');
+
+        $scategories = $this->RCarteProduits->RCarteSCategories->find()
+                            ->contain(['RCarteCategories'])
+                            ->order('ordreRCarteSCategorie');
+
+        $categories = $this->RCarteProduits->RCarteCategories->find()
+                            ->order('sectionRCarteCategorie, ordreRCarteCategorie');
+
+        $this->set('produits', $produits);
+        $this->set('scategories', $scategories);
+        $this->set('categories', $categories);
     }
 
     public function contact() {

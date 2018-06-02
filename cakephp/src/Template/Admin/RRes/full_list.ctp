@@ -10,7 +10,7 @@ use Cake\Network\Exception\NotFoundException;
 
 <h3><?= __('Réservations') ?></h3>
 
-<?= $this->Html->Link('Ajouter une réservation', ['controller' => 'rres', 'action' => 'add'], ['class' => 'pull-right btn btn-primary margin-top margin-bottom']); ?>
+<?= $this->Html->Link('Ajouter une réservation', ['controller' => 'RRes', 'action' => 'add'], ['class' => 'pull-right btn btn-primary margin-top margin-bottom']); ?>
 
 <div id="calendar"></div>
 
@@ -42,9 +42,21 @@ use Cake\Network\Exception\NotFoundException;
                 </td>
                 <td><?= $res->dateRRes->format('d / m / Y') ?></td>
                 <td><?= $res->heureRRes->format('H:i') ?></td>
-                <td><?= $res->statutRRes ?> | <?= $this->Html->Link('Valider', ['controller' => 'rres', 'action' => 'validRes', $res->idRRes]) ?> - <?= $this->Html->Link('Annuler', ['controller' => 'rres', 'action' => 'cancelRes', $res->idRRes]) ?></td>
                 <td>
-                    <?= $this->Html->Link('Voir', ['controller' => 'rres', 'action' => 'view', $res->idRRes]) ?> - <?= $this->Html->Link('Modifier', ['controller' => 'rres', 'action' => 'edit', $res->idRRes]) ?> - <?= $this->Html->Link('Supprimer', ['controller' => 'rres', 'action' => 'delete', $res->idRRes]) ?>                    
+                    <?php if ($res['statutRRes'] == 'Validée') : ?>
+                        <b class="alert-sm alert-success">
+                    <?php endif; ?>
+                    <?php if ($res['statutRRes'] == 'Demandée') : ?>     
+                        <b class="alert-sm alert-warning">
+                    <?php endif; ?>
+                    <?php if ($res['statutRRes'] == 'Annulée') : ?>
+                        <b class="alert-sm alert-danger">
+                    <?php endif; ?>
+                        <?= $res->statutRRes ?>
+                    </b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $res->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $res->idRRes]) ?>
+                </td>
+                <td>
+                    <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $res->idRRes]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RRes', 'action' => 'edit', $res->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $res->idRRes]) ?>                    
                 </td>
             </tr>
         <?php endforeach; ?>

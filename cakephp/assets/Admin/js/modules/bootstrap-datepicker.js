@@ -1,4 +1,4 @@
-(function($){
+;(function($){
 	$.fn.datepicker.dates['fr'] = {
 		days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
 		daysShort: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
