@@ -1,7 +1,10 @@
-import 'fullcalendar'
+import 'fullcalendar';
 
 $(function() {
-  $('#calendar').fullCalendar({
-    // put your options and callbacks here
-  })
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+    })
 });
