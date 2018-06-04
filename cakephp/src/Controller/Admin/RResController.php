@@ -13,21 +13,31 @@ class RResController extends AppController
         parent::initialize();
     }
 
-    public function fullList($month)
+    public function fullList()
     {
         $title = 'Admin | Liste Globale Réservations';
         $this->set('title', $title);
+    }
 
+    public function getNbRes()
+    {
         $ress = $this->RRes->find()
-                            // ->where(['dateRRes as date >=' => date('Y-m-d')])
-                            // ->where([date('m', $date) => $month])
-                            ->contain(['Users'])
-                            ->contain(['Prospects'])
-                            ->contain(['RZones'])
-                            ->contain(['RTables'])
-                            ->order('dateRRes, heureRRes');
+        ->select([
+            'start' => 'dateRRes',
+            'title' => $this->RRes->find()->func()->count('*')
+        ])
+        ->where(['dateRRes >=' => date('Y-m-d')])
+        ->group('dateRRes')
+        ->toArray();
 
-        $this->set('ress', $ress);
+        foreach ($ress as $res) {
+            $res['start'] = date('Y-m-d', strtotime($res['start']));
+            $res['url'] = '/admin/r-res/day-list/' . $res['start'];
+        }
+
+        echo json_encode($ress);
+        die();
+
     }
 
     public function dayList($day)
@@ -41,8 +51,6 @@ class RResController extends AppController
                             ->where(['statutRRes' => 'Validée'])
                             ->contain(['Users'])
                             ->contain(['Prospects'])
-                            ->contain(['RZones'])
-                            ->contain(['RTables'])
                             ->order('dateRRes, heureRRes');
 
         $this->set('ress', $ress);
@@ -52,8 +60,6 @@ class RResController extends AppController
                             ->where(['statutRRes' => 'Demandée'])
                             ->contain(['Users'])
                             ->contain(['Prospects'])
-                            ->contain(['RZones'])
-                            ->contain(['RTables'])
                             ->order('dateRRes, heureRRes');
 
         $this->set('ressNV', $ressNV);
@@ -63,8 +69,6 @@ class RResController extends AppController
                             ->where(['statutRRes' => 'Annulée'])
                             ->contain(['Users'])
                             ->contain(['Prospects'])
-                            ->contain(['RZones'])
-                            ->contain(['RTables'])
                             ->order('dateRRes, heureRRes');
 
         $this->set('ressA', $ressA);

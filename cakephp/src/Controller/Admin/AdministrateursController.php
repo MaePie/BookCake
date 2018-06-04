@@ -9,12 +9,12 @@ class AdministrateursController extends AppController
 {
 
     public function index() {
-        $title = 'Admin - Home';
+        $title = 'Admin | Home';
         $this->set('title', $title);
     }
 
     public function login() {
-        $title = 'Admin - Login';
+        $title = 'Admin | Login';
         $this->set('title', $title);
 
         if ($this->request->is('post')) {
@@ -40,7 +40,7 @@ class AdministrateursController extends AppController
     }
 
     public function add() {
-        $title = 'Admin - Add';
+        $title = 'Admin | Add';
         $this->set('title', $title);
 
         if ($this->request->is('post')) {

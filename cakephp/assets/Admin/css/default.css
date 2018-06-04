@@ -189,3 +189,18 @@ b.alert-sm {
 
 .btn.categories {
   text-transform: uppercase; }
+
+#calendar {
+  margin-top: 9rem !important; }
+  #calendar .fc-toolbar .fc-left {
+    text-transform: capitalize; }
+  #calendar th.fc-day-header.fc-widget-header {
+    text-transform: capitalize; }
+  #calendar .fc-row.fc-week.fc-widget-content {
+    height: auto !important; }
+  #calendar .fc-scroller.fc-day-grid-container {
+    height: auto !important; }
+  #calendar span.fc-title {
+    padding-left: 17%; }
+  #calendar a.fc-day-grid-event.fc-h-event.fc-event.fc-start.fc-end {
+    width: 50%; }
