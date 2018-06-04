@@ -16,9 +16,9 @@ use Cake\Network\Exception\NotFoundException;
 <br/>
 
 <div class="container" style="text-align: center;">
-    <button class="btn btn-primary"> <?= $this->Html->Link('<', ['controller' => 'RRes', 'action' => 'dayList', date('Y-m-d', strtotime($day.'-1 day'))], ['style' => 'color: white']) ?> </button>
-    <button class="btn btn-primary"><?= date('d / m / Y', strtotime($day)) ?></button>
-    <button class="btn btn-primary"> <?= $this->Html->Link('>', ['controller' => 'RRes', 'action' => 'dayList', date('Y-m-d', strtotime($day.'+1 day'))], ['style' => 'color: white']) ?> </button>
+    <?= $this->Html->Link('<', ['controller' => 'RRes', 'action' => 'dayList', date('Y-m-d', strtotime($day.'-1 day'))], ['class' => 'btn btn-primary']) ?>
+    <a class="btn btn-primary"><?= date('d / m / Y', strtotime($day)) ?></a>
+    <?= $this->Html->Link('>', ['controller' => 'RRes', 'action' => 'dayList', date('Y-m-d', strtotime($day.'+1 day'))], ['class' => 'btn btn-primary']) ?>
 </div>
 
 <br/><h3 class="alert-sm alert-success">Réservations validées</h3>
