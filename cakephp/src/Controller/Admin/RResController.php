@@ -19,12 +19,13 @@ class RResController extends AppController
         $this->set('title', $title);
     }
 
-    public function getNbRes()
+    public function getNbResCalendar()
     {
         $ress = $this->RRes->find()
         ->select([
             'start' => 'dateRRes',
-            'title' => $this->RRes->find()->func()->count('*')
+            'title' => $this->RRes->find()->func()->count('*'),
+            'title2' => $this->RRes->find()->func()->sum('nbPersRRes')
         ])
         ->where(['dateRRes >=' => date('Y-m-d')])
         ->group('dateRRes')
@@ -32,12 +33,43 @@ class RResController extends AppController
 
         foreach ($ress as $res) {
             $res['start'] = date('Y-m-d', strtotime($res['start']));
+            $res['title'] = $res['title'] . ' - ' . $res['title2']; 
             $res['url'] = '/admin/r-res/day-list/' . $res['start'];
         }
 
         echo json_encode($ress);
         die();
+    }
 
+    public function getNbResChart($day = null)
+    {
+        // if (date('l') == 'Monday') $day = date('Y-m-d');
+        // else $day = strtotime('last monday');
+
+        $day = date('Y-m-d');
+
+        for ($i = 0; $i <= 7; $i++) {
+            $ress[$i] = $this->RRes->find()
+            ->select([
+                'start' => 'dateRRes',
+                'count' => $this->RRes->find()->func()->count('*')
+            ])
+            ->where(['dateRRes' => $day])
+            ->group('dateRRes')
+            ->toArray();
+            
+            debug($ress[$i]);
+            $day = date('Y-m-d', strtotime('+' . $i . ' days'));
+        }
+
+        $nbRes = [];
+
+        // foreach ($ress as $res) {
+        //     array_push($nbRes, $res['count']);
+        // }
+
+        echo json_encode($nbRes);
+        die();
     }
 
     public function dayList($day)
@@ -45,6 +77,18 @@ class RResController extends AppController
         $title = 'Admin | Liste Jour Réservations';
         $this->set('title', $title);
         $this->set('day', $day);
+
+        $nb = $this->RRes->find()
+        ->select([
+            'heureRRes',
+            'count' => $this->RRes->find()->func()->count('*')
+        ])
+        ->distinct(['statutRRes'])
+        ->where(['dateRRes' => $day])
+        ->group('heureRRes')
+        ->toArray();
+        $this->set('nb', $nb);
+        // debug($nb);
 
         $ress = $this->RRes->find()
                             ->where(['dateRRes' => $day])

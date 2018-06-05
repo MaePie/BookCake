@@ -59,7 +59,13 @@ class RCarteProduitsController extends AppController
         if ($this->request->is('post')) {
 
             $data = $this->request->data;
+
+            list($day, $month, $year) = explode('/', $data['deRCarteProduit']);
+            $data['deRCarteProduit'] = $year . '-' . $month . '-' . $day;
+            list($day, $month, $year) = explode('/', $data['aRCarteProduit']);
+            $data['aRCarteProduit'] = $year . '-' . $month . '-' . $day;
             debug($data);
+            die();
 
             $ordre = $this->RCarteProduits->find()
                                         ->select('ordreRCarteProduit')
@@ -118,7 +124,26 @@ class RCarteProduitsController extends AppController
         $categories = $this->RCarteProduits->RCarteCategories->find('list');
 
         if ($this->request->is('post')) {
-            $produit = $this->RCarteProduits->patchEntity($produit, $this->request->data);
+
+            $data = $this->request->data;
+
+            if ($data['deRCarteProduit'] != '') {
+                list($day, $month, $year) = explode('/', $data['deRCarteProduit']);
+                $data['deRCarteProduit'] = $year . '-' . $month . '-' . $day;
+            }
+            else {
+                $data['deRCarteProduit'] = NULL;
+            }
+            if ($data['aRCarteProduit'] != '') {
+                list($day, $month, $year) = explode('/', $data['aRCarteProduit']);
+                $data['aRCarteProduit'] = $year . '-' . $month . '-' . $day;
+            }
+            else {
+                $data['aRCarteProduit'] = NULL;
+            }
+
+            $produit = $this->RCarteProduits->patchEntity($produit, $data);
+
             if ($this->RCarteProduits->save($produit)) {
                 $this->Flash->success(__('Le produit a été modifié.'));
 
@@ -184,7 +209,6 @@ class RCarteProduitsController extends AppController
 
         $scategories = $this->RCarteSCategories->find('list')
                                                 ->where(['idRCarteCategorie' => $this->request->data['idRCarteCategorie']]);
-
 
         echo json_encode($scategories, JSON_PRETTY_PRINT);
         die();

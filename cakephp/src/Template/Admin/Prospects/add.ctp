@@ -13,5 +13,5 @@ use Cake\Network\Exception\NotFoundException;
 <?= $this->Form->control('nomProspect', ['label' => 'Nom *', 'type' => 'text', 'class' => 'form-control']) ?>
 <?= $this->Form->control('emailProspect', ['label' => 'Email *', 'type' => 'text', 'class' => 'form-control']) ?>
 <?= $this->Form->control('telProspect', ['label' => 'Téléphone', 'type' => 'text', 'class' => 'form-control']) ?>
-<?= $this->Form->control('Ajouter', ['label' => false, 'type' => 'button', 'class' => 'btn btn-primary btn-block btn-flat margin-top']) ?>
+<div class="input"><button type="button" class="btn btn-primary btn-flat mt-3" id="ajouter">Ajouter</button></div>
 <?= $this->Form->end() ?>
