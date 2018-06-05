@@ -57,8 +57,20 @@ class RCarteProduitsTable extends Table
             ->allowEmpty('descriptionRCarteProduit');
 
         $validator
-            ->integer('prixRCarteProduit')
+            ->decimal('prixRCarteProduit')
             ->allowEmpty('prixRCarteProduit');
+
+        $validator
+            ->decimal('prixAchatRCarteProduit')
+            ->allowEmpty('prixAchatRCarteProduit');
+
+        $validator
+            ->date('deRCarteProduit')
+            ->allowEmpty('deRCarteProduit');
+
+        $validator
+            ->date('aRCarteProduit')
+            ->allowEmpty('aRCarteProduit');
 
         $validator
             ->integer('ordreRCarteProduit')

@@ -17,7 +17,7 @@ use Cake\Network\Exception\NotFoundException;
 
 <div class="container" style="text-align: center;">
     <?= $this->Html->Link('<', ['controller' => 'RRes', 'action' => 'dayList', date('Y-m-d', strtotime($day.'-1 day'))], ['class' => 'btn btn-primary']) ?>
-    <a class="btn btn-primary"><?= date('d / m / Y', strtotime($day)) ?></a>
+    <a id="dp" class="btn btn-primary hasDatepicker"><?= date('d / m / Y', strtotime($day)) ?></a>
     <?= $this->Html->Link('>', ['controller' => 'RRes', 'action' => 'dayList', date('Y-m-d', strtotime($day.'+1 day'))], ['class' => 'btn btn-primary']) ?>
 </div>
 
@@ -30,6 +30,7 @@ use Cake\Network\Exception\NotFoundException;
         <th>Mail</th>
         <th>Date</th>
         <th>Heure</th>
+        <th>Nombre</th>
         <th>Statut</th>
         <th>Actions</th>
     </thead>
@@ -57,16 +58,16 @@ use Cake\Network\Exception\NotFoundException;
                         </td>
                     <?php else : ?>
                         <td>
-                            <?php 
-                                if ($res->prospect) echo $res->nomRRes;
-                            ?>
+                            <?= $res->nomRRes ?>
                         </td>
+                        <td></td>
                     <?php endif; ?>
                     <td><?= $res->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $res->heureRRes->format('H:i') ?></td>
-                    <td><b class="alert-sm alert-success"><?= $res->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $res->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $res->idRRes]) ?></td>
+                    <td><?= $res->nbPersRRes ?></td>
+                    <td><b class="alert-sm alert-success"><?= $res->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $res->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $res->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $res->idRRes]) ?></td>
                     <td>
-                        <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $res->idRRes]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RRes', 'action' => 'edit', $res->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $res->idRRes]) ?>                    
+                        <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $res->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $res->idRRes], ['confirm' => 'Etes-vous sur de vouloir supprimer la réservation '. $res->idRRes]) ?>                    
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -83,6 +84,7 @@ use Cake\Network\Exception\NotFoundException;
         <th>Mail</th>
         <th>Date</th>
         <th>Heure</th>
+        <th>Nombre</th>
         <th>Statut</th>
         <th>Actions</th>
     </thead>
@@ -95,23 +97,31 @@ use Cake\Network\Exception\NotFoundException;
             <?php foreach($ressNV as $resNV) : ?> 
                 <tr>
                     <td><?= $resNV->idRRes ?></td>
-                    <td>
-                        <?php 
-                            if ($resNV->prospect) echo $resNV->prospect['nomProspect'];
-                            if ($resNV->user) echo $resNV->user['nomUser'] . ' ' . $resNV->user['prenomUser'];
-                        ?>
-                    </td>
-                    <td>
-                        <?php 
-                            if ($resNV->prospect) echo $resNV->prospect['emailProspect'];
-                            if ($resNV->user) echo $resNV->user['emailUser'];
-                        ?>
-                    </td>
+                    <?php if (isset($resNV->prospect) || isset($resNV->user)) : ?>
+                        <td>
+                            <?php 
+                                if ($resNV->prospect) echo $resNV->prospect['nomProspect'];
+                                if ($resNV->user) echo $resNV->user['nomUser'] . ' ' . $resNV->user['prenomUser'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php 
+                                if ($resNV->prospect) echo $resNV->prospect['emailProspect'];
+                                if ($resNV->user) echo $resNV->user['emailUser'];
+                            ?>
+                        </td>
+                    <?php else : ?>
+                        <td>
+                            <?= $resNV->nomRRes ?>
+                        </td>
+                        <td></td>
+                    <?php endif; ?>
                     <td><?= $resNV->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $resNV->heureRRes->format('H:i') ?></td>
-                    <td><b class="alert-sm alert-warning"><?= $resNV->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $resNV->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $resNV->idRRes]) ?></td>
+                    <td><?= $resNV->nbPersRRes ?></td>
+                    <td><b class="alert-sm alert-warning"><?= $resNV->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $resNV->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $resNV->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $resNV->idRRes]) ?></td>
                     <td>
-                        <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $resNV->idRRes]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RRes', 'action' => 'edit', $resNV->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $resNV->idRRes]) ?>                    
+                        <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $resNV->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $resNV->idRRes], ['confirm' => 'Etes-vous sur de vouloir supprimer la réservation '. $resNV->idRRes]) ?>                    
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -128,6 +138,7 @@ use Cake\Network\Exception\NotFoundException;
         <th>Mail</th>
         <th>Date</th>
         <th>Heure</th>
+        <th>Nombre</th>
         <th>Statut</th>
         <th>Actions</th>
     </thead>
@@ -140,23 +151,31 @@ use Cake\Network\Exception\NotFoundException;
             <?php foreach($ressA as $resA) : ?> 
                 <tr>
                     <td><?= $resA->idRRes ?></td>
-                    <td>
-                        <?php 
-                            if ($resA->prospect) echo $resA->prospect['nomProspect'];
-                            if ($resA->user) echo $resA->user['nomUser'] . ' ' . $resA->user['prenomUser'];
-                        ?>
-                    </td>
-                    <td>
-                        <?php 
-                            if ($resA->prospect) echo $resA->prospect['emailProspect'];
-                            if ($resA->user) echo $resA->user['emailUser'];
-                        ?>
-                    </td>
+                    <?php if (isset($resA->prospect) || isset($resA->user)) : ?>
+                        <td>
+                            <?php 
+                                if ($resA->prospect) echo $resA->prospect['nomProspect'];
+                                if ($resA->user) echo $resA->user['nomUser'] . ' ' . $resA->user['prenomUser'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php 
+                                if ($resA->prospect) echo $resA->prospect['emailProspect'];
+                                if ($resA->user) echo $resA->user['emailUser'];
+                            ?>
+                        </td>
+                    <?php else : ?>
+                        <td>
+                            <?= $resA->nomRRes ?>
+                        </td>
+                        <td></td>
+                    <?php endif; ?>
                     <td><?= $resA->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $resA->heureRRes->format('H:i') ?></td>
-                    <td><b class="alert-sm alert-danger"><?= $resA->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $resA->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $resA->idRRes]) ?></td>
+                    <td><?= $resA->nbPersRRes ?></td>
+                    <td><b class="alert-sm alert-danger"><?= $resA->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $resA->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $resA->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $res->idRRes]) ?></td>
                     <td>
-                        <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $resA->idRRes]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RRes', 'action' => 'edit', $resA->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $resA->idRRes]) ?>                    
+                        <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $resA->idRRes]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RRes', 'action' => 'edit', $resA->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $resA->idRRes], ['confirm' => 'Etes-vous sur de vouloir supprimer la réservation '. $resA->idRRes]) ?>                    
                     </td>
                 </tr>
             <?php endforeach; ?>

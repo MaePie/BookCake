@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import 'fullcalendar';
+import 'fullcalendar'
 import 'fullcalendar/dist/locale/fr.js'
 
 $(function() {
@@ -11,6 +11,6 @@ $(function() {
 
     	locale: 'fr',
     	firstDay: 1,
-		events: '/admin/r-res/get-nb-res'
+		events: '/admin/r-res/get-nb-res-calendar'
     })
 });

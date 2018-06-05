@@ -166,6 +166,9 @@
 .input-group-addon {
   width: 47px; }
 
+label {
+  width: 100%; }
+
 .table {
   margin-bottom: 0; }
 

@@ -37,7 +37,7 @@
         <div class="grid">
             <div class="input-group input1">
                 <div class="input-group-prepend">
-                    <span class="input-group-"><i class="fa fa-calendar"></i></span>
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
                 <input id="dateRRes" type="text" name="rres[dateRRes]" class="form-control hasDatepicker" value="<?= date('d/m/Y') ?>" required>
             </div>

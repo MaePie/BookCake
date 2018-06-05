@@ -22,8 +22,17 @@
             <label>Prix</label>  
             <input type="number" step="0.01" name="prixRCarteProduit" class="form-control"> 
 
+            <label>Prix Vente</label>  
+            <input type="number" step="0.01" name="prixVenteRCarteProduit" class="form-control">
+
+            <label>De</label>  
+            <input type="text" id="deRCarteProduit" name="deRCarteProduit" class="form-control hasDatepicker">
+        
+            <label>A</label>
+            <input type="text" id="deRCarteProduit" name="aRCarteProduit" class="form-control hasDatepicker">
+
             <label>Description</label>  
-            <textarea type="text" name="descritptionRCarteProduit" class="form-control"></textarea>
+            <textarea name="descritptionRCarteProduit" class="form-control"></textarea>
 
             <button type="submit" name="Enregistrer" class="btn btn-primary mt-5">Enregistrer</button>
         </form>

@@ -22,3 +22,11 @@ $('.hasDatepicker').datepicker({
     clearBtn: true,
     todayHighlight: true
 });
+
+$('#dp').datepicker()
+  .on('changeDate', function(ev){
+    var href = new Date();
+	href.setTime(ev.date.getTime());
+	var month = href.getMonth() + 1
+    window.location.href = '/admin/r-res/day-list/' + href.getFullYear() + '-' + month + '-' + href.getDate();
+});
