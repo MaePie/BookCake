@@ -4,3 +4,5 @@ window.toastr = require('toastr')
 import 'bootstrap'
 import 'bootstrap-datepicker'
 import 'fullcalendar'
+import 'chart.js'
+import 'datatables.net'
