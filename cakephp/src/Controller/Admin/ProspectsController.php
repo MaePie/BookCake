@@ -16,14 +16,12 @@ class ProspectsController extends AppController
 {
 
     public function add() {
-        $title = 'Reservation - Au fil de l\'eau';
+        $title = 'Admin | Ajout User';
         $this->set('title', $title);
-
-        debug($this->request->data);
 
         if ($this->request->is('post')) {
           $prospect = $this->Prospects->newEntity($this->request->data['prospects']);
-          debug($prospect);
+
           $this->Prospects->save($prospect);
         
           return $this->redirect(['controller' => 'prospects', 'action' => 'list']);
@@ -31,32 +29,33 @@ class ProspectsController extends AppController
     }
 
     public function list() {
-        $title = 'Admin Liste Users';
+        $title = 'Admin | Liste Users';
         $this->set('title', $title);
 
         $prospects = $this->Prospects->find('all');
+        $this->set('prospects', $prospects);
     }
 
-    public function listJSON() {
-        $prospects = $this->Prospects->find();
+    public function json() {
+        $prospects = $this->Prospects->find('all');
 
-        // echo json_encode($prospects, JSON_PRETTY_PRINT);
+        echo json_encode($prospects, JSON_PRETTY_PRINT);
 
-        $i = 0;
+        // $i = 0;
 
-        echo "{\"data\": [";
-        foreach ($prospects as $prospect)
-        {
-          if($i != 0) echo ",";
-          echo "[\"". $prospect['idProspect'] ."\",";
-          echo "\"". $prospect['nomProspect'] ."\",";
-          echo "\"". $prospect['emailProspect'] ."\",";
-          if(!empty($prospect['telProspect'])) echo "\"". $prospect['telProspect'] ."\",";
-          else echo "\"NR\",";
-          echo "\"<a href='view/". $prospect['idProspect'] ."'>View </a><a href='edit/". $prospect['idProspect'] ."'>Edit </a><a href='delete/". $prospect['idProspect'] ."'>Delete</a>\"]";
-          $i++;
-        }
-        echo "]}";
+        // echo "{\"data\": [";
+        // foreach ($prospects as $prospect)
+        // {
+        //   if($i != 0) echo ",";
+        //   echo "[\"". $prospect['idProspect'] ."\",";
+        //   echo "\"". $prospect['nomProspect'] ."\",";
+        //   echo "\"". $prospect['emailProspect'] ."\",";
+        //   if(!empty($prospect['telProspect'])) echo "\"". $prospect['telProspect'] ."\",";
+        //   else echo "\"NR\",";
+        //   echo "\"<a href='view/". $prospect['idProspect'] ."'>View </a><a href='edit/". $prospect['idProspect'] ."'>Edit </a><a href='delete/". $prospect['idProspect'] ."'>Delete</a>\"]";
+        //   $i++;
+        // }
+        // echo "]}";
 
         die();
     }

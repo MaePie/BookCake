@@ -13,21 +13,26 @@ use Cake\Network\Exception\NotFoundException;
 
 <table id="datatable" class="table margin-top table-striped table-hover table-bordered">
     <thead>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Mail</th>
-        <th>Téléphone</th>
-        <th>Actions</th>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Mail</th>
+            <th>Téléphone</th>
+            <!-- <th>Actions</th> -->
+        </tr>
     </thead>
+    <tbody>
+        <?php foreach ($prospects as $prospect) : ?>
+            <tr>
+                <td><?= $prospect->idProspect ?></td>
+                <td><?= $prospect->nomProspect ?></td>
+                <td><?= $prospect->emailProspect ?></td>
+                <td><?= $prospect->telProspect ?></td>
+                <!-- <td></td> -->
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
 </table>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#datatable').DataTable( {
-            "ajax": '/admin/prospects/listJSON'
-        } );
-    } );
-</script>
 
 </body>
 </html>

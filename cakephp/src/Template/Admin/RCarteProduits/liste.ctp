@@ -27,15 +27,18 @@ use Cake\Network\Exception\NotFoundException;
 			<thead>
 				<tr>
 					<th>Nom</th>
+					<th>Prix Achat</th>
+					<th>Prix Achat</th>
+					<th>De</th>
+					<th>A</th>
 					<th>Description</th>
-					<th>Prix</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<?php foreach ($produits as $produit) : ?>
 				<?php if ($produit->r_carte_category->idRCarteCategorie != $categorie) : ?>
 					<tr class="categorie">
-						<td colspan="4">
+						<td colspan="7">
 							<h3><?= $produit->r_carte_category->nomRCarteCategorie ?></h3>
 						</td>
 					</tr>
@@ -44,7 +47,7 @@ use Cake\Network\Exception\NotFoundException;
 
 				<?php if (isset($produit->r_carte_s_category) && $produit->r_carte_s_category->idRCarteSCategorie != $scategorie) : ?>
 					<tr class="scategorie">
-						<td colspan="4">
+						<td colspan="7">
 							<h2 class="pl-5"><?= $produit->r_carte_s_category->nomRCarteSCategorie ?></h2>
 						</td>
 					</tr>
@@ -53,9 +56,12 @@ use Cake\Network\Exception\NotFoundException;
 
 				<tr>
 					<td><?= $produit->nomRCarteProduit ?></td>
-					<td><?= $produit->descriptionRCarteProduit ?></td>
 					<td><?php if ($produit->prixRCarteProduit != 0) echo $produit->prixRCarteProduit ?></td>
-					<td><?= $this->Html->Link('Désactiver', ['controller' => 'RCarteProduits', 'action' => 'close', $produit->idRCarteProduit, $cat]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteProduits', 'action' => 'view', $produit->idRCarteProduit]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteProduits', 'action' => 'edit', $produit->idRCarteProduit]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteProduits', 'action' => 'delete', $produit->idRCarteProduit]) ?></td>
+					<td><?php if ($produit->prixAchatRCarteProduit != 0) echo $produit->prixAchatRCarteProduit ?></td>
+					<td><?php if (isset($produit->deRCarteProduit)) echo $produit->deRCarteProduit->format('d / m / Y') ?></td>
+					<td><?php if (isset($produit->aRCarteProduit)) echo $produit->aRCarteProduit->format('d / m / Y') ?></td>
+					<td><?= $produit->descriptionRCarteProduit ?></td>
+					<td><?= $this->Html->Link('Désactiver', ['controller' => 'RCarteProduits', 'action' => 'close', $produit->idRCarteProduit, $cat]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteProduits', 'action' => 'view', $produit->idRCarteProduit]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteProduits', 'action' => 'edit', $produit->idRCarteProduit]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteProduits', 'action' => 'delete', $produit->idRCarteProduit], ['confirm' => 'Etes-vous sur de vouloir supprimer le produit '. $produit->idRCarteProduit]) ?></td>
 				</tr>
 			<?php endforeach; ?>
 		</table>
@@ -75,15 +81,18 @@ use Cake\Network\Exception\NotFoundException;
 				<thead>
 					<tr>
 						<th>Nom</th>
+						<th>Prix Achat</th>
+						<th>Prix Achat</th>
+						<th>De</th>
+						<th>A</th>
 						<th>Description</th>
-						<th>Prix</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<?php foreach ($produitsOff as $produitOff) : ?>
 					<?php if ($produitOff->r_carte_category->idRCarteCategorie != $categorie) : ?>
 						<tr class="categorie">
-							<td colspan="4">
+							<td colspan="7">
 								<h3><?= $produitOff->r_carte_category->nomRCarteCategorie ?></h3>
 							</td>
 						</tr>
@@ -92,7 +101,7 @@ use Cake\Network\Exception\NotFoundException;
 
 					<?php if (isset($produitOff->r_carte_s_category->idRCarteSCategorie) && $produitOff->r_carte_s_category->idRCarteSCategorie != $scategorie) : ?>
 						<tr class="scategorie">
-							<td colspan="4">
+							<td colspan="7">
 								<h2 class="pl-5"><?= $produitOff->r_carte_s_category->nomRCarteSCategorie ?></h2>
 							</td>
 						</tr>
@@ -101,9 +110,12 @@ use Cake\Network\Exception\NotFoundException;
 
 					<tr>
 						<td><?= $produitOff->nomRCarteProduit ?></td>
-						<td><?= $produitOff->descriptionRCarteProduit ?></td>
 						<td><?php if ($produitOff->prixRCarteProduit != 0) echo $produitOff->prixRCarteProduit ?></td>
-						<td><?= $this->Html->Link('Activer', ['controller' => 'RCarteProduits', 'action' => 'open', $produitOff->idRCarteProduit, $cat]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteProduits', 'action' => 'view', $produitOff->idRCarteProduit, $cat]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteProduits', 'action' => 'edit', $produitOff->idRCarteProduit, $cat]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteProduits', 'action' => 'delete', $produitOff->idRCarteProduit, $cat]) ?></td>
+						<td><?php if ($produitOff->prixAchatRCarteProduit != 0) echo $produitOff->prixAchatRCarteProduit ?></td>
+						<td><?php if (isset($produitOff->deRCarteProduit)) echo $produitOff->deRCarteProduit->format('d / m / Y') ?></td>
+						<td><?php if (isset($produitOff->aRCarteProduit)) echo $produitOff->aRCarteProduit->format('d / m / Y') ?></td>
+						<td><?= $produitOff->descriptionRCarteProduit ?></td>
+						<td><?= $this->Html->Link('Activer', ['controller' => 'RCarteProduits', 'action' => 'open', $produitOff->idRCarteProduit, $cat]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteProduits', 'action' => 'view', $produitOff->idRCarteProduit, $cat]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteProduits', 'action' => 'edit', $produitOff->idRCarteProduit, $cat]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteProduits', 'action' => 'delete', $produitOff->idRCarteProduit, $cat], ['confirm' => 'Etes-vous sur de vouloir supprimer le produit '. $produit->idRCarteProduit]) ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</table>

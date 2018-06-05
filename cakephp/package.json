@@ -37,6 +37,8 @@
     },
     "dependencies": {
         "bootstrap-datepicker": "^1.8.0",
+        "chart.js": "^2.7.2",
+        "datatables.net": "^1.10.16",
         "fullcalendar": "^3.9.0",
         "gentelella": "^1.4.0",
         "gulp-imagemin": "^4.1.0"

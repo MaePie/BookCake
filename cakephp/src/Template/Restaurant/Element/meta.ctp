@@ -6,12 +6,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PFN3WRJ');</script>
 <!-- End Google Tag Manager -->
 
-<meta name="description" content="">
+<?= $this->Html->meta(
+    'description',
+    'Au fil de l\'eau est un hôtel - restaurant à côté de Toulouse à Blagnac. Situé idéalement en bord de Garonne, ce restaurant offre le parfait emplacement pour déjeuner en terrasse, dans une salle spacieuse ou encore boire un verre autour du grill.'
+); ?>
 <?= $this->Html->meta(
     'keywords',
-    'entrez vos mots clés pour la balise meta ici'
-);
-?>
+    'Au fil de l\'eau Restaurant Hôtel Toulouse Blagnac Garonne Terrasse Grillade'
+); ?>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:site_name" content="">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="">
