@@ -14,42 +14,77 @@ var nb_res_day = function () {
             tmp = data;
         }
     });
+    console.log(tmp);
     return tmp;
 }();
 
+var nb_pers_day = function () {
+    var tmp2 = null;
+    $.ajax({
+        'async': false,
+        'type': "POST",
+        'global': false,
+        'dataType': 'json',
+        'url': "/admin/r-res/get-nb-pers-chart",
+        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'success': function (data) {
+            tmp2 = data;
+        }
+    });
+    console.log(tmp2);
+    return tmp2;
+}()
+
+var days = function () {
+    var tmp3 = null;
+    $.ajax({
+        'async': false,
+        'type': "POST",
+        'global': false,
+        'dataType': 'json',
+        'url': "/admin/r-res/get-days",
+        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'success': function (data) {
+            tmp3 = data;
+        }
+    });
+    console.log(tmp3);
+    return tmp3;
+}();
+
 var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: [ '1', '2', '3', '4', '5' ],
-    datasets: [
-      {
-        label: 'A',
-        yAxesGroup: 'A',
-        data: [ 100, 96, 84, 76, 69 ]
-      },
-      {
-        label: 'B',
-        yAxesGroup: 'B',
-        data: [ 15, 120, 89, 91, 43 ]
-      }
-    ]
-  },
-  options: {
-    yAxes: [
-      {
-        name: 'A',
-        type: 'linear',
-        position: 'left',
-        scalePositionLeft: true
-      },
-      {
-        name: 'B',
-        type: 'linear',
-        position: 'right',
-        scalePositionLeft: false,
-        min: 0,
-        max: 1
-      }
-    ]
-  }
+
+	type: 'line',
+    data: {
+        labels: days,
+        datasets: [{
+            label: 'Nombre de réservations',
+            data: nb_res_day,
+            fill: false,
+            backgroundColor: [ 'rgba(54, 162, 235, 0.2)' ],
+            borderColor: [ 'rgba(42, 63, 84, 0.7)' ],
+            pointHoverRadius: 7,
+            pointHoverBackgroundColor: 'rgba(54, 162, 235, 0.2)',
+            pointHoverBorderColor: 'rgba(42, 63, 84, 1)'
+        },
+        {
+            label: 'Nombre de personnes',
+            data: nb_pers_day,
+            fill: false,
+            backgroundColor: [ 'rgba(75, 192, 192, 0.2)' ],
+            borderColor: [ 'rgba(75, 192, 192, 0.7)' ],
+            pointHoverRadius: 7,
+            pointHoverBackgroundColor: 'rgba(75, 192, 192, 0.7)',
+            pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
 });

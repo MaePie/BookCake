@@ -33,7 +33,7 @@ class RResController extends AppController
 
         foreach ($ress as $res) {
             $res['start'] = date('Y-m-d', strtotime($res['start']));
-            $res['title'] = $res['title'] . ' - ' . $res['title2']; 
+            $res['title'] = $res['title'] . ' res. - ' . $res['title2'] . ' pers.'; 
             $res['url'] = '/admin/r-res/day-list/' . $res['start'];
         }
 
@@ -43,32 +43,85 @@ class RResController extends AppController
 
     public function getNbResChart($day = null)
     {
-        // if (date('l') == 'Monday') $day = date('Y-m-d');
-        // else $day = strtotime('last monday');
 
         $day = date('Y-m-d');
 
-        for ($i = 0; $i <= 7; $i++) {
+        for ($i = 0; $i < 7; $i++) {
             $ress[$i] = $this->RRes->find()
             ->select([
-                'start' => 'dateRRes',
+                'dateRRes',
                 'count' => $this->RRes->find()->func()->count('*')
             ])
             ->where(['dateRRes' => $day])
             ->group('dateRRes')
             ->toArray();
             
-            debug($ress[$i]);
-            $day = date('Y-m-d', strtotime('+' . $i . ' days'));
+            $day = date('Y-m-d', strtotime('+ ' . $i . ' days'));
         }
 
         $nbRes = [];
-
-        // foreach ($ress as $res) {
-        //     array_push($nbRes, $res['count']);
-        // }
+        foreach ($ress as $res) {
+            if (isset($res[0]['count'])) array_push($nbRes, $res[0]['count']);
+            else array_push($nbRes, 0);
+        }
 
         echo json_encode($nbRes);
+        die();
+    }
+
+    public function getNbPersChart($day = null)
+    {
+
+        $day = date('Y-m-d');
+
+        for ($i = 0; $i < 7; $i++) {
+            $ress[$i] = $this->RRes->find()
+            ->select([
+                'dateRRes',
+                'count' => $this->RRes->find()->func()->sum('nbPersRRes')
+            ])
+            ->where(['dateRRes' => $day])
+            ->group('dateRRes')
+            ->toArray();
+            
+            $day = date('Y-m-d', strtotime('+ ' . $i . ' days'));
+        }
+
+        $nbRes = [];
+        foreach ($ress as $res) {
+            if (isset($res[0]['count'])) array_push($nbRes, $res[0]['count']);
+            else array_push($nbRes, 0);
+        }
+
+        echo json_encode($nbRes);
+        die();
+    }
+
+    public function getDays($day = null)
+    {
+        $day = date('Y-m-d');
+        $jour = '';
+        $days = [];
+
+        for ($i = 0; $i < 7; $i++) {
+            switch (date('l', strtotime($day))) {
+                case 'Monday' : $jour = 'Lun. '; break;
+                case 'Tuesday' : $jour = 'Mar. '; break;
+                case 'Wednesday' : $jour = 'Mer. '; break;
+                case 'Thursday' : $jour = 'Jeu. '; break;
+                case 'Friday' : $jour = 'Ven. '; break;
+                case 'Saturday' : $jour = 'Sam. '; break;
+                case 'Sunday' : $jour = 'Dim. '; break;
+            }
+
+            $jour .= date('d-m', strtotime($day));
+
+            array_push($days, $jour);
+
+            $day = date('Y-m-d', strtotime($day .'+1 day'));
+        }
+
+        echo json_encode($days);
         die();
     }
 

@@ -45,7 +45,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-clock"></i></span>
                 </div>
-                <input type="time" name="rres[heureRRes]" class="form-control" alt="Heure" value="20:00" required>
+                <input type="time" name="rres[heureRRes]" class="form-control" alt="Heure" step="600" value="20:00" required>
             </div>
             <div class="input-group input3">
                 <div class="input-group-prepend">
