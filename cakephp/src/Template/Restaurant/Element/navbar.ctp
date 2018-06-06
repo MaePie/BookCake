@@ -34,39 +34,39 @@
 </nav>
 <nav class="navbar navbar-expand-lg nav-bot">
     <form method="post" id="reservationForm" action="/rres/add">
-        <div class="grid">
-            <div class="input-group input1">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                </div>
-                <input id="dateRRes" type="text" name="rres[dateRRes]" class="form-control hasDatepicker" value="<?= date('d/m/Y') ?>" required>
-            </div>
-            <div class="input-group input2">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-clock"></i></span>
-                </div>
-                <input type="time" name="rres[heureRRes]" class="form-control" alt="Heure" step="600" value="20:00" required>
-            </div>
-            <div class="input-group input3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-users"></i></span>
-                </div>
-                <input type="number" name="rres[nbPersRRes]" class="form-control" value="2" required>
-            </div>
-            <div class="input-group grid-button">
-                <button type="submit" class="btn btn-block">Réserver</button>
-            </div>
-            <div class="input-group input4">
+        <div class="row">
+            <div class="input-group col-6">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
                 </div>
                 <input type="text" name="prospects[nomProspect]" class="form-control" placeholder="Nom" required>
             </div>
-            <div class="input-group input5">
+            <div class="input-group col-6">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                 </div>
                 <input type="email" name="prospects[emailProspect]" class="form-control" placeholder="Mail" required>
+            </div>
+            <div class="input-group col-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+                <input id="dateRRes" type="text" name="rres[dateRRes]" class="form-control hasDatepicker" value="<?= date('d/m/Y') ?>" required>
+            </div>
+            <div class="input-group col-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-clock"></i></span>
+                </div>
+                <input type="time" name="rres[heureRRes]" class="form-control" alt="Heure" step="300" value="20:00" required>
+            </div>
+            <div class="input-group col-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-users"></i></span>
+                </div>
+                <input type="number" name="rres[nbPersRRes]" class="form-control" value="2" required>
+            </div>
+            <div class="input-group col-3">
+                <button type="submit" class="btn btn-block">Réserver</button>
             </div>
         </div>
     </form>

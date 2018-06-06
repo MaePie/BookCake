@@ -13,8 +13,7 @@
 	<h2>Bonjour,</h2>
 
 	<br/>
-	<p>Votre réservation a bien été prise en compte.</p>
-	<p>Nous vous enverrons une confirmation dans les meilleurs délais.</p>
+	<p>Votre réservation a bien été <b>validée</b>.</p>
 
 	<br/>
 	<p><b>Détail réservation : </b></p>
@@ -24,7 +23,7 @@
 
 	<br/>
 	<p>Merci d'avoir réservé au restaurant <b class="blue"><em>Au fil de l'eau</em></b></p>
-	<p>A bientôt,</p>
+	<p>A très bientôt,</p>
 
 	<!-- <?= $this->Html->image('logo.png', ['height' => '104px', 'alt' => 'Logo', 'fullBase' => true]) ?> -->
 	<img src="http://restaurant-aufildeleau.devtotem.com/img/logo.png" height="104px" alt="Logo">

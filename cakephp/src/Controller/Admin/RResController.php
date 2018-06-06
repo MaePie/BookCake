@@ -56,7 +56,7 @@ class RResController extends AppController
             ->group('dateRRes')
             ->toArray();
             
-            $day = date('Y-m-d', strtotime('+ ' . $i . ' days'));
+            $day = date('Y-m-d', strtotime($day .'+1 day'));
         }
 
         $nbRes = [];
@@ -84,7 +84,7 @@ class RResController extends AppController
             ->group('dateRRes')
             ->toArray();
             
-            $day = date('Y-m-d', strtotime('+ ' . $i . ' days'));
+            $day = date('Y-m-d', strtotime($day . '+1 day'));
         }
 
         $nbRes = [];
@@ -203,7 +203,7 @@ class RResController extends AppController
 
     public function view($id = null)
     {
-        $title = 'Admin | Réservation ' . $id;
+        $title = 'Admin | Réservation';
         $this->set('title', $title);
 
         $rres = $this->RRes->find()
@@ -219,7 +219,7 @@ class RResController extends AppController
 
     public function edit($id = null)
     {
-        $title = 'Admin | Modifier Réservation ' . $id;
+        $title = 'Admin | Modifier Réservation ';
         $this->set('title', $title);
 
         $res = $this->RRes->find()
@@ -266,8 +266,7 @@ class RResController extends AppController
         $res['statutRRes'] = 'Validée';
 
         if ($this->RRes->save($res)) {
-            $this->Flash->success(__('La réservation a été validée.'));
-            return $this->redirect(['action' => 'view', $id]);
+            return $this->redirect(['controller' => 'mail', 'action' => 'validres', $id]);
         } else {
             $this->Flash->error(__('La réservation n\'a pas pu être validée.'));
         }
@@ -282,10 +281,9 @@ class RResController extends AppController
         $res['statutRRes'] = 'Annulée';
 
         if ($this->RRes->save($res)) {
-            $this->Flash->success(__('La réservation a été validée.'));
-            return $this->redirect(['action' => 'view', $id]);
+            return $this->redirect(['controller' => 'mail', 'action' => 'cancelres', $id]);
         } else {
-            $this->Flash->error(__('La réservation n\'a pas pu être validée.'));
+            $this->Flash->error(__('La réservation n\'a pas pu être annulée.'));
         }
     }
 

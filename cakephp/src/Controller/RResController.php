@@ -30,9 +30,9 @@ class RResController extends AppController
         list($day, $month, $year) = explode('/', $dataR['dateRRes']);
         $dataR['dateRRes'] = $year . '-' . $month . '-' . $day;
 
-        $prospectsTable = TableRegistry::get('Prospects');
+        $prospectModel = $this->loadModel('Prospects');
 
-        $prospect = $prospectsTable->find()
+        $prospect = $prospectModel->find()
                                     ->where(['emailProspect' => $dataP['emailProspect']])   
                                     ->first();
         
@@ -40,8 +40,8 @@ class RResController extends AppController
             $dataR['idProspect'] = $prospect->idProspect;
         }
         else {
-            $prospect = $prospectsTable->newEntity($dataP);
-            $prospectsTable->save($prospect);
+            $prospect = $prospectModel->newEntity($dataP);
+            $prospectModel->save($prospect);
             $dataR['idProspect'] = $prospect->idProspect;
         }
 

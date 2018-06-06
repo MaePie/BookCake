@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 ); ?>
 <?= $this->Html->meta(
     'keywords',
-    'Au fil de l\'eau Restaurant Hôtel Toulouse Blagnac Garonne Terrasse Grillade'
+    'Au fil de l\'eau Restaurant Hôtel Toulouse Blagnac Garonne Terrasse Grill Séminaire'
 ); ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:site_name" content="">
