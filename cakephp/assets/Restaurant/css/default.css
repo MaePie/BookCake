@@ -230,11 +230,6 @@ button.navbar-toggler {
     top: 0;
     z-index: 999;
     width: 100%; }
-    .nav-bot.sticky + main {
-      padding-top: 138px; }
-      @media (max-width: 767px) {
-        .nav-bot.sticky + main {
-          padding-top: 344.6px; } }
   .nav-bot .grid {
     padding: 15px;
     display: grid;
@@ -286,6 +281,8 @@ button.navbar-toggler {
         border: none; }
     .nav-bot form .hideForm {
       display: none; }
+    .nav-bot form .row {
+      margin: 0; }
   .nav-bot span.input-group-text {
     width: 47px; }
 
@@ -330,6 +327,9 @@ button.navbar-toggler {
   bottom: 0; }
   #myCarousel .carousel-caption p {
     margin-bottom: 0; }
+  #myCarousel .carousel-caption h2 {
+    text-align: left;
+    font-size: 1rem; }
 
 #myCarousel .carousel-item {
   height: 26rem; }
@@ -388,7 +388,8 @@ button.navbar-toggler {
 
 #carte h1, #carte h2, #carte h3, #carte h4 {
   color: #c52d2f;
-  font-family: 'Alegreya Sans'; }
+  font-family: 'Alegreya Sans';
+  width: 100%; }
 
 .carte {
   color: #c52d2f; }
@@ -404,7 +405,7 @@ button.navbar-toggler {
   .carte-content:hover {
     background-color: #f8f8f8; }
 
-.carte-header {
+h2.carte-header {
   color: #c52d2f;
   text-transform: uppercase;
   width: 60%;
