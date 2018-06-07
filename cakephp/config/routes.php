@@ -50,7 +50,6 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/prospects/add', ['controller' => 'Prospects', 'action' => 'add']);
     $routes->connect('/rres/add', ['controller' => 'RRes', 'action' => 'add']);
     $routes->connect('/mail/rres', ['controller' => 'Mail', 'action' => 'rres']);
-    $routes->connect('/admin/mail', ['controller' => 'Mail']);
     /**
      * Connect catchall routes for all controllers.
      *
