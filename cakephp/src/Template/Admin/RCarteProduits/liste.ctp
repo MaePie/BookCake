@@ -27,7 +27,7 @@ use Cake\Network\Exception\NotFoundException;
 			<thead>
 				<tr>
 					<th>Nom</th>
-					<th>Prix Achat</th>
+					<th>Prix</th>
 					<th>Prix Achat</th>
 					<th>De</th>
 					<th>A</th>

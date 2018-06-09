@@ -12,10 +12,13 @@ class RCarteCategoriesController extends AppController
         parent::initialize();
     }
 
-    public function list()
+    public function liste()
     {
         $title = 'Admin | Liste Catégories Carte';
         $this->set('title', $title);
+
+        $this->RCarteCategorie->find()
+                               ->contain('RCarteSCategories');
     }
 
     public function add()
