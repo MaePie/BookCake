@@ -17,8 +17,9 @@ class RCarteCategoriesController extends AppController
         $title = 'Admin | Liste Catégories Carte';
         $this->set('title', $title);
 
-        $this->RCarteCategorie->find()
+        $categories = $this->RCarteCategories->find()
                                ->contain('RCarteSCategories');
+        $this->set('categories', $categories);
     }
 
     public function add()
