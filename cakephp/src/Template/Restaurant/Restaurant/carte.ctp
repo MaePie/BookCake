@@ -39,7 +39,9 @@
             <?php if ($produit->r_carte_category->idRCarteCategorie != $categorie) : ?>
                 <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <h2 class="carte-header mt-3 mb-1"><?= $produit->r_carte_category->nomRCarteCategorie ?></h2>
-                    <p class="item-text"><small>Sauf week-end et jours fériés</small></p>
+                    <?php if ($produit->descriptionRCarteProduit) : ?>
+                        <p class="item-text"><small>Sauf week-end et jours fériés</small></p>
+                    <?php endif; ?>
                     <div class="carte-body container-fluid">
                         <div class="row mb-1">
                 <?php $categorie = $produit->r_carte_category->idRCarteCategorie ?>

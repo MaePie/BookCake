@@ -36,6 +36,18 @@ use Cake\Network\Exception\NotFoundException;
     </div>
     <input type="text" name="nomRRes" class="form-control" required>
 </div>
+<div class="input-group col-lg-6 text">
+    <div class="input-group-addon">
+        <span class="fa fa-mail"></span>
+    </div>
+    <input type="text" name="mailRRes" class="form-control" required>
+</div>
+<div class="input-group col-lg-6 text">
+    <div class="input-group-addon">
+        <span class="fa fa-text"></span>
+    </div>
+    <input type="text" name="commentaireRRes" class="form-control" required>
+</div>
 <div class="input col-lg-6 pl-0">
 	<button type="submit" class="btn btn-primary btn-block btn-flat mt-3" id="ajouter">Ajouter</button>
 </div>

@@ -131,18 +131,6 @@ class RResController extends AppController
         $this->set('title', $title);
         $this->set('day', $day);
 
-        $nb = $this->RRes->find()
-        ->select([
-            'heureRRes',
-            'count' => $this->RRes->find()->func()->count('*')
-        ])
-        ->distinct(['statutRRes'])
-        ->where(['dateRRes' => $day])
-        ->group('heureRRes')
-        ->toArray();
-        $this->set('nb', $nb);
-        // debug($nb);
-
         $ress = $this->RRes->find()
                             ->where(['dateRRes' => $day])
                             ->where(['statutRRes' => 'Validée'])
@@ -180,10 +168,30 @@ class RResController extends AppController
 
             $data = $this->request->data;
 
+            if ($data['mailRRes']) {
+                $dataP['nomProspect'] = $data['nomRRes'];
+                $dataP['emailProspect'] = $data['mailRRes'];
+            }
+
             $data['statutRRes'] = 'Validée';
 
             list($day, $month, $year) = explode('/', $data['dateRRes']);
             $data['dateRRes'] = $year . '-' . $month . '-' . $day;
+
+            $prospectModel = $this->loadModel('Prospects');
+
+            $prospect = $prospectModel->find()
+                                        ->where(['emailProspect' => $data['mailRRes']])   
+                                        ->first();
+            
+            if($prospect) {
+                $data['idProspect'] = $prospect->idProspect;
+            }
+            else {
+                $prospect = $prospectModel->newEntity($dataP);
+                $prospectModel->save($prospect);
+                $data['idProspect'] = $prospect->idProspect;
+            }
         
             if (isset($data))
             {

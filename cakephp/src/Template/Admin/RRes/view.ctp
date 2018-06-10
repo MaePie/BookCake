@@ -18,9 +18,11 @@
             <tr>
                 <th scope="row"><?= __('Nom') ?></th>
                 <td>
-                    <?php if($rres->user['nomUser']) echo $rres->user['nomUser'] ?>
-                    <?php if($rres->prospect['nomProspect']) echo $rres->prospect['nomProspect'] ?>
-                    <?php if($rres['nomRRes']) echo $rres['nomRRes'] ?>
+                    <?php
+                        if($rres->user['nomUser']) echo $rres->user['nomUser'];
+                        else if($rres->prospect['nomProspect']) echo $rres->prospect['nomProspect'];
+                        else if($rres['nomRRes']) echo $rres['nomRRes'];
+                    ?>
                 </td>
             </tr>
             <tr>
@@ -52,14 +54,6 @@
                      | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $rres->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $rres->idRRes]) ?> 
                 </td>
             </tr>
-            <!-- <tr>
-                <th scope="row"><?= __('Zone') ?></th>
-                <td><?php if ($rres->r_zone) echo $rres->r_zone['nomZone'] ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?= __('Table') ?></th>
-                <td><?php if ($rres->r_table) echo $rres->r_table['nomTable'] ?></td>
-            </tr> -->
             <tr>
                 <th scope="row"><?= __('Date de création') ?></th>
                 <td><?= $rres['createdRRes']->format('d / m / Y H:i') ?></td>
