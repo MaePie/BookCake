@@ -12,6 +12,17 @@
     <!-- Optional Theme Stylesheet -->
     <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
 
+    <style type="text/css">
+        <!--[if IE]>
+         .navbar {
+          height: 94px !important;
+         }
+         .col-12 {
+          flex: none;
+         }
+        <![endif]-->
+    </style>
+
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <style>@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Arvo|Cabin|Indie+Flower|Nunito|Tajawal|Meddon|Alegreya+Sans');</style>

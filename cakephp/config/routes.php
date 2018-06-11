@@ -73,10 +73,7 @@ Router::prefix('admin', function ($routes) {
     // All routes here will be prefixed with `/admin`
     // And have the prefix => admin route element added.
     $routes->connect('/', ['controller' => 'pages', 'action' => 'index']);
-    $routes->connect('/users', ['controller' => 'users', 'action' => 'list']);
-    $routes->connect('/rtables', ['controller' => 'rtables', 'action' => 'list']);
-    $routes->connect('/rzones', ['controller' => 'rzones', 'action' => 'list']);
-    $routes->connect('/rres', ['controller' => 'rres', 'action' => 'list']);
+    $routes->connect('/rres', ['controller' => 'rres', 'action' => 'liste']);
 
     // Ajax
     $routes->post('/reservationForm', ['controller' => 'RRes', 'action' => 'reservationForm']);
@@ -87,7 +84,6 @@ Router::prefix('admin', function ($routes) {
 
 Router::prefix('restaurant', function ($routes) {
     $routes->connect('/', ['controller' => 'Restaurant', 'action' => 'index']);
-    $routes->connect('/test', ['controller' => 'Restaurant', 'action' => 'test']);
     $routes->connect('/carte', ['controller' => 'Restaurant', 'action' => 'carte']);
     $routes->connect('/galerie', ['controller' => 'Restaurant', 'action' => 'galerie']);
     $routes->connect('/contact', ['controller' => 'Restaurant', 'action' => 'contact']);

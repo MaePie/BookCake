@@ -32,6 +32,7 @@ use Cake\Network\Exception\NotFoundException;
         <th>Heure</th>
         <th>Nombre</th>
         <th>Statut</th>
+        <th>Commentaire</th>
         <th>Actions</th>
     </thead>
     <tbody>
@@ -65,7 +66,10 @@ use Cake\Network\Exception\NotFoundException;
                     <td><?= $res->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $res->heureRRes->format('H:i') ?></td>
                     <td><?= $res->nbPersRRes ?></td>
-                    <td><b class="alert-sm alert-success"><?= $res->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $res->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $res->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $res->idRRes]) ?></td>
+                    <td>
+                        <b class="alert-sm alert-success"><?= $res->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $res->idRRes], ['confirm' =>  'Cette action enverra un mail de confirmation.']) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $res->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $res->idRRes .'. Cette action enverra un mail d\'annulation.']) ?>
+                    </td>
+                    <td><?= $res->commentaireRRes ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $res->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $res->idRRes], ['confirm' => 'Etes-vous sur de vouloir supprimer la réservation '. $res->idRRes]) ?>                    
                     </td>
@@ -86,6 +90,7 @@ use Cake\Network\Exception\NotFoundException;
         <th>Heure</th>
         <th>Nombre</th>
         <th>Statut</th>
+        <th>Commentaire</th>
         <th>Actions</th>
     </thead>
     <tbody>
@@ -119,7 +124,10 @@ use Cake\Network\Exception\NotFoundException;
                     <td><?= $resNV->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $resNV->heureRRes->format('H:i') ?></td>
                     <td><?= $resNV->nbPersRRes ?></td>
-                    <td><b class="alert-sm alert-warning"><?= $resNV->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $resNV->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $resNV->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $resNV->idRRes]) ?></td>
+                    <td>
+                        <b class="alert-sm alert-warning"><?= $resNV->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $resNV->idRRes], ['confirm', 'Cette action enverra un mail de confirmation.']) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $resNV->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $resNV->idRRes .'. Cette action enverra un mail d\'annulation.']) ?>
+                    </td>
+                    <td><?= $resNV->commentaireRRes ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $resNV->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $resNV->idRRes], ['confirm' => 'Etes-vous sur de vouloir supprimer la réservation '. $resNV->idRRes]) ?>                    
                     </td>
@@ -140,6 +148,7 @@ use Cake\Network\Exception\NotFoundException;
         <th>Heure</th>
         <th>Nombre</th>
         <th>Statut</th>
+        <th>Commentaire</th>
         <th>Actions</th>
     </thead>
     <tbody>
@@ -173,7 +182,10 @@ use Cake\Network\Exception\NotFoundException;
                     <td><?= $resA->dateRRes->format('d / m / Y') ?></td>
                     <td><?= $resA->heureRRes->format('H:i') ?></td>
                     <td><?= $resA->nbPersRRes ?></td>
-                    <td><b class="alert-sm alert-danger"><?= $resA->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $resA->idRRes]) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $resA->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $res->idRRes]) ?></td>
+                    <td>
+                        <b class="alert-sm alert-danger"><?= $resA->statutRRes ?></b> | <?= $this->Html->Link('Valider', ['controller' => 'RRes', 'action' => 'validRes', $resA->idRRes], ['confirm' => 'Cette action enverra un mail de confirmation.']) ?> | <?= $this->Html->Link('Annuler', ['controller' => 'RRes', 'action' => 'cancelRes', $resA->idRRes], ['confirm' => 'Etes-vous sur de vouloir annuler la réservation '. $resA->idRRes .'. Cette action enverra un mail d\'annulation.']) ?>
+                    </td>
+                    <td><?= $resA->commentaireRRes ?></td>
                     <td>
                         <?= $this->Html->Link('Voir', ['controller' => 'RRes', 'action' => 'view', $resA->idRRes]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RRes', 'action' => 'edit', $resA->idRRes]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RRes', 'action' => 'delete', $resA->idRRes], ['confirm' => 'Etes-vous sur de vouloir supprimer la réservation '. $resA->idRRes]) ?>                    
                     </td>

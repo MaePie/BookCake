@@ -6,10 +6,10 @@
 
         <form method="post">
             <label>Nom</label>  
-            <input type="text" name="nomRCarteProduit" class="form-control">
+            <input type="text" name="nomRCarteProduit" class="form-control" required>
 
             <label>Catégorie</label>  
-            <select type="text" id="idRCarteCategorie" name="idRCarteCategorie" class="form-control">
+            <select type="text" id="idRCarteCategorie" name="idRCarteCategorie" class="form-control" required>
                 <?php foreach ($categories as $categorie => $value) : ?>
                     <option value="<?= $categorie ?>"><?= $value ?></option>
                 <?php endforeach; ?>
@@ -17,22 +17,25 @@
 
             <label>Sous catégorie</label>  
             <select type="text" id="idRCarteSCategorie" name="idRCarteSCategorie" class="form-control">
+                <option value="1">Entrées</option>
+                <option value="2">Plats</option>
+                <option value="3">Desserts</option>
             </select>
 
             <label>Prix</label>  
             <input type="number" step="0.01" name="prixRCarteProduit" class="form-control"> 
 
-            <label>Prix Vente</label>  
-            <input type="number" step="0.01" name="prixVenteRCarteProduit" class="form-control">
+            <label>Prix Achat</label>  
+            <input type="number" step="0.01" name="prixAchatRCarteProduit" class="form-control">
 
             <label>De</label>  
             <input type="text" id="deRCarteProduit" name="deRCarteProduit" class="form-control hasDatepicker">
         
             <label>A</label>
-            <input type="text" id="deRCarteProduit" name="aRCarteProduit" class="form-control hasDatepicker">
+            <input type="text" id="aRCarteProduit" name="aRCarteProduit" class="form-control hasDatepicker">
 
             <label>Description</label>  
-            <textarea name="descritptionRCarteProduit" class="form-control"></textarea>
+            <input name="descritptionRCarteProduit" class="form-control">
 
             <button type="submit" name="Enregistrer" class="btn btn-primary mt-5">Enregistrer</button>
         </form>

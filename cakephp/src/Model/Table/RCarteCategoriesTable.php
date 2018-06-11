@@ -25,6 +25,9 @@ class RCarteCategoriesTable extends Table
                 ]
             ]
         ]);
+
+        $this->hasMany('RCarteSCategories')
+            ->setForeignKey('idRCarteCategorie');
     }
 
     public function validationDefault(Validator $validator)

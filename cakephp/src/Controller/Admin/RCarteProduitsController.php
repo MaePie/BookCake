@@ -53,31 +53,45 @@ class RCarteProduitsController extends AppController
         $title = 'Admin | Ajout Produit';
         $this->set('title', $title);
 
+        $this->loadModel('RCarteCategories');
+
         $categories = $this->RCarteProduits->RCarteCategories->find('list');
         $this->set('categories', $categories);
 
         if ($this->request->is('post')) {
 
             $data = $this->request->data;
-
-            list($day, $month, $year) = explode('/', $data['deRCarteProduit']);
-            $data['deRCarteProduit'] = $year . '-' . $month . '-' . $day;
-            list($day, $month, $year) = explode('/', $data['aRCarteProduit']);
-            $data['aRCarteProduit'] = $year . '-' . $month . '-' . $day;
             debug($data);
-            die();
+            if ($data['deRCarteProduit']) {
+                list($day, $month, $year) = explode('/', $data['deRCarteProduit']);
+                $data['deRCarteProduit'] = $year . '-' . $month . '-' . $day;
+            }
+            if ($data['aRCarteProduit']) {
+                list($day, $month, $year) = explode('/', $data['aRCarteProduit']);
+                $data['aRCarteProduit'] = $year . '-' . $month . '-' . $day;
+            }
 
-            $ordre = $this->RCarteProduits->find()
-                                        ->select('ordreRCarteProduit')
-                                        ->where(['idRCarteCategorie' => $data['idRCarteCategorie']])
-                                        ->where(['idRCarteSCategorie' => $data['idRCarteSCategorie']]);
+            $categorie = $this->RCarteProduits->RCarteCategories->find()
+                                                                ->contain('RCarteSCategories')
+                                                                ->where(['idRCarteCategorie' => $data['idRCarteCategorie']]);
+            if (isset($categorie->r_carte_s_categories)) {
+                $ordre = $this->RCarteProduits->find()
+                                            ->select('ordreRCarteProduit')
+                                            ->where(['idRCarteCategorie' => $data['idRCarteCategorie']])
+                                            ->where(['idRCarteSCategorie' => $data['idRCarteSCategorie']]);
+            }
+            else {
+                $ordre = $this->RCarteProduits->find()
+                                            ->select('ordreRCarteProduit')
+                                            ->where(['idRCarteCategorie' => $data['idRCarteCategorie']]);
+
+            }
 
             $ordre->select(['ordre' => $ordre->func()->max('ordreRCarteProduit')])->first();
 
             if (isset($data))
             {
                 $produit = $this->RCarteProduits->newEntity($data);
-                debug($ordre->toArray());
                 foreach ($ordre as $o) {
                     $ordre = $o['ordre'];
                 }
@@ -86,7 +100,7 @@ class RCarteProduitsController extends AppController
 
                 if ($this->RCarteProduits->save($produit))
                 {
-                    return $this->redirect(['action' => 'liste']);
+                    return $this->redirect(['action' => 'liste', $produit->idRCarteCategorie]);
                 }
                 else 
                 {
@@ -159,6 +173,7 @@ class RCarteProduitsController extends AppController
     public function delete($id = null)
     {
         $produit = $this->RCarteProduits->find()
+                            ->contain('RCarteCategories')
                             ->where(['idRCarteProduit' => $id])
                             ->first();
 
@@ -168,7 +183,7 @@ class RCarteProduitsController extends AppController
             $this->Flash->error(__('Le produit n\'a pas pu être supprimé.'));
         }
 
-        return $this->redirect(['action' => 'liste']);
+        return $this->redirect(['action' => 'liste', $produit->r_carte_category->idRCarteCategorie]);
     }
 
     public function open($id = null, $cat = null)

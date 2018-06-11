@@ -77,8 +77,8 @@ class RCarteProduitsTable extends Table
             ->allowEmpty('ordreRCarteProduit');
 
         $validator
-            ->integer('actifRCarteProduit')
-            ->notEmpty('actifRCarteProduit');
+            ->integer('statutRCarteProduit')
+            ->notEmpty('statutRCarteProduit');
 
         $validator
             ->date('createdRCarteProduit')
