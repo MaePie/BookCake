@@ -167,6 +167,9 @@ h2 {
 a {
   color: #f5deb3; }
 
+.text-center {
+  vertical-align: middle; }
+
 .black {
   color: #000; }
 
@@ -231,10 +234,10 @@ button.navbar-toggler {
     z-index: 999;
     width: 100%; }
     .nav-bot.sticky + main {
-      padding-top: 138px; }
+      padding-top: 110px; }
       @media (max-width: 767px) {
         .nav-bot.sticky + main {
-          padding-top: 344.6px; } }
+          padding-top: 0; } }
   .nav-bot .grid {
     padding: 15px;
     display: grid;
@@ -286,6 +289,8 @@ button.navbar-toggler {
         border: none; }
     .nav-bot form .hideForm {
       display: none; }
+    .nav-bot form .row {
+      margin: 0; }
   .nav-bot span.input-group-text {
     width: 47px; }
 
@@ -330,6 +335,9 @@ button.navbar-toggler {
   bottom: 0; }
   #myCarousel .carousel-caption p {
     margin-bottom: 0; }
+  #myCarousel .carousel-caption h2 {
+    text-align: left;
+    font-size: 1rem; }
 
 #myCarousel .carousel-item {
   height: 26rem; }
@@ -354,10 +362,14 @@ button.navbar-toggler {
   padding: 0; }
 
 #galerie header {
-  width: 100%; }
+  width: 100%;
+  margin-top: 21%; }
   #galerie header h2 {
     width: 100%;
     color: #c52d2f; }
+  @media (max-width: 767px) {
+    #galerie header {
+      margin-top: 0; } }
 
 #galerie > section:nth-child(odd) {
   background: #f5deb3; }
@@ -388,10 +400,8 @@ button.navbar-toggler {
 
 #carte h1, #carte h2, #carte h3, #carte h4 {
   color: #c52d2f;
-  font-family: 'Alegreya Sans'; }
-
-.carte {
-  color: #c52d2f; }
+  font-family: 'Alegreya Sans';
+  width: 100%; }
 
 .carte-title {
   color: #c52d2f;
@@ -404,7 +414,7 @@ button.navbar-toggler {
   .carte-content:hover {
     background-color: #f8f8f8; }
 
-.carte-header {
+h2.carte-header {
   color: #c52d2f;
   text-transform: uppercase;
   width: 60%;

@@ -22,11 +22,11 @@
                 <?php endif; ?>
             </select>
 
-            <label>Prix Achat</label>  
+            <label>Prix</label>  
             <input type="number" step="0.01" name="prixRCarteProduit" value="<?= $produit['prixRCarteProduit'] ?>" class="form-control mb-3">
 
-            <label>Prix Vente</label>  
-            <input type="number" step="0.01" name="prixVenteRCarteProduit" value="<?= $produit['prixVenteRCarteProduit'] ?>" class="form-control mb-3">
+            <label>Prix Achat</label>  
+            <input type="number" step="0.01" name="prixAchatRCarteProduit" value="<?= $produit['prixAchatRCarteProduit'] ?>" class="form-control mb-3">
 
             <label>Période :</label>  
             <label>De</label>  
@@ -36,7 +36,7 @@
             <input type="text" id="aRCarteProduit" name="aRCarteProduit" value="<?= $produit['aRCarteProduit'] ?>" class="form-control hasDatepicker">
 
             <label>Description</label>  
-            <textarea name="descritptionRCarteProduit" class="form-control mb-3"><?= $produit['descriptionRCarteProduit'] ?></textarea>
+            <input name="descritptionRCarteProduit" class="form-control mb-3" value="<?= $produit['descriptionRCarteProduit'] ?>">
 
             <button type="submit" name="Enregistrer" class="btn btn-primary mt-5">Enregistrer</button>
         </form>

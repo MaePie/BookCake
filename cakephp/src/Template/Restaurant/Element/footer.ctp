@@ -1,11 +1,7 @@
 <footer class="container-fluid footer">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-3">
-                <h3>A propos</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="col-xs-12 col-sm-3">
+            <div class="col-xs-12 col-sm-6">
                 <h3>Horaires</h3>
                 <ul>
                     <li>Lundi : 11h - 22h30

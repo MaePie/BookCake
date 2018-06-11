@@ -6,7 +6,7 @@
                 <li><a href="/admin/pages/index"><i class="fa fa-home"></i> Home</a></li>
                 <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><?= $this->Html->Link('Vue globale', ['controller' => 'prospects', 'action' => 'list']) ?></li>
+                        <li><?= $this->Html->Link('Vue globale', ['controller' => 'prospects', 'action' => 'liste']) ?></li>
                         <li><?= $this->Html->Link('Ajouter un utilisateur', ['controller' => 'prospects', 'action' => 'add']) ?></li>
                     </ul>
                 </li>

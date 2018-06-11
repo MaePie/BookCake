@@ -24,11 +24,11 @@ class ProspectsController extends AppController
 
           $this->Prospects->save($prospect);
         
-          return $this->redirect(['controller' => 'prospects', 'action' => 'list']);
+          return $this->redirect(['controller' => 'prospects', 'action' => 'liste']);
         }
     }
 
-    public function list() {
+    public function liste() {
         $title = 'Admin | Liste Users';
         $this->set('title', $title);
 
