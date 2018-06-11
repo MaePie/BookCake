@@ -169,29 +169,29 @@ class RResController extends AppController
             $data = $this->request->data;
 
             if ($data['mailRRes']) {
+                $prospectModel = $this->loadModel('Prospects');
+                
                 $dataP['nomProspect'] = $data['nomRRes'];
                 $dataP['emailProspect'] = $data['mailRRes'];
+
+                $prospect = $prospectModel->find()
+                                            ->where(['emailProspect' => $data['mailRRes']])   
+                                            ->first();
+                
+                if($prospect) {
+                    $data['idProspect'] = $prospect->idProspect;
+                }
+                else {
+                    $prospect = $prospectModel->newEntity($dataP);
+                    $prospectModel->save($prospect);
+                    $data['idProspect'] = $prospect->idProspect;
+                }
             }
 
             $data['statutRRes'] = 'Validée';
 
             list($day, $month, $year) = explode('/', $data['dateRRes']);
             $data['dateRRes'] = $year . '-' . $month . '-' . $day;
-
-            $prospectModel = $this->loadModel('Prospects');
-
-            $prospect = $prospectModel->find()
-                                        ->where(['emailProspect' => $data['mailRRes']])   
-                                        ->first();
-            
-            if($prospect) {
-                $data['idProspect'] = $prospect->idProspect;
-            }
-            else {
-                $prospect = $prospectModel->newEntity($dataP);
-                $prospectModel->save($prospect);
-                $data['idProspect'] = $prospect->idProspect;
-            }
         
             if (isset($data))
             {

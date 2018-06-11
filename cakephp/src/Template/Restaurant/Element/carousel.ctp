@@ -7,7 +7,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <?= $this->Html->image('slider/slide1.png', ['class' => 'first-slide', 'alt' => 'First slide']) ?>
+                <?= $this->Html->image('slider/terrasse.jpg', ['class' => 'first-slide', 'alt' => 'First slide']) ?>
                 <div class="">
                     <div class="carousel-caption row pr-5">
                         <h2 class="col-8">Un restaurant au bord de la Garonne.</h2>

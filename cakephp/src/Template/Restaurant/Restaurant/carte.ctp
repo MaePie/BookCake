@@ -1,63 +1,317 @@
 <div id="carte" class="carte container-fluid">
-    <?php
-        $section = 0;
-        $categorie = 0;
-        $scategorie = 0;
-        $wasSetSCategorie = false;
-    ?>
+    <h1 class="carte-title title mt-3">Au Menu</h1>
+    <div class="row">
+        <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h2 class="carte-header mt-3">Menu midi  13 €</h2>
 
+            <p class="item-text mb-3"><small>Sauf week-end et jours fériés</small></p>            
 
-    <?php foreach ($produits as $produit) : ?>
-
-        <?php if ((isset($produit->r_carte_s_category) && $produit->r_carte_s_category->idRCarteSCategorie != $scategorie && $scategorie != 0 && $wasSetSCategorie) || (!isset($produit->r_carte_s_category) && $produit->r_carte_category->idRCarteCategorie != $categorie && $scategorie != 0 && $wasSetSCategorie)) : ?>
-                        </div>
-        <?php endif; ?>
-
-        <?php 
-            if (isset($produit->r_carte_s_category)) $wasSetSCategorie = true;
-            else $wasSetSCategorie = false;
-        ?>
-
-        <?php if ($produit->r_carte_category->idRCarteCategorie != $categorie && $categorie != 0) : ?>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <div class="row carte-menu col-lg-12 col-md-12 col-sm-12">
+                        <h3 class="menu-title">Entrées</h3>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Entrée du jour</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Assiette de cochonailles</p>
+                    </div>
+                    <div class="row carte-menu col-lg-12 col-md-12 col-sm-12">
+                        <h3 class="menu-title">Plats</h3>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Plat du jour</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Sauté de porc</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Salade</p>
+                    </div>
+                    <div class="row carte-menu col-lg-12 col-md-12 col-sm-12">
+                        <h3 class="menu-title">Desserts</h3>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Dessert du jour</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Crème brulée</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Gâteau basque</p>
                     </div>
                 </div>
             </div>
-        <?php endif; ?>
+        </div>
+        <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h2 class="carte-header mt-3">Menu soir  22 €</h2>
 
-        <?php if ($produit->r_carte_category->sectionRCarteCategorie != $section) : ?>
-            <h1 class="carte-title title mt-3">
-                <?php if ($produit->r_carte_category->sectionRCarteCategorie == 1) : ?>
-                    Au Menu
-                <?php elseif ($produit->r_carte_category->sectionRCarteCategorie == 2) : ?>
-                    A la carte
-                <?php endif; ?>
-            </h1>
-            <div class="row">
-            <?php $section = $produit->r_carte_category->sectionRCarteCategorie ?>
-        <?php endif; ?>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <div class="row carte-menu col-lg-12 col-md-12 col-sm-12">
+                        <h3 class="menu-title">Entrées</h3>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Entrée du jour</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Assiette de cochonailles</p>
+                    </div>
+                    <div class="row carte-menu col-lg-12 col-md-12 col-sm-12">
+                        <h3 class="menu-title">Plats</h3>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Plat du jour</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Sauté de porc</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Salade</p>
+                    </div>
+                    <div class="row carte-menu col-lg-12 col-md-12 col-sm-12">
+                        <h3 class="menu-title">Desserts</h3>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Dessert du jour</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Crème brulée</p>
+                        <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Gâteau basque</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h2 class="carte-header mt-3">Côté Grill</h2>
 
-            <?php if ($produit->r_carte_category->idRCarteCategorie != $categorie) : ?>
-                <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <h2 class="carte-header mt-3 mb-1"><?= $produit->r_carte_category->nomRCarteCategorie ?></h2>
-                    <?php if ($produit->descriptionRCarteProduit) : ?>
-                        <p class="item-text"><small>Sauf week-end et jours fériés</small></p>
-                    <?php endif; ?>
-                    <div class="carte-body container-fluid">
-                        <div class="row mb-1">
-                <?php $categorie = $produit->r_carte_category->idRCarteCategorie ?>
-            <?php endif; ?>
-
-        <?php if (isset($produit->r_carte_s_category) && $produit->r_carte_s_category->idRCarteSCategorie != $scategorie) : ?>
-                        <div class="row carte-menu col-lg-12 col-md-12 col-sm-12">
-                            <h3 class="menu-title mt-1"><?= $produit->r_carte_s_category->nomRCarteSCategorie ?></h3>
-            <?php $scategorie = $produit->r_carte_s_category->idRCarteSCategorie ?>
-        <?php endif; ?>
-
-                            <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8"><?= $produit->nomRCarteProduit ?></p>
-                        <?php if ($produit->prixRCarteProduit != 0) : ?>
-                            <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4"><?= $produit->prixRCarteProduit ?> €</p>
-                        <?php endif; ?>
-    <?php endforeach; ?>
-    
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Entrée du jour</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Assiette de cochonailles</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Plat du jour</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Sauté de porc</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Salade</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Dessert du jour</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Crème brulée</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Gâteau basque</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <h2 class="carte-title title mt-3">A la Carte</h2>
+    <div class="row">
+        <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h2 class="carte-header mt-3">Entrées</h2>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Assiette de cochonailles</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p><small>Jambon de pays, boudin, terrine, chorizo, mesclun</small></p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Oeufs mollets en gelée</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Oeufs en brioche</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Oeufs cocotte au chorizo</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Soupes et veloutés</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p><small>Oignon, garbure, poisson, velouté butternut, velouté de choux fleur façon smoothie, tourin à la tomate</small></p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Salades</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                    <p><small>Tomates mozzarella, campagnarde avec oeuf mimosa, asiatique, océane, crudités, endives et bleu</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h2 class="carte-header mt-3">Plats</h2>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Sauté de porc aux olives</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">18 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Boeuf bourguignon, boeuf carottes, estouffade de boeuf, carbonade flamande</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">18 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Blanquette de veau</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">18 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Poulet à l'oignon</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">18 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Coq au vin</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">18 €</p>
+                </div>
+            </div>
+        </div>
+        <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h2 class="carte-header mt-3">Desserts</h2>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Croustade aux pommes</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Mousse au chocolat</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Île flottante</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Crème brulée</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Gâteau basque</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10  €</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h2 class="carte-header mt-3">Boissons</h2>
+
+            <h3 class="carte-header mb-1">Bières pressions</h3>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Bière 1</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Bière 2</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Bière 3</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <h3 class="carte-header mb-1">Digestifs</h3>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Digestif 1</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Digestif 2</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Digestif 3</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+        </div>
+        <div class="carte-content col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h2 class="carte-header mt-3">Vins</h2>
+
+            <h3 class="carte-header mb-1">Rouges</h3>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Rouge 1</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Rouge 2</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Rouge 3</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <h3 class="carte-header mb-1">Rosé</h3>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Rosé 1</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Rosé 2</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Rosé 3</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <h3 class="carte-header mb-1">Blanc</h3>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Blanc 1</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Blanc 2</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+
+            <div class="carte-body container-fluid">
+                <div class="row mb-1">
+                    <p class="item-text col-lg-9 col-md-8 col-sm-8 col-xs-8">Blanc 3</p>
+                    <p class="text-right col-lg-3 col-md-4 col-sm-4 col-xs-4">10 €</p>
+                </div>
+            </div>
+        </div>
+    </div> <!--- Row --->
+</div> <!-- Carte -->

@@ -18,25 +18,26 @@ class RCarteCategoriesController extends AppController
         $this->set('title', $title);
 
         $categories = $this->RCarteCategories->find()
-                               ->contain('RCarteSCategories');
+                               ->contain('RCarteSCategories')
+                               ->order('sectionRCarteCategorie, ordreRCarteCategorie');
         $this->set('categories', $categories);
     }
 
     public function add()
     {
-        $title = 'Admin | Ajout Réservation';
+        $title = 'Admin | Ajout Catégorie';
         $this->set('title', $title);
     }
 
     public function view($id = null)
     {
-        $title = 'Admin | Réservation ' . $id;
+        $title = 'Admin | Carte Catégories';
         $this->set('title', $title);
     }
 
     public function edit($id = null)
     {
-        $title = 'Admin | Modifier Réservation ' . $id;
+        $title = 'Admin | Modifier Catégorie';
         $this->set('title', $title);
     }
 

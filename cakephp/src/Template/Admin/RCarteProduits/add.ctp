@@ -18,8 +18,8 @@
             <label>Sous catégorie</label>  
             <select type="text" id="idRCarteSCategorie" name="idRCarteSCategorie" class="form-control">
                 <option value="1">Entrées</option>
-                <option value="1">Plats</option>
-                <option value="1">Desserts</option>
+                <option value="2">Plats</option>
+                <option value="3">Desserts</option>
             </select>
 
             <label>Prix</label>  
@@ -29,13 +29,13 @@
             <input type="number" step="0.01" name="prixAchatRCarteProduit" class="form-control">
 
             <label>De</label>  
-            <input type="text" id="deRCarteProduit" name="deRCarteProduit" class="form-control hasDatepicker" value="">
+            <input type="text" id="deRCarteProduit" name="deRCarteProduit" class="form-control hasDatepicker">
         
             <label>A</label>
-            <input type="text" id="aRCarteProduit" name="aRCarteProduit" class="form-control hasDatepicker" value="">
+            <input type="text" id="aRCarteProduit" name="aRCarteProduit" class="form-control hasDatepicker">
 
             <label>Description</label>  
-            <textarea name="descritptionRCarteProduit" class="form-control"></textarea>
+            <input name="descritptionRCarteProduit" class="form-control">
 
             <button type="submit" name="Enregistrer" class="btn btn-primary mt-5">Enregistrer</button>
         </form>
