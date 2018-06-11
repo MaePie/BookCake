@@ -10,7 +10,7 @@
                 </div>
                 <h4 class="black text-bold">Séminaire</h4>
             </div>
-            <p>Lorem Ipsum <br>Anniversaire Surprise</p>
+            <p>2 salles de séminaire</p>
             <a href="#" class="button rounded border text-uppercase m-2 ml-0 mr-0 d-inline-block font-weight-bold black">En savoir plus</a>
         </div>
         <div class="col preview-services__card shadow-lg p-3 m-4 mb-5 bg-white">
@@ -20,7 +20,7 @@
                 </div>
                 <h4 class="black text-bold">Groupe</h4>
             </div>
-            <p>Lorem Ipsum <br>Ipsum Psum Lorem  Ipsum</p>
+            <p>Réservation groupe</p>
             <a href="#" class="button rounded border text-uppercase m-2 ml-0 mr-0 d-inline-block font-weight-bold black">En savoir plus</a>
         </div>
         <div class="col preview-services__card shadow-lg p-3 m-4 mb-5 bg-white">
