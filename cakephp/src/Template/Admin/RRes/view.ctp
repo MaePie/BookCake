@@ -55,6 +55,10 @@
                 </td>
             </tr>
             <tr>
+                <th scope="row"><?= __('Commentaire') ?></th>
+                <td><?= $rres->commentaireRRes ?></td>
+            </tr>
+            <tr>
                 <th scope="row"><?= __('Date de création') ?></th>
                 <td><?= $rres['createdRRes']->format('d / m / Y H:i') ?></td>
             </tr>

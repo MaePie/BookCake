@@ -11,42 +11,67 @@ use Cake\Network\Exception\NotFoundException;
 
 <h1 class="mb-3"><?= __('Catégories activés') ?></h1>
 
-<div id="produits">
+<div id="categories">
 	<?php
-		$ncategorie = 0;
-		$nscategorie = 0;
+		$nsection = 0;
 	?>
 	<?php if (isset($categories)) : ?>
 		<table class="table margin-top table-striped table-hover table-bordered">
 			<thead>
 				<tr>
 					<th>Nom</th>
+					<th>Description</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<?php foreach ($categories as $categorie) : ?>
-				<?php if ($categorie->idRCarteCategorie != $ncategorie) : ?>
+				<?php if ($categorie->sectionRCarteCategorie != $nsection) : ?>
 					<tr class="categorie">
 						<td colspan="7">
-							<h3><?= $categorie->nomRCarteCategorie ?></h3>
+							<h3>
+								<?php
+									if ($categorie->sectionRCarteCategorie == 1) echo 'Au Menu';
+									if ($categorie->sectionRCarteCategorie == 2) echo 'A la Carte';
+								?>		
+							</h3>
 						</td>
 					</tr>
-					<?php $ncategorie = $categorie->idRCarteCategorie ?>
-				<?php endif; ?>
-
-				<?php if (isset($categorie->r_carte_s_category) && $categorie->r_carte_s_category->idRCarteSCategorie != $scategorie) : ?>
-					<tr class="scategorie">
-						<td colspan="7">
-							<h2 class="pl-5"><?= $categorie->r_carte_s_category->nomRCarteSCategorie ?></h2>
-						</td>
-					</tr>
-					<?php $nscategorie = $categorie->r_carte_s_category->idRCarteSCategorie ?>
+					<?php $nsection = $categorie->sectionRCarteCategorie ?>
 				<?php endif; ?>
 
 				<tr>
 					<td><?= $categorie->nomRCarteCategorie ?></td>
+					<td><?= $categorie->descriptionRCarteCategorie ?></td>
 					<td>
 						<?= $this->Html->Link('Désactiver', ['controller' => 'RCarteProduits', 'action' => 'close', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteProduits', 'action' => 'view', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteProduits', 'action' => 'edit', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteProduits', 'action' => 'delete', $categorie->idRCarteCategorie], ['confirm' => 'Etes-vous sur de vouloir supprimer le produit '. $categorie->idRCarteCategorie]) ?>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+		</table>
+	<?php endif; ?>
+</div>
+
+<div id="categories">
+	<?php
+		$nsection = 0;
+	?>
+	<?php if (isset($categoriesOff)) : ?>
+		<h1 class="mb-3"><?= __('Catégories désactivés') ?></h1>
+		
+		<table class="table margin-top table-striped table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Description</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<?php foreach ($categoriesOff as $categorieOff) : ?>
+				<tr>
+					<td><?= $categorieOff->nomRCarteCategorie ?></td>
+					<td><?= $categorieOff->descriptionRCarteCategorie ?></td>
+					<td>
+						<?= $this->Html->Link('Désactiver', ['controller' => 'RCarteProduits', 'action' => 'close', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteProduits', 'action' => 'view', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteProduits', 'action' => 'edit', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteProduits', 'action' => 'delete', $categorieOff->idRCarteCategorie], ['confirm' => 'Etes-vous sur de vouloir supprimer le produit '. $categorieOff->idRCarteCategorie]) ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

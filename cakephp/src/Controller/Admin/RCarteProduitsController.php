@@ -100,7 +100,7 @@ class RCarteProduitsController extends AppController
 
                 if ($this->RCarteProduits->save($produit))
                 {
-                    return $this->redirect(['action' => 'liste']);
+                    return $this->redirect(['action' => 'liste', $produit->idRCarteCategorie]);
                 }
                 else 
                 {

@@ -147,6 +147,10 @@
 .center {
   text-align: center; }
 
+.btn-primary {
+  background: #1ABB9C !important;
+  border: 1px #1ABB9C; }
+
 .form-control {
   border-top-right-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
