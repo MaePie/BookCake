@@ -43,7 +43,7 @@ use Cake\Network\Exception\NotFoundException;
 					<td><?= $categorie->nomRCarteCategorie ?></td>
 					<td><?= $categorie->descriptionRCarteCategorie ?></td>
 					<td>
-						<?= $this->Html->Link('Désactiver', ['controller' => 'RCarteProduits', 'action' => 'close', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteProduits', 'action' => 'view', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteProduits', 'action' => 'edit', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteProduits', 'action' => 'delete', $categorie->idRCarteCategorie], ['confirm' => 'Etes-vous sur de vouloir supprimer le produit '. $categorie->idRCarteCategorie]) ?>
+						<?= $this->Html->Link('Désactiver', ['controller' => 'RCarteCategories', 'action' => 'close', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteCategories', 'action' => 'view', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteCategories', 'action' => 'edit', $categorie->idRCarteCategorie]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteCategories', 'action' => 'delete', $categorie->idRCarteCategorie], ['confirm' => 'Etes-vous sur de vouloir supprimer la catégorie '. $categorie->nomRCarteCategorie]) ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
@@ -51,7 +51,7 @@ use Cake\Network\Exception\NotFoundException;
 	<?php endif; ?>
 </div>
 
-<div id="categories">
+<div id="categoriesOff">
 	<?php
 		$nsection = 0;
 	?>
@@ -71,7 +71,7 @@ use Cake\Network\Exception\NotFoundException;
 					<td><?= $categorieOff->nomRCarteCategorie ?></td>
 					<td><?= $categorieOff->descriptionRCarteCategorie ?></td>
 					<td>
-						<?= $this->Html->Link('Désactiver', ['controller' => 'RCarteProduits', 'action' => 'close', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteProduits', 'action' => 'view', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteProduits', 'action' => 'edit', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteProduits', 'action' => 'delete', $categorieOff->idRCarteCategorie], ['confirm' => 'Etes-vous sur de vouloir supprimer le produit '. $categorieOff->idRCarteCategorie]) ?>
+						<?= $this->Html->Link('Désactiver', ['controller' => 'RCarteCategories', 'action' => 'close', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Voir', ['controller' => 'RCarteCategories', 'action' => 'view', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Modifier', ['controller' => 'RCarteCategories', 'action' => 'edit', $categorieOff->idRCarteCategorie]) ?> | <?= $this->Html->Link('Supprimer', ['controller' => 'RCarteCategories', 'action' => 'delete', $categorieOff->idRCarteCategorie], ['confirm' => 'Etes-vous sur de vouloir supprimer la catégorie '. $categorieOff->nomRCarteCategorie]) ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

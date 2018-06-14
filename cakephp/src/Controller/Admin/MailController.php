@@ -26,7 +26,7 @@ class MailController extends AppController
                 ->emailFormat('html')
                 ->subject('Validation réservation Au fil de l\'eau')
                 ->to($to)
-                ->bcc('test.aufildeleau@gmail.com')
+                ->bcc('client.aufildeleau@gmail.com')
                 ->from('client@restaurant-aufildeleau.fr')
                 ->viewVars(['res' => $res])
                 ->send();
@@ -71,7 +71,7 @@ class MailController extends AppController
                 ->emailFormat('html')
                 ->subject('Annulation réservation Au fil de l\'eau')
                 ->to($to)
-                ->bcc('test.aufildeleau@gmail.com')
+                ->bcc('client.aufildeleau@gmail.com')
                 ->from('client@restaurant-aufildeleau.fr')
                 ->viewVars(['res' => $res])
                 ->send();
