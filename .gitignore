@@ -33,3 +33,6 @@ BookCake.iml
 
 # Assets
 cakephp/assets/Restaurant/css/default.css
+
+# Sensitive
+cakephp/.env
