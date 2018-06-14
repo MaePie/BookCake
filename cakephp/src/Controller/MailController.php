@@ -22,8 +22,8 @@ class MailController extends AppController
             ->emailFormat('html')
             ->subject('Réservation Restaurant Au fil de l\'eau')
             ->to($res['prospect']->emailProspect)
-            ->bcc('mauerpierre@gmail.com')
-            ->from('mauerpierre@gmail.com')
+            ->bcc('client.aufildeleau@gmail.com')
+            ->from('client@restaurant-aufildeleau.fr')
             ->viewVars(['res' => $res])
             ->send();
 
@@ -50,8 +50,8 @@ class MailController extends AppController
             ->emailFormat('html')
             ->subject('Réservation validée Au fil de l\'eau')
             ->to($to)
-            ->bcc('mauerpierre@gmail.com')
-            ->from('mauerpierre@gmail.com')
+            ->bcc('client.aufildeleau@gmail.com')
+            ->from('client@restaurant-aufildeleau.fr')
             ->viewVars(['res' => $res])
             ->send();
 
@@ -69,7 +69,7 @@ class MailController extends AppController
             ->template('welcome', 'contact')
             ->emailFormat('html')
             ->subject('Contact client | Au fil de l\'eau')
-            ->to('mauerpierre@gmail.com')
+            ->to('client@restaurant-aufildeleau.com')
             ->from($data['email'])
             ->viewVars(['data' => $data])
             ->send();

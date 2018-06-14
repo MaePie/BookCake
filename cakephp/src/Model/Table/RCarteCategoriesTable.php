@@ -14,8 +14,8 @@ class RCarteCategoriesTable extends Table
     {
         parent::initialize($config);
         $this->setTable('RCarteCategories');
-        $this->setDisplayField('nomRCarteCategorie');
         $this->setPrimaryKey('idRCarteCategorie');
+        $this->setDisplayField('nomRCarteCategorie');
 
         $this->addBehavior('Timestamp', [
             'events' => [
@@ -46,6 +46,10 @@ class RCarteCategoriesTable extends Table
             ->allowEmpty('ordreRCarteCategorie');
 
         $validator
+            ->integer('statutRCarteCategorie')
+            ->allowEmpty('statutRCarteCategorie');
+
+        $validator
             ->integer('sectionRCarteCategorie')
             ->notEmpty('sectionRCarteCategorie');
 
@@ -62,7 +66,7 @@ class RCarteCategoriesTable extends Table
 
     public function buildRules(RulesChecker $rules)
     {        
-        // $rules->add($rules->isUnique(['']));
+        $rules->add($rules->isUnique(['nomRCarteCategorie']));
 
         return $rules;
     }
