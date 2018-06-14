@@ -28,3 +28,8 @@ node_modules/
 .sass-cache/
 mysql/
 *.map
+
+BookCake.iml
+
+# Assets
+cakephp/assets/Restaurant/css/default.css

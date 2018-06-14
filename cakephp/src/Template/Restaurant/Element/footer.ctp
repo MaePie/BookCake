@@ -43,9 +43,8 @@
                 </form>
             </div>
         </div>
-        <div class="row align-items-center justify-content-center">
+        <div class="row align-items-center justify-content-center mt-3">
             <p>© 2018 Au fil de l'eau Restaurant</p>
         </div>
-
     </div>
 </footer>
