@@ -14,7 +14,6 @@ var nb_res_day = function () {
             tmp = data;
         }
     });
-    console.log(tmp);
     return tmp;
 }();
 
@@ -31,7 +30,6 @@ var nb_pers_day = function () {
             tmp2 = data;
         }
     });
-    console.log(tmp2);
     return tmp2;
 }()
 
@@ -48,7 +46,6 @@ var days = function () {
             tmp3 = data;
         }
     });
-    console.log(tmp3);
     return tmp3;
 }();
 

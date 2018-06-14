@@ -61,7 +61,7 @@ class RCarteProduitsController extends AppController
         if ($this->request->is('post')) {
 
             $data = $this->request->data;
-            debug($data);
+
             if ($data['deRCarteProduit']) {
                 list($day, $month, $year) = explode('/', $data['deRCarteProduit']);
                 $data['deRCarteProduit'] = $year . '-' . $month . '-' . $day;
@@ -224,6 +224,175 @@ class RCarteProduitsController extends AppController
 
         $scategories = $this->RCarteSCategories->find('list')
                                                 ->where(['idRCarteCategorie' => $this->request->data['idRCarteCategorie']]);
+
+        echo json_encode($scategories, JSON_PRETTY_PRINT);
+        die();
+    }
+
+    public function addcsv()
+    {
+        $title = 'Admin | Ajout Produit CSV';
+        $this->set('title', $title);
+
+        $cat = $this->RCarteProduits->RCarteCategories->find()
+                                                    ->contain('RCarteSCategories');
+        // $scat = $this->RCarteProduits->RCarteSCategories->find('list');
+
+        $this->set('cat', $cat);
+        // $this->set('scat', $scat);
+
+        if (isset($this->request->data['confirm'])) {
+            $data = $this->request->data;
+
+            if (substr(strtolower(strrchr($data['CSV']['name'], '.')), 1) == 'csv') {
+                $handle = fopen($data['CSV']['tmp_name'], "r");
+
+                // $filename = 'animateurs_' . $session_id . '_' . date('YmdHi');
+
+                // $chemin = ROOT . '/app/View/Reports/files/animateurs/'. $filename .'.csv';
+
+                //          move_uploaded_file($data['CSV']['tmp_name'], $chemin);
+
+                $row = 0;
+                $csv = array();
+
+                while (($donnees = fgetcsv($handle, $data['CSV']['size'], ';')) !== false) {
+                    $donnees[$row] = array_map("utf8_encode", $donnees);
+                    array_push($csv, $donnees[$row]);
+
+                    $row++;
+                }
+
+                array_shift($csv);
+                $this->set('csv', $csv);
+
+                fclose($handle);
+            } else {
+                $this->Flash->error(__("Il ne s'agit pas d'un fichier CSV."));
+            }
+        }
+
+        if (isset($this->request->data['valid'])) {
+            $message = '';
+            $valid = true;
+
+            $data = $this->request->data;
+
+            foreach ($data['nomRCarteProduit'] as $produit => $value) {
+                $patch = [];
+
+                // Nom
+                $patch['nomRCarteProduit'] = $data['nomRCarteProduit'][$produit];
+
+                // Catégorie
+                $categorie = $this->RCarteProduits->RCarteCategories->find()
+                                                        ->select('idRCarteCategorie')
+                                                        ->contain('RCarteSCategories')
+                                                        ->where(['nomRCarteCategorie' => $data['catRCarteProduit'][$produit]])
+                                                        ->first();
+                $patch['idRCarteCategorie'] = $categorie->idRCarteCategorie;
+                
+                // Sous-catégorie
+                if (($data['scatRCarteProduit'][$produit]) != '') {
+                    $scategorie = $this->RCarteProduits->RCarteSCategories->find()
+                                                                        ->select('idRCarteSCategorie')
+                                                                        ->where(['nomRCarteSCategorie' => $data['scatRCarteProduit'][$produit]])
+                                                                        ->where(['idRCarteCategorie' => $categorie->idRCarteCategorie])
+                                                                        ->first();
+                    $patch['idRCarteSCategorie'] = $scategorie->idRCarteSCategorie;
+                }
+
+                // Prix
+                $patch['prixRCarteProduit'] = $data['prixRCarteProduit'][$produit];
+
+                // Prix achat
+                $patch['prixAchatRCarteProduit'] = $data['prixAchatRCarteProduit'][$produit];
+
+                // De
+                $patch['deRCarteProduit'] = $data['deRCarteProduit'][$produit];
+
+                // A
+                $patch['aRCarteProduit'] = $data['aRCarteProduit'][$produit];
+
+                // Ordre
+                if (($data['scatRCarteProduit'][$produit]) != '') {
+                    $ordre = $this->RCarteProduits->find()
+                                                ->select('ordreRCarteProduit')
+                                                ->where(['idRCarteCategorie' => $categorie->idRCarteCategorie])
+                                                ->where(['idRCarteSCategorie' => $scategorie->idRCarteSCategorie]);
+                }
+                else {
+                    $ordre = $this->RCarteProduits->find()
+                                                ->select('ordreRCarteProduit')
+                                                ->where(['idRCarteCategorie' => $categorie->idRCarteCategorie]);
+
+                }
+                $ordre->select(['ordre' => $ordre->func()->max('ordreRCarteProduit')])->first();
+
+                foreach ($ordre as $o) {
+                    $ordre = $o['ordre'];
+                }
+                $patch['ordreRCarteProduit'] = $ordre +1;
+
+                // Statut
+                $patch['statutRCarteProduit'] = 1;
+
+                // Description
+                $patch['descriptionRCarteProduit'] = $data['descriptionRCarteProduit'][$produit];
+
+                // Entity
+                $prod = $this->RCarteProduits->newEntity($patch);
+                $this->RCarteProduits->save($prod);
+            }
+        }
+    }
+                // if (!$this->RCarteProduit->validates()) {
+                //     $valid = false;
+                //     $message .= $data['nomRCarteProduit'] . ' ' . $data['prenomRCarteProduit'] . ' - ' . $data['email'] . '<br/>';
+                // }
+            // }
+
+            // if ($valid) {
+            //     foreach ($data['nomRCarteProduit'] as $produit => $value) {
+            //         $data['nomRCarteProduit'] = $data['nomRCarteProduit'][$produit];
+
+            //         $this->RCarteProduit->create();
+            //         $this->RCarteProduit->set($data);
+            //         if ($this->RCarteProduit->validates()) {
+            //             $this->RCarteProduit->save();
+            //             App::import('controller', 'etats_utilisateurs');
+            //             $etats = new EtatsUtilisateursController();
+            //             $new_utilisateur_id = $this->RCarteProduit->id;
+            //             $etats->addEtat($new_utilisateur_id);
+
+            //             $message .= $this->RCarteProduit->id . ' - ' . $data['nomRCarteProduit'] . ' ' . $data['prenomRCarteProduit'] . ' - ' . $data['email'] . '<br/>';
+            //         } else {
+            //             $error = $this->RCarteProduit->validationErrors;
+            //             if (isset($error['email']) && $error['email'][0] == "format") {
+            //                 $this->Flash->error(__("Veuillez vérifier le format de l'adresse email renseignée."), 'flash_failure');
+            //             }
+            //         }
+            //     }
+
+        //
+
+
+
+    public function categoriescsv()
+    {
+        $this->loadModel('RCarteCategories');
+
+        $categories = $this->RCarteCategories->find('list');
+
+        echo json_encode($categories, JSON_PRETTY_PRINT);
+        die();
+    }
+
+    public function scategoriescsv()
+    {
+        $this->loadModel('RCarteSCategories');
+
+        $scategories = $this->RCarteSCategories->find('list');
 
         echo json_encode($scategories, JSON_PRETTY_PRINT);
         die();
