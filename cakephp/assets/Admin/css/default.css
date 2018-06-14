@@ -151,6 +151,12 @@
   background: #1ABB9C !important;
   border: 1px #1ABB9C; }
 
+.pointer {
+  cursor: pointer; }
+
+i.fa.fa-angle-down, i.fa.fa-angle-up {
+  font-weight: bold; }
+
 .form-control {
   border-top-right-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
@@ -183,6 +189,9 @@ b.alert-sm {
 .alert-sm {
   border-radius: 5px;
   padding: 0.3%; }
+
+#tableCSV tr:nth-child(even) td {
+  border-bottom-width: 3px; }
 
 .categorie {
   background-color: #2A3F54 !important;
