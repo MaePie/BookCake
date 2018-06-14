@@ -1,5 +1,13 @@
 # BookCake
 
+## Clone
+
+`git clone <project>`
+
+`cd project && composer install && npm install && npm run --prodution`
+
+`change app.php`
+
 ## Git Flow
 
 When working on a new feature :
