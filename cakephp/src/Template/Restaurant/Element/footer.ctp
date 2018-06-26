@@ -4,13 +4,13 @@
             <div class="col-xs-12 col-sm-6">
                 <h3>Horaires</h3>
                 <ul>
-                    <li>Lundi : 11h - 22h30
-                    <li>Mardi : 11h - 22h30
-                    <li>Mercredi : 11h - 22h30
-                    <li>Jeudi : 11h - 22h30
-                    <li>Vendredi : 11h - 22h30
-                    <li>Samedi : 11h - 22h30
-                    <li>Dimanche : 11h - 15h
+                    <li>Lundi : 12h - 23h30
+                    <li>Mardi : 12h - 23h30
+                    <li>Mercredi : 12h - 23h30
+                    <li>Jeudi : 12h - 23h30
+                    <li>Vendredi : 12h - 23h30
+                    <li>Samedi : 12h - 23h30
+                    <li>Dimanche : 10h30 - 15h
                 </ul>
                 <div class="row align-items-center" id="social-network">
                     <div class="col-lg-2 text-center">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-6 mb-3">
                 <h3>Contact</h3>
                 <form action="/quickContact"  method="post" id="contact">
                     <div class="form-group required">

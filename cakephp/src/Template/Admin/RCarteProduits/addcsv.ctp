@@ -129,7 +129,6 @@
 	    $.each(tmp, function(index, value) {
 		    cat.push(value)
 		});
-		console.log(cat)
 	    return cat;
 	}();
 
@@ -150,7 +149,6 @@
 	    $.each(tmp, function(index, value) {
 		    scat.push(value)
 		});
-		console.log(scat)
 	    return scat;
 	}();
 

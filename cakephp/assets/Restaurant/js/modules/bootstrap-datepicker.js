@@ -20,6 +20,7 @@ $('.hasDatepicker').datepicker({
     autoclose: true,	
     language: "fr",
     clearBtn: true,
-    todayHighlight: true
+    todayHighlight: true,
+    datesDisabled: ['23/06/2018', '24/06/2018']
 });
 

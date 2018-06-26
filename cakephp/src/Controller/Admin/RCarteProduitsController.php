@@ -43,7 +43,9 @@ class RCarteProduitsController extends AppController
         }
 
         $categories = $this->RCarteProduits->RCarteCategories->find()
+                            ->where(['statutRCarteCategorie' => 1])
                             ->order('sectionRCarteCategorie, ordreRCarteCategorie');
+
         $this->set('categories', $categories);
         $this->set('cat', $id);
     }
@@ -161,9 +163,9 @@ class RCarteProduitsController extends AppController
             if ($this->RCarteProduits->save($produit)) {
                 $this->Flash->success(__('Le produit a été modifié.'));
 
-                return $this->redirect(['action' => 'liste', $produit->r_carte_category->idRCarteCategorie]);
+                // return $this->redirect(['action' => 'liste', $produit->r_carte_category->idRCarteCategorie]);
             }
-            $this->Flash->error(__('Le produit n\'a pas pu être modifié.'));
+            else { $this->Flash->error(__('Le produit n\'a pas pu être modifié.')); }
         }
 
         $this->set('produit', $produit);

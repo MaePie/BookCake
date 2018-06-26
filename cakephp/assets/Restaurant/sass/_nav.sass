@@ -34,12 +34,29 @@ button.navbar-toggler
 .datepicker-days table.table-condensed
     width: 315px
 
+.button-responsive 
+    display: none
+    padding: 2%
+    background: $primary
+    border-top-left-radius: 25%
+    border-bottom-left-radius: 25%
+    text-align: center
+    @media(max-width: 767px)
+        display: inline
+        position: fixed
+        right: -9px
+        top: 87px
+        z-index: 9999
+
 .nav-bot
     background-color: #f8f8f8
     box-shadow: 0 5px 15px 0 rgba(0,0,0,.05) inset, 0 -5px 15px 0 rgba(0,0,0,.05) inset
     @media(max-width: 767px)
-        display: none !important
+        display: none
+        position: fixed
         padding: 0
+        top: 167px !important
+        z-index: 9999
     &.sticky
         position: fixed
         top: 0
@@ -101,3 +118,5 @@ button.navbar-toggler
 @media(max-width: 991px)
     .navbar li
         padding-left: 1%
+
+      

@@ -218,5 +218,3 @@ b.alert-sm {
     height: auto !important; }
   #calendar span.fc-title {
     padding-left: 1rem; }
-  #calendar a.fc-day-grid-event.fc-h-event.fc-event.fc-start.fc-end {
-    width: 50%; }

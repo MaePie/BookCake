@@ -55,9 +55,9 @@ class RCarteCategoriesController extends AppController
 
                 if ($this->RCarteCategories->save($categorie))
                 {
-                    if (isset($dataSC)) {
-                        $dataSC = $this->request->data['dataSC'];
-                        
+                    $dataSC = $this->request->data['dataSC'];
+                    
+                    if (isset($dataSC)) {                        
                         foreach ($dataSC as $SC => $value) {
                             $scategorie = $this->RCarteCategories->RCarteSCategories->newEntity($value);
 
@@ -94,6 +94,25 @@ class RCarteCategoriesController extends AppController
     {
         $title = 'Admin | Modifier Catégorie';
         $this->set('title', $title);
+        
+        $categorie = $this->RCarteCategories->find()
+                                        ->where(['idRCarteCategorie' => $id])
+                                        ->contain(['RCarteSCategories'])
+                                        ->first();
+
+        if ($this->request->is('post')) {
+
+            $categorie = $this->RCarteCategories->patchEntity($categorie, $this->request->data);
+
+            if ($this->RCarteCategories->save($categorie)) {
+                $this->Flash->success(__('La catégorie a été modifiée.'));
+
+                return $this->redirect(['action' => 'liste']);
+            }
+            else { $this->Flash->error(__('La catégorie n\'a pas pu être modifiée.')); }
+        }
+
+        $this->set('categorie', $categorie);
     }
 
     public function delete($id = null)

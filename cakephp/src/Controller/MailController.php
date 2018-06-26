@@ -27,6 +27,15 @@ class MailController extends AppController
             ->viewVars(['res' => $res])
             ->send();
 
+        $email->template('rres', 'rresinfo')
+            ->emailFormat('html')
+            ->subject('Réservation Au fil de l\'eau')
+            ->to('client@restaurant-aufildeleau.fr')
+            ->bcc('client.aufildeleau@gmail.com')
+            ->from('client@restaurant-aufildeleau.fr')
+            ->viewVars(['res' => $res])
+            ->send();
+
         $this->Flash->success('Votre demande de réservation a bien été prise en compte. Un email vous a été envoyé.');
         return $this->redirect(['controller' => 'restaurant', 'action' => 'index']);
     }
