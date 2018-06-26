@@ -30,10 +30,10 @@
 
             <label>Période :</label>  
             <label>De</label>  
-            <input type="text" id="deRCarteProduit" name="deRCarteProduit" value="<?= date('d/m/Y', strtotime($produit->deRCarteProduit)) ?>" class="form-control hasDatepicker">
+            <input type="text" id="deRCarteProduit" name="deRCarteProduit" value="<?php if(isset($produit->deRCarteProduit)) echo date('d/m/Y', strtotime($produit->deRCarteProduit)) ?>" class="form-control hasDatepicker">
         
             <label>A</label>
-            <input type="text" id="aRCarteProduit" name="aRCarteProduit" value="<?= date('d/m/Y', strtotime($produit->aRCarteProduit)) ?>" class="form-control hasDatepicker">
+            <input type="text" id="aRCarteProduit" name="aRCarteProduit" value="<?php if(isset($produit->aRCarteProduit)) echo date('d/m/Y', strtotime($produit->aRCarteProduit)) ?>" class="form-control hasDatepicker">
 
             <label>Description</label>  
             <input type="text" name="descriptionRCarteProduit" class="form-control mb-3" value="<?= $produit->descriptionRCarteProduit ?>">
